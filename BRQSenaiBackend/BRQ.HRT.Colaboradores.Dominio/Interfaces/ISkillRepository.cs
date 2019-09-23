@@ -15,7 +15,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         /// Metodo de Cadastro de Skill no sistema
         /// </summary>
         /// <param name="skill"></param>
-        void CadastrarSkill(SkillViewModel skill);
+        void CadastrarSkill(Skill skill);
         /// <summary>
         /// Lista todas as skill Cadastradas no sistema
         /// </summary>
@@ -28,7 +28,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         /// <returns></returns>
         Skill BuscarSkillPorID(int id);
 
-        void EditarSkill(SkillPessoaViewModel dadosSkill, int id);
+        void EditarSkill(Skill skill);
 
         void DeletarSkill(int id);
     }

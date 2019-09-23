@@ -12026,11 +12026,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
       "projectName": "BRT.HRT.Colaboradores.WebAPI",
-      "projectPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
+      "projectPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
       "packagesPath": "C:\\Users\\51418943800\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12049,8 +12049,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj": {
-              "projectPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj"
+            "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj": {
+              "projectPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj"
             }
           }
         }

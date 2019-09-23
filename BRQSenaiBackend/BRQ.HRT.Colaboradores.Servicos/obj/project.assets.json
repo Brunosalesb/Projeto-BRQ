@@ -6203,11 +6203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj",
+      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj",
       "projectName": "BRQ.HRT.Colaboradores.Servicos",
-      "projectPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj",
+      "projectPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj",
       "packagesPath": "C:\\Users\\51418943800\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Servicos\\obj\\",
+      "outputPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Servicos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

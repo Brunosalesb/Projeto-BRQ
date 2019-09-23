@@ -6247,11 +6247,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj",
+      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj",
       "projectName": "BRQ.HRT.Colaboradores.Infra.Data",
-      "projectPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj",
+      "projectPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj",
       "packagesPath": "C:\\Users\\51418943800\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\obj\\",
+      "outputPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6270,8 +6270,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj": {
-              "projectPath": "C:\\Users\\51418943800\\Desktop\\Nova pasta\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj"
+            "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj": {
+              "projectPath": "C:\\Users\\51418943800\\Desktop\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj"
             }
           }
         }
