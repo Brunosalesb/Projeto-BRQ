@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 {
-    class SkillRepository : ISkillRepository
+    public class SkillRepository : ISkillRepository
     {
         public Skill BuscarSkillPorID(int id)
         {
@@ -67,7 +67,12 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             {
                 using (ContextoColaboradores ctx = new ContextoColaboradores())
                 {
-                    ctx.Entry<Skill>(skill).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    Skill skillAtualizada = new Skill();
+
+                    skillAtualizada.IdTipoSkill = skill.IdTipoSkill;
+                    skillAtualizada.NomeSkill = skill.NomeSkill;
+
+                    ctx.Skill.Update(skillAtualizada);
                     ctx.SaveChanges();
                 }
             }
@@ -87,7 +92,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
                     return ctx.Skill.ToList();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw new Exception();
             }

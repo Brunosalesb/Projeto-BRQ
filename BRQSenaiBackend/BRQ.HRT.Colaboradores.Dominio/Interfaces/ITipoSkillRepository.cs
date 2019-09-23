@@ -15,8 +15,13 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         /// Metodo que lista os tipos de skill do sistema
         /// </summary>
         /// <returns>Lista de objetos da classe TipoSkill</returns>
-        List<TipoSkill> ListarTipoSkill(); 
-        
+        List<TipoSkill> ListarTipoSkill();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        TipoSkill BuscarTipoSkillPorID(int id);
 
         /// <summary>
         /// Metodo utilizado para Editar um dado do banco TipoSkill

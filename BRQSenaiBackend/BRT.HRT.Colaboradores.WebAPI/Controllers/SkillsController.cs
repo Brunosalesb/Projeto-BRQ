@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using BRQ.HRT.Colaboradores.Infra.Data.Repositorios;
 using BRQ.HRT.Colaboradores.Servicos.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,14 +15,21 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
     [ApiController]
     public class SkillsController : ControllerBase
     {
-        public SkillsController()
-        {
-        }
 
         private ISkillRepository _skillRepository;
+        private ITipoSkillRepository _tipoSkillRepository;
 
-        
-        [HttpGet]
+        public SkillsController()
+        {
+            _skillRepository = new SkillRepository();
+            _tipoSkillRepository = new TipoSkillRepository();
+        }
+
+
+        //Skill
+
+
+        [HttpGet("Listar")]
         public IActionResult ListarTodasSkills()
         {
             try
@@ -35,17 +43,17 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("BuscarPorId/{id}")]
        public IActionResult BuscarSkillPorID(int id)
         {
             try
             {
-                var skillExiste = _skillRepository.BuscarSkillPorID(id);
+                Skill skillBuscada = _skillRepository.BuscarSkillPorID(id);
 
-                if (skillExiste == null)
+                if (skillBuscada == null)
                     return NotFound(new { mensagem = "A skill não foi encontrada" });
 
-                return Ok(_skillRepository.BuscarSkillPorID(id));
+                return Ok(skillBuscada);
             }
             catch (Exception)
             {
@@ -54,21 +62,18 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult EditarSkill(Skill skill)
+        [HttpPut("Editar")]
+        public IActionResult EditarSkill(int id,Skill skill)
         {
             try
             {
-                Skill alterarSkill = new Skill()
-                {
-                    IdSkill = skill.IdSkill,
-                    IdTipoSkill = skill.IdTipoSkill,
-                    NomeSkill = skill.NomeSkill
-                };
+                Skill skillBuscada = _skillRepository.BuscarSkillPorID(id);
+                if (skillBuscada == null)
+                    return NotFound(new { mensagem = "A skill não foi encontrada" });
 
-                _skillRepository.EditarSkill(alterarSkill);
+                _skillRepository.EditarSkill(skill);
 
-                return Ok(alterarSkill);
+                return Ok();
             }
             catch (Exception)
             {
@@ -77,14 +82,14 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Deletar{id}")]
         public IActionResult DeletarSkill(int id)
         {
             try
             {
-                var skillExiste = _skillRepository.BuscarSkillPorID(id);
+                Skill skillBuscada = _skillRepository.BuscarSkillPorID(id);
 
-                if (skillExiste == null)
+                if (skillBuscada == null)
                     return NotFound(new { mensagem = "A skill não foi encontrada" });
 
                 _skillRepository.DeletarSkill(id);
@@ -98,27 +103,45 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("Cadastrar")]
         public IActionResult CadastrarSkill(Skill skill)
         {
-            Skill skillNova = new Skill()
+            try
             {
-                IdTipoSkill = skill.IdTipoSkill,
-                NomeSkill = skill.NomeSkill
-            };
+                _skillRepository.CadastrarSkill(skill);
+                return Ok();
+            }
+            catch (Exception)
+            {
 
-            _skillRepository.CadastrarSkill(skillNova);
-
-            return Ok(skillNova);
+                return BadRequest();
+            }
         }
 
 
+        //TipoSkill
 
 
+        [HttpGet("BuscarTipoSkillPorId/{id}")]
+        public IActionResult BuscarTipoSkillPorID(int id)
+        {
+            try
+            {
+                TipoSkill tipoSkillBuscada = _tipoSkillRepository.BuscarTipoSkillPorID(id);
 
-        private ITipoSkillRepository _tipoSkillRepository;
+                if (tipoSkillBuscada == null)
+                    return NotFound(new { mensagem = "A skill não foi encontrada" });
 
-        [HttpGet]
+                return Ok(tipoSkillBuscada);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("ListarTipoSkill")]
         public IActionResult ListarTipoSkill()
         {
             try
@@ -132,20 +155,18 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult EditarTipoSKill(TipoSkill tipoSkill)
+        [HttpPut("EditarTipoSkill")]
+        public IActionResult EditarTipoSKill(int id,TipoSkill tipoSkill)
         {
             try
             {
-                TipoSkill alterarSkill = new TipoSkill()
-                {
-                    IdTipoSkill = tipoSkill.IdTipoSkill,
-                    NomeTipoSkill = tipoSkill.NomeTipoSkill
-                };
+                TipoSkill tipoSkillBuscada = _tipoSkillRepository.BuscarTipoSkillPorID(id);
+                if (tipoSkillBuscada == null)
+                    return NotFound(new { mensagem = "A skill não foi encontrada" });
 
-                _tipoSkillRepository.EditarTipoSKill(alterarSkill);
+                _tipoSkillRepository.EditarTipoSKill(tipoSkill);
 
-                return Ok(alterarSkill);
+                return Ok();
             }
             catch (Exception)
             {
@@ -154,19 +175,13 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpPost("aaa")]
+        [HttpPost("CadastrarTipoSkill")]
         public IActionResult CadastrarTipoSKill(TipoSkill tipoSkill)
         {
             try
             {
-                TipoSkill tipoSkillNova = new TipoSkill()
-                {
-                    NomeTipoSkill = tipoSkill.NomeTipoSkill
-                };
-
-                _tipoSkillRepository.CadastrarTipoSKill(tipoSkillNova);
-
-                return Ok(tipoSkill);
+                _tipoSkillRepository.CadastrarTipoSKill(tipoSkill);
+                return Ok();
             }
             catch (Exception)
             {

@@ -27,9 +27,15 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         /// <param name="id"></param>
         /// <returns></returns>
         Skill BuscarSkillPorID(int id);
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="skill"></param>
         void EditarSkill(Skill skill);
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         void DeletarSkill(int id);
     }
 }

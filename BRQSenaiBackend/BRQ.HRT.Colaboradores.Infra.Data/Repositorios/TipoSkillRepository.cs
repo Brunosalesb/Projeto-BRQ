@@ -7,8 +7,24 @@ using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 {
-    class TipoSkillRepository : ITipoSkillRepository
+   public class TipoSkillRepository : ITipoSkillRepository
     {
+        public TipoSkill BuscarTipoSkillPorID(int id)
+        {
+            try
+            {
+                using (ContextoColaboradores ctx = new ContextoColaboradores())
+                {
+                    return ctx.TipoSkill.Find(id);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception();
+            }
+        }
+
         public void CadastrarTipoSKill(TipoSkill tipoSkill)
         {
             try
@@ -32,7 +48,12 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             {
                 using (ContextoColaboradores ctx = new ContextoColaboradores())
                 {
-                    ctx.Entry<TipoSkill>(tipoSkill).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    TipoSkill tipoSkillAtualizada = new TipoSkill();
+
+                    tipoSkillAtualizada.NomeTipoSkill = tipoSkill.NomeTipoSkill;
+                    tipoSkillAtualizada.Skill = tipoSkill.Skill;
+
+                    ctx.TipoSkill.Update(tipoSkillAtualizada);
                     ctx.SaveChanges();
                 }
             }
