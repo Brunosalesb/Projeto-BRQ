@@ -29,7 +29,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=collaboratordev.database.windows.net;Initial Catalog=brq_senai;Persist Security Info=True;User ID=brqsenai;Password=@Senai132");
-                //optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress;Initial Catalog=brq_senai; Integrated Security = true");
+                
             }
         }
 
