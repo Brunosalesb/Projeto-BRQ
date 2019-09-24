@@ -3059,6 +3059,72 @@
           }
         }
       },
+      "Swashbuckle.AspNetCore/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Swashbuckle.AspNetCore.Swagger": "4.0.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.Swagger/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ApiExplorer": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.DataAnnotations": "2.0.0",
+          "Swashbuckle.AspNetCore.Swagger": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Routing": "2.0.0",
+          "Microsoft.AspNetCore.StaticFiles": "2.0.0",
+          "Microsoft.Extensions.FileProviders.Embedded": "2.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        }
+      },
+      "Swashbuckle.OData/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net452/Swashbuckle.OData.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Swashbuckle.OData.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4533,6 +4599,22 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
+        }
+      },
+      "BRQ.HRT.Colaboradores.Aplicacao/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.OData": "7.2.1",
+          "Microsoft.EntityFrameworkCore.Design": "2.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
+          "System.IdentityModel.Tokens.Jwt": "5.5.0"
+        },
+        "compile": {
+          "bin/placeholder/BRQ.HRT.Colaboradores.Aplicacao.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BRQ.HRT.Colaboradores.Aplicacao.dll": {}
         }
       },
       "BRQ.HRT.Colaboradores.Dominio/1.0.0": {
@@ -7869,6 +7951,65 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Swashbuckle.AspNetCore/4.0.0": {
+      "sha512": "Zv2JJ6rYyQRJ+K1i4sbpsJXyxHl+uvfj47+OuBZJCXaXlRZR8RYGaCiuh2VvZSfqV8lXuQZ6TeU5+eRrmbv1rA==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore/4.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.dll",
+        "swashbuckle.aspnetcore.4.0.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.Swagger/4.0.0": {
+      "sha512": "xsEb+8ivkepf2NdiZdl6u5p2d1O7v0MZTJnfZSWAp1DwKEP1Ci0Erxtn+WOona3nkzec3Si2pp7TCPW+vyumpA==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swagger/4.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.xml",
+        "swashbuckle.aspnetcore.swagger.4.0.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swagger.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.SwaggerGen/4.0.0": {
+      "sha512": "mdhbUgG05upDDY21nAAQI3RKHvfecuM2p+ustVecKHcpz9ESqF3SGJrQ4YR8Tes1uLPal25g/kI/FRnhGFSfBg==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swaggergen/4.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
+        "swashbuckle.aspnetcore.swaggergen.4.0.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggergen.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/4.0.0": {
+      "sha512": "HgPRXWpIdafsiFaWkL72xZPFc+grNSnNJFKHFL6CaVi612TL2UllezP/9UvLI397UgtqYc2AL1j/gbatVFfL6Q==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swaggerui/4.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
+        "swashbuckle.aspnetcore.swaggerui.4.0.0.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggerui.nuspec"
+      ]
+    },
+    "Swashbuckle.OData/3.5.0": {
+      "sha512": "dAPy8kfSU9fZ2qQHuOxFhIeZNVWqFP1kf3kvqhB7VMjR4M/Fypf3HL6Rg9+9S7LkJ67nWir7Z1Z+S+7QG02zHw==",
+      "type": "package",
+      "path": "swashbuckle.odata/3.5.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net452/Swashbuckle.OData.dll",
+        "lib/net452/Swashbuckle.OData.pdb",
+        "swashbuckle.odata.3.5.0.nupkg.sha512",
+        "swashbuckle.odata.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -11989,6 +12130,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "BRQ.HRT.Colaboradores.Aplicacao/1.0.0": {
+      "type": "project",
+      "path": "../BRQ.HRT.Colaboradores.Aplicacao/BRQ.HRT.Colaboradores.Aplicacao.csproj",
+      "msbuildProject": "../BRQ.HRT.Colaboradores.Aplicacao/BRQ.HRT.Colaboradores.Aplicacao.csproj"
+    },
     "BRQ.HRT.Colaboradores.Dominio/1.0.0": {
       "type": "project",
       "path": "../BRQ.HRT.Colaboradores.Dominio/BRQ.HRT.Colaboradores.Dominio.csproj",
@@ -12007,7 +12153,10 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BRQ.HRT.Colaboradores.Aplicacao >= 1.0.0",
+      "BRQ.HRT.Colaboradores.Dominio >= 1.0.0",
       "BRQ.HRT.Colaboradores.Infra.Data >= 1.0.0",
+      "BRQ.HRT.Colaboradores.Servicos >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.OData >= 7.2.1",
       "Microsoft.EntityFrameworkCore.Design >= 2.1.1",
@@ -12016,27 +12165,30 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.0.1916590",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.9",
+      "Swashbuckle.AspNetCore >= 4.0.0",
+      "Swashbuckle.AspNetCore.Swagger >= 4.0.0",
+      "Swashbuckle.OData >= 3.5.0",
       "System.IdentityModel.Tokens.Jwt >= 5.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\51418943800\\.nuget\\packages\\": {},
+    "C:\\Users\\00836578279\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\Projeto-BRQ\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
       "projectName": "BRT.HRT.Colaboradores.WebAPI",
-      "projectPath": "C:\\Users\\51418943800\\Desktop\\Projeto-BRQ\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
-      "packagesPath": "C:\\Users\\51418943800\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\51418943800\\Desktop\\Projeto-BRQ\\BRQSenaiBackend\\BRT.HRT.Colaboradores.WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\00836578279\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRT.HRT.Colaboradores.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\51418943800\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\00836578279\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12049,8 +12201,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\51418943800\\Desktop\\Projeto-BRQ\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj": {
-              "projectPath": "C:\\Users\\51418943800\\Desktop\\Projeto-BRQ\\BRQSenaiBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj"
+            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Aplicacao\\BRQ.HRT.Colaboradores.Aplicacao.csproj": {
+              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Aplicacao\\BRQ.HRT.Colaboradores.Aplicacao.csproj"
+            },
+            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj": {
+              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj"
+            },
+            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj": {
+              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj"
+            },
+            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj": {
+              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj"
             }
           }
         }
@@ -12101,6 +12262,18 @@
             "target": "Package",
             "version": "[2.1.9, )"
           },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[4.0.0, )"
+          },
+          "Swashbuckle.AspNetCore.Swagger": {
+            "target": "Package",
+            "version": "[4.0.0, )"
+          },
+          "Swashbuckle.OData": {
+            "target": "Package",
+            "version": "[3.5.0, )"
+          },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[5.5.0, )"
@@ -12113,5 +12286,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Swashbuckle.OData 3.5.0' foi restaurado usando '.NETFramework,Version=v4.6.1' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v2.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Swashbuckle.OData",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

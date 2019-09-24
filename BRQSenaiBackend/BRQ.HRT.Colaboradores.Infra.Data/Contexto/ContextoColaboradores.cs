@@ -27,9 +27,10 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
+#pragma warning disable CS1030 // diretiva de #aviso
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=collaboratordev.database.windows.net;Initial Catalog=brq_senai;Persist Security Info=True;User ID=brqsenai;Password=@Senai132");
-                
+#pragma warning restore CS1030 // diretiva de #aviso
             }
         }
 

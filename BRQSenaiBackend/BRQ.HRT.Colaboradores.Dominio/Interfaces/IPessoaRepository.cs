@@ -6,9 +6,9 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
     public interface IPessoaRepository
     {
-        void CadastrarPessoa(PessoaViewModel Pessoa);
+        void CadastrarPessoa(PessoaViewModel pessoa);
 
-        void EditarPessoa(Pessoa Pessoa, int id);
+        void EditarPessoa(Pessoa pessoa);
 
         void ExcluirPessoa(int id);
 
@@ -16,10 +16,10 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 
         Pessoa BuscarPessoaPorID(int id);
 
-        Pessoa BuscarPessoaPorMatricula(int Matricula);
+        Pessoa BuscarPessoaPorMatricula(int matricula);
 
         void AtribuirSKill(SkillPessoaViewModel dados);
 
-        void DesAtribuirSkill(SkillPessoaViewModel dados);
+        void DesAtribuirSkill(SkillsPessoa dados);
     }
 }

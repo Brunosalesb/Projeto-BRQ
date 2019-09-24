@@ -4,7 +4,6 @@ using BRQ.HRT.Colaboradores.Servicos.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 {
@@ -25,21 +24,16 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
                 throw new Exception();
             }
         }
-
-        public void CadastrarSkill(Skill skill)
+        public void CadastrarSkill(SkillViewModel skill)
         {
-            try
+            Skill s = new Skill() {
+                IdTipoSkill = skill.IdTipoSkill,
+                NomeSkill = skill.NomeSkill
+            };
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-                using (ContextoColaboradores ctx = new ContextoColaboradores())
-                {
-                    ctx.Skill.Add(skill);
-                    ctx.SaveChanges();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw new Exception();
+                ctx.Skill.Add(s);
+                ctx.SaveChanges();
             }
         }
 
@@ -67,12 +61,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             {
                 using (ContextoColaboradores ctx = new ContextoColaboradores())
                 {
-                    Skill skillAtualizada = new Skill();
-
-                    skillAtualizada.IdTipoSkill = skill.IdTipoSkill;
-                    skillAtualizada.NomeSkill = skill.NomeSkill;
-
-                    ctx.Skill.Update(skillAtualizada);
+                    ctx.Skill.Update(skill);
                     ctx.SaveChanges();
                 }
             }
@@ -85,16 +74,9 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 
         public List<Skill> ListarTodasSkills()
         {
-            try
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-                using (ContextoColaboradores ctx = new ContextoColaboradores())
-                {
-                    return ctx.Skill.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception();
+                return ctx.Skill.ToList();
             }
         }
     }

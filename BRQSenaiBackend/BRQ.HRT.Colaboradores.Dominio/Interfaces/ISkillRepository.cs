@@ -1,8 +1,6 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Servicos.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
@@ -15,7 +13,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         /// Metodo de Cadastro de Skill no sistema
         /// </summary>
         /// <param name="skill"></param>
-        void CadastrarSkill(Skill skill);
+        void CadastrarSkill(SkillViewModel skill);
         /// <summary>
         /// Lista todas as skill Cadastradas no sistema
         /// </summary>
@@ -27,15 +25,9 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         /// <param name="id"></param>
         /// <returns></returns>
         Skill BuscarSkillPorID(int id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="skill"></param>
-        void EditarSkill(Skill skill);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
+
+        void EditarSkill(Skill dadosSkill);
+
         void DeletarSkill(int id);
     }
 }

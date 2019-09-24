@@ -1,34 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using BRQ.HRT.Colaboradores.Infra.Data.Repositorios;
 using BRQ.HRT.Colaboradores.Servicos.ViewModel;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BRT.HRT.Colaboradores.WebAPI.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class SkillsController : ControllerBase
     {
-
         private ISkillRepository _skillRepository;
-        private ITipoSkillRepository _tipoSkillRepository;
 
         public SkillsController()
         {
             _skillRepository = new SkillRepository();
-            _tipoSkillRepository = new TipoSkillRepository();
         }
 
 
         //Skill
 
-
+        [EnableQuery()]
         [HttpGet("Listar")]
         public IActionResult ListarTodasSkills()
         {
@@ -42,47 +37,45 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest();
             }
         }
-
+        [EnableQuery()]
         [HttpGet("BuscarPorId/{id}")]
-       public IActionResult BuscarSkillPorID(int id)
+        public IActionResult BuscarSkillPorID(int id)
         {
             try
             {
                 Skill skillBuscada = _skillRepository.BuscarSkillPorID(id);
 
                 if (skillBuscada == null)
-                    return NotFound(new { mensagem = "A skill não foi encontrada" });
+                    return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
 
                 return Ok(skillBuscada);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 
-        [HttpPut("Editar")]
-        public IActionResult EditarSkill(int id,Skill skill)
+        [HttpPut("Editar/{id}")]
+        public IActionResult EditarSkill(int id, Skill skill)
         {
             try
             {
                 Skill skillBuscada = _skillRepository.BuscarSkillPorID(id);
                 if (skillBuscada == null)
-                    return NotFound(new { mensagem = "A skill não foi encontrada" });
-
-                _skillRepository.EditarSkill(skill);
+                    return NotFound(new { mensagem = $"A skill {id} não foi encontrada" });
+                skillBuscada = skill;
+                _skillRepository.EditarSkill(skillBuscada);
 
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 
-        [HttpDelete("Deletar{id}")]
+        [HttpDelete("Deletar/{id}")]
         public IActionResult DeletarSkill(int id)
         {
             try
@@ -90,103 +83,29 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 Skill skillBuscada = _skillRepository.BuscarSkillPorID(id);
 
                 if (skillBuscada == null)
-                    return NotFound(new { mensagem = "A skill não foi encontrada" });
+                    return NotFound(new { mensagem = $"A skill {id} não foi encontrada" });
 
                 _skillRepository.DeletarSkill(id);
 
-                return Ok(new { mensagem = "A skill foi deletada"});
+                return Ok(new { mensagem = "A skill foi deletada" });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 
         [HttpPost("Cadastrar")]
-        public IActionResult CadastrarSkill(Skill skill)
+        public IActionResult CadastrarSkill(SkillViewModel skill)
         {
             try
             {
                 _skillRepository.CadastrarSkill(skill);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return BadRequest();
-            }
-        }
-
-
-        //TipoSkill
-
-
-        [HttpGet("BuscarTipoSkillPorId/{id}")]
-        public IActionResult BuscarTipoSkillPorID(int id)
-        {
-            try
-            {
-                TipoSkill tipoSkillBuscada = _tipoSkillRepository.BuscarTipoSkillPorID(id);
-
-                if (tipoSkillBuscada == null)
-                    return NotFound(new { mensagem = "A skill não foi encontrada" });
-
-                return Ok(tipoSkillBuscada);
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
-            }
-        }
-
-        [HttpGet("ListarTipoSkill")]
-        public IActionResult ListarTipoSkill()
-        {
-            try
-            {
-                return Ok(_tipoSkillRepository.ListarTipoSkill());
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
-            }
-        }
-
-        [HttpPut("EditarTipoSkill")]
-        public IActionResult EditarTipoSKill(int id,TipoSkill tipoSkill)
-        {
-            try
-            {
-                TipoSkill tipoSkillBuscada = _tipoSkillRepository.BuscarTipoSkillPorID(id);
-                if (tipoSkillBuscada == null)
-                    return NotFound(new { mensagem = "A skill não foi encontrada" });
-
-                _tipoSkillRepository.EditarTipoSKill(tipoSkill);
-
-                return Ok();
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
-            }
-        }
-
-        [HttpPost("CadastrarTipoSkill")]
-        public IActionResult CadastrarTipoSKill(TipoSkill tipoSkill)
-        {
-            try
-            {
-                _tipoSkillRepository.CadastrarTipoSKill(tipoSkill);
-                return Ok();
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
     }

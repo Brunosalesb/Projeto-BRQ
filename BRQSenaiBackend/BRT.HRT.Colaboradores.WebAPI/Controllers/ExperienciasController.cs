@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using BRQ.HRT.Colaboradores.Infra.Data.Repositorios;
 using BRQ.HRT.Colaboradores.Servicos.ViewModel;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BRT.HRT.Colaboradores.WebAPI.Controllers
@@ -19,7 +18,12 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         private IPessoaRepository _PessoaRepository { get; set; }
 
         public ExperienciasController()
-        { }
+        {
+            _ExperienciaRepository = new ExperienciaRepository();
+            _PessoaRepository = new PessoaRepository();
+
+        }
+        [Authorize]
         [HttpPost("Cadastrar")]
         public IActionResult CadastrarExp(ExperienciaViewModel exp)
         {
@@ -33,7 +37,21 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
-
+        [Authorize]
+        [EnableQuery()]
+        [HttpGet]
+        public IActionResult ListarTodasExp()
+        {
+            try
+            {
+                return Ok(_ExperienciaRepository.ListarTodasExperiencias());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Errp = ex.ToString() });
+            }
+        }
+        [EnableQuery()]
         [HttpGet("{id}")]
         public IActionResult BuscarPorID(int id)
         {
@@ -51,7 +69,8 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
-
+        [EnableQuery()]
+        [Authorize]
         [HttpGet("Usuario/{id}")]
         public IActionResult BuscarTodasPeloIdPessoa(int id)
         {
@@ -69,7 +88,7 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
-
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult AtualizarExperiencia(int id, Experiencia xp)
         {
@@ -83,6 +102,26 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 
                 _ExperienciaRepository.AtualizarExperiencia(id,xp);
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
+        [Authorize]
+        [HttpDelete("{id}")]
+        public IActionResult DeletarExp (int id)
+        {
+            try
+            {
+                Experiencia ExperienciaBuscada = _ExperienciaRepository.BuscarExperienciaPorID(id);
+                if(ExperienciaBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Experiência não encontrada!" });
+                }
+
+                _ExperienciaRepository.DeletarExperiencia(id);
+                return Ok(new { Mensagem = $"Experiência deletada com sucesso!" });
             }
             catch (Exception ex)
             {

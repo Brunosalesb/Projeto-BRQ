@@ -6,28 +6,28 @@ using System.Linq;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 {
-    public class TipoSkillRepository : ITipoSkillRepository
+    public class TipoExperienciaRepository : ITipoExperienciaRepository
     {
-        public void CadastrarTipoSKill(string nome)
+        public void CadastrarTipoExperiencia(string nome)
         {
             throw new NotImplementedException();
         }
 
-        public void DeletarTipoSkill(int id)
+        public void DeletarTipoExperiencia(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void EditarTipoSKill(int id, string nome)
+        public void EditarTipoExperiencia(int id, string nome)
         {
             throw new NotImplementedException();
         }
 
-        public List<TipoSkill> ListarTipoSkill()
+        public List<TipoExperiencia> ListarTodosTiposExperiencia()
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-                return ctx.TipoSkill.ToList();
+                return ctx.TipoExperiencia.ToList();
             }
         }
     }

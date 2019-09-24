@@ -4,7 +4,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using BRQ.HRT.Colaboradores.Infra.Data.Repositorios;
 using BRQ.HRT.Colaboradores.Servicos.ViewModel;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -18,7 +21,9 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         private IPessoaRepository _PessoaRepository { get; set; }
 
         public PessoasController()
-        {}
+        {
+            _PessoaRepository = new PessoaRepository();
+        }
 
         /// <summary>
         /// Endpoint responsavel por Gerar um token que deve ser utilizado 
@@ -26,7 +31,7 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         /// </summary>
         /// <param name="matricula">Matricula da pessoa que estara utilizando o sistema</param>
         /// <returns>Token jwt com informacoes do matriculado </returns>
-        [HttpPost("Matricula/{Matricula}")]
+        [HttpPost("Matricula/{matricula}")]
         public IActionResult TrazerDados(int matricula)
         {
             try
@@ -67,6 +72,8 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         /// </summary>
         /// <returns>Lista com todas pessoas.</returns>
         [HttpGet]
+        [EnableQuery()]
+
         public IActionResult GetAll()
         {
             try
@@ -75,7 +82,6 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
@@ -85,6 +91,7 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         /// <param name="id">Id da Pessoa</param>
         /// <returns>Dados da pessoa</returns>
         [HttpGet("{id}")]
+        [EnableQuery()]
         public IActionResult GetByid(int id)
         {
             try
@@ -137,7 +144,7 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
                 {
                     return NotFound(new { Mensagem = $"Pessoa que possui id: {id}, nao pode ser encontrada" });
                 }
-                _PessoaRepository.EditarPessoa(PessoaBuscada, id);
+                _PessoaRepository.EditarPessoa(PessoaBuscada);
 
                 return Ok();
             }
@@ -176,7 +183,8 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         /// </summary>
         /// <param name="dadosSkill">Dados como id do skill a ser atribuido e id do usuario</param>
         /// <returns>Codigo de Resposta Http</returns>
-        [HttpPost("Atribuir")]
+        [Authorize]
+        [HttpPost("Skills/Atribuir")]
         public IActionResult AdicionarSkill(SkillPessoaViewModel dadosSkill)
         {
             try
@@ -195,8 +203,9 @@ namespace BRT.HRT.Colaboradores.WebAPI.Controllers
         /// </summary>
         /// <param name="dadosSkill">Dados como id do skill a ser desatribuido e id do usuario</param>
         /// <returns>Codigo de Resposta Http</returns>
-        [HttpDelete("Desatribuir")]
-        public IActionResult RemoverSkill(SkillPessoaViewModel dadosSkill)
+        [Authorize]
+        [HttpDelete("Skills/Desatribuir")]
+        public IActionResult RemoverSkill(SkillsPessoa dadosSkill)
         {
             try
             {

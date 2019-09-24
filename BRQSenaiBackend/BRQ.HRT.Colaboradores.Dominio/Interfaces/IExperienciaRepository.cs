@@ -1,8 +1,6 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Servicos.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
