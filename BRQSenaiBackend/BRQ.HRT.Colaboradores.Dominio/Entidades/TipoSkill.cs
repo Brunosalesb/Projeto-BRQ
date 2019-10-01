@@ -11,7 +11,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
         }
 
         public int IdTipoSkill { get; set; }
-        public string NomeTipoSkill { get; set; }
+        public string Nome { get; set; }
 
         public ICollection<Skill> Skill { get; set; }
     }

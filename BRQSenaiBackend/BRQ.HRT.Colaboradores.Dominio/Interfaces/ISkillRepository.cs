@@ -1,33 +1,9 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
-using BRQ.HRT.Colaboradores.Servicos.ViewModel;
-using System.Collections.Generic;
+
 
 namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
-    /// <summary>
-    /// Interface Responsavel pelos metodos relacionados a Skill
-    /// </summary>
-    public interface ISkillRepository
+    public interface ISkillRepository : IBaseRepository<Skill>
     {
-        /// <summary>
-        /// Metodo de Cadastro de Skill no sistema
-        /// </summary>
-        /// <param name="skill"></param>
-        void CadastrarSkill(SkillViewModel skill);
-        /// <summary>
-        /// Lista todas as skill Cadastradas no sistema
-        /// </summary>
-        /// <returns>Lista de objetos da classe Skill, caso nao haja dados uma lista vazia</returns>
-        List<Skill> ListarTodasSkills();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        Skill BuscarSkillPorID(int id);
-
-        void EditarSkill(Skill dadosSkill);
-
-        void DeletarSkill(int id);
     }
 }

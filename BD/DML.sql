@@ -6,7 +6,7 @@ values ('Skill Técnica'),('Skill Comportamental')
 
 select * from skill
 insert into skill
-values ('Java',1)
+values ('Java',2),('Boa comunicação')
 
 select * from tipoExperiencia
 insert into tipoExperiencia
@@ -14,7 +14,8 @@ values ('Interno'),('Externo'),('Formação')
 
 select * from pessoa
 insert into pessoa
-values ('12345','Natália Marina Luna Peixoto','530.113.276-88','26.530.986-4','1979-07-12','(83)99396-6636','nataliapeixoto@gmail.com','58705-560','Rua Robério Vieira de Medeiros','589',null,'Jardim Magnólia','Patos','PB')
+values ('12345','Natália Marina Luna Peixoto','530.113.276-88','26.530.986-4','1979-07-12','(11)99396-6636','nataliapeixoto@gmail.com','58705-560','Rua Robério Vieira de Medeiros','589',null,'Jardim Magnólia','Patos','PB')
+,('43212','Otávio Oliveira','076.695.458-79','46.442.395-8','1999-02-22','(11)93226-1846','otaviooliveira@outlook.com.br','09131-020','Rua Champolion','324',null,'Vila Suíça','Santo André','SP')
 
 select * from experiencia
 insert into experiencia

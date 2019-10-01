@@ -11,7 +11,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
         }
 
         public int IdTipoExperiencia { get; set; }
-        public string NomeTipoExperiencia { get; set; }
+        public string Nome { get; set; }
 
         public ICollection<Experiencia> Experiencia { get; set; }
     }

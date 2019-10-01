@@ -2,33 +2,14 @@
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 {
-    public class TipoExperienciaRepository : ITipoExperienciaRepository
+    public class TipoExperienciaRepository : RepositoryBaseCollaborator<TipoExperiencia>, ITipoExperienciaRepository
     {
-        public void CadastrarTipoExperiencia(string nome)
+        public TipoExperienciaRepository(ContextoColaboradores dbContext) : base(dbContext)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeletarTipoExperiencia(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EditarTipoExperiencia(int id, string nome)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<TipoExperiencia> ListarTodosTiposExperiencia()
-        {
-            using (ContextoColaboradores ctx = new ContextoColaboradores())
-            {
-                return ctx.TipoExperiencia.ToList();
-            }
         }
     }
 }

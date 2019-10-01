@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "AutoMapper/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4605,6 +4618,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AutoMapper": "9.0.0",
+          "BRQ.HRT.Colaboradores.Dominio": "1.0.0",
           "Microsoft.AspNetCore.OData": "7.2.1",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
@@ -4621,11 +4636,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "BRQ.HRT.Colaboradores.Servicos": "1.0.0",
+          "AutoMapper": "9.0.0",
           "Microsoft.AspNetCore.OData": "7.2.1",
-          "Microsoft.EntityFrameworkCore.Design": "2.1.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
-          "System.IdentityModel.Tokens.Jwt": "5.5.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1"
         },
         "compile": {
           "bin/placeholder/BRQ.HRT.Colaboradores.Dominio.dll": {}
@@ -4638,6 +4651,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AutoMapper": "9.0.0",
           "BRQ.HRT.Colaboradores.Dominio": "1.0.0",
           "Microsoft.AspNetCore.OData": "7.2.1",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
@@ -4651,25 +4665,41 @@
           "bin/placeholder/BRQ.HRT.Colaboradores.Infra.Data.dll": {}
         }
       },
-      "BRQ.HRT.Colaboradores.Servicos/1.0.0": {
+      "BRQ.HRT.Colaboradores.Infra.Ioc/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AutoMapper": "9.0.0",
+          "BRQ.HRT.Colaboradores.Infra.Data": "1.0.0",
           "Microsoft.AspNetCore.OData": "7.2.1",
-          "Microsoft.EntityFrameworkCore.Design": "2.1.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
-          "System.IdentityModel.Tokens.Jwt": "5.5.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1"
         },
         "compile": {
-          "bin/placeholder/BRQ.HRT.Colaboradores.Servicos.dll": {}
+          "bin/placeholder/BRQ.HRT.Colaboradores.Infra.Ioc.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BRQ.HRT.Colaboradores.Servicos.dll": {}
+          "bin/placeholder/BRQ.HRT.Colaboradores.Infra.Ioc.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "AutoMapper/9.0.0": {
+      "sha512": "xT8V1cEHum51ZKXWeSlS2rT8fCHmLWpBPC+ZTJjQ9CO9j1pB7ZUz+MjNx9PIPQwXLFrkANXvWyg2eKR3x8qvSg==",
+      "type": "package",
+      "path": "automapper/9.0.0",
+      "files": [
+        ".signature.p7s",
+        "automapper.9.0.0.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net461/AutoMapper.dll",
+        "lib/net461/AutoMapper.pdb",
+        "lib/net461/AutoMapper.xml",
+        "lib/netstandard2.0/AutoMapper.dll",
+        "lib/netstandard2.0/AutoMapper.pdb",
+        "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "rMDlyePoxggkmN/qgha1+BR2Uy+dOr38xKCQOPfVNKGY07R2nYJGMTKJFE1XFgwD70RYUNazf2fqutjJF18XgQ==",
       "type": "package",
@@ -8414,7 +8444,6 @@
       "type": "package",
       "path": "system.composition/1.0.31",
       "files": [
-        ".nupkg.metadata",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "system.composition.1.0.31.nupkg.sha512",
@@ -8426,7 +8455,6 @@
       "type": "package",
       "path": "system.composition.attributedmodel/1.0.31",
       "files": [
-        ".nupkg.metadata",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.AttributedModel.dll",
@@ -8440,8 +8468,6 @@
       "type": "package",
       "path": "system.composition.convention/1.0.31",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.Convention.dll",
@@ -8455,7 +8481,6 @@
       "type": "package",
       "path": "system.composition.hosting/1.0.31",
       "files": [
-        ".nupkg.metadata",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.Hosting.dll",
@@ -8469,7 +8494,6 @@
       "type": "package",
       "path": "system.composition.runtime/1.0.31",
       "files": [
-        ".nupkg.metadata",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.Runtime.dll",
@@ -8483,8 +8507,6 @@
       "type": "package",
       "path": "system.composition.typedparts/1.0.31",
       "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.TypedParts.dll",
@@ -9617,7 +9639,6 @@
       "type": "package",
       "path": "system.linq.parallel/4.3.0",
       "files": [
-        ".nupkg.metadata",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10798,7 +10819,6 @@
       "type": "package",
       "path": "system.runtime.interopservices.runtimeinformation/4.0.0",
       "files": [
-        ".nupkg.metadata",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12145,18 +12165,18 @@
       "path": "../BRQ.HRT.Colaboradores.Infra.Data/BRQ.HRT.Colaboradores.Infra.Data.csproj",
       "msbuildProject": "../BRQ.HRT.Colaboradores.Infra.Data/BRQ.HRT.Colaboradores.Infra.Data.csproj"
     },
-    "BRQ.HRT.Colaboradores.Servicos/1.0.0": {
+    "BRQ.HRT.Colaboradores.Infra.Ioc/1.0.0": {
       "type": "project",
-      "path": "../BRQ.HRT.Colaboradores.Servicos/BRQ.HRT.Colaboradores.Servicos.csproj",
-      "msbuildProject": "../BRQ.HRT.Colaboradores.Servicos/BRQ.HRT.Colaboradores.Servicos.csproj"
+      "path": "../BRQ.HRT.Colaboradores.Infra.Ioc/BRQ.HRT.Colaboradores.Infra.Ioc.csproj",
+      "msbuildProject": "../BRQ.HRT.Colaboradores.Infra.Ioc/BRQ.HRT.Colaboradores.Infra.Ioc.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "AutoMapper >= 9.0.0",
       "BRQ.HRT.Colaboradores.Aplicacao >= 1.0.0",
-      "BRQ.HRT.Colaboradores.Dominio >= 1.0.0",
       "BRQ.HRT.Colaboradores.Infra.Data >= 1.0.0",
-      "BRQ.HRT.Colaboradores.Servicos >= 1.0.0",
+      "BRQ.HRT.Colaboradores.Infra.Ioc >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.OData >= 7.2.1",
       "Microsoft.EntityFrameworkCore.Design >= 2.1.1",
@@ -12172,23 +12192,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\00836578279\\.nuget\\packages\\": {},
+    "C:\\Users\\51418943800\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
-      "projectName": "BRT.HRT.Colaboradores.WebAPI",
-      "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRT.HRT.Colaboradores.WebAPI\\BRT.HRT.Colaboradores.WebAPI.csproj",
-      "packagesPath": "C:\\Users\\00836578279\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRT.HRT.Colaboradores.WebAPI\\obj\\",
+      "projectUniqueName": "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRT.HRT.Colaboradores.WebAPI\\BRQ.HRT.Colaboradores.WebAPI.csproj",
+      "projectName": "BRQ.HRT.Colaboradores.WebAPI",
+      "projectPath": "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRT.HRT.Colaboradores.WebAPI\\BRQ.HRT.Colaboradores.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\51418943800\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRT.HRT.Colaboradores.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\00836578279\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\51418943800\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12201,17 +12221,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Aplicacao\\BRQ.HRT.Colaboradores.Aplicacao.csproj": {
-              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Aplicacao\\BRQ.HRT.Colaboradores.Aplicacao.csproj"
+            "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRQ.HRT.Colaboradores.Aplicacao\\BRQ.HRT.Colaboradores.Aplicacao.csproj": {
+              "projectPath": "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRQ.HRT.Colaboradores.Aplicacao\\BRQ.HRT.Colaboradores.Aplicacao.csproj"
             },
-            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj": {
-              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Dominio\\BRQ.HRT.Colaboradores.Dominio.csproj"
+            "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj": {
+              "projectPath": "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj"
             },
-            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj": {
-              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Infra.Data\\BRQ.HRT.Colaboradores.Infra.Data.csproj"
-            },
-            "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj": {
-              "projectPath": "C:\\Users\\00836578279\\source\\repos\\BRQ.HRT.Solution\\BRQ.HRT.Colaboradores.Servicos\\BRQ.HRT.Colaboradores.Servicos.csproj"
+            "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRQ.HRT.Colaboradores.Infra.Ioc\\BRQ.HRT.Colaboradores.Infra.Ioc.csproj": {
+              "projectPath": "C:\\Users\\51418943800\\Desktop\\HRTBackend\\BRQ.HRT.Colaboradores.Infra.Ioc\\BRQ.HRT.Colaboradores.Infra.Ioc.csproj"
             }
           }
         }
@@ -12225,6 +12242,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",

@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Linq;
-using BRQ.HRT.Colaboradores.Infra.Data;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNet.OData.Formatter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using BRQ.HRT.Colaboradores.Infra.Ioc;
 using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
+using BRQ.HRT.Colaboradores.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BRT.HRT.Colaboradores.WebAPI
 {
@@ -30,23 +31,32 @@ namespace BRT.HRT.Colaboradores.WebAPI
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "BRQ - HRT", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "BRQ - HRT", Version = "v1.1" });
             });
 
-            var conexao = "Data Source=collaboratordev.database.windows.net;Initial Catalog=brq_senai;Persist Security Info=True;User ID=brqsenai;Password=@Senai132";
+            // String de conexão que o OData utilizará Ao fazer suas Queries
+
+            string your_username = "brqsenai";
+            string your_password = "@Senai132";
+
+            var conexao = $"Server=tcp:brqsenai.database.windows.net,1433;Initial Catalog=HTRSenaiColaboradores;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
             services.AddMvc()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddJsonOptions(options =>
             {
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
-            
+
+            // Devemos Criar o contexto antes de descomentar o codigo abaixo
+
             services.AddDbContext<ContextoColaboradores>(options =>
             {
                 options.UseSqlServer(conexao);
             });
             services.AddOData();
 
+            // O forEach é responsavel para mapear e dar suporte ao OData no swagger
             services.AddMvcCore(options =>
             {
                 foreach (var outputFormatter in options.OutputFormatters.OfType<ODataOutputFormatter>().Where(_ => _.SupportedMediaTypes.Count == 0))
@@ -59,6 +69,7 @@ namespace BRT.HRT.Colaboradores.WebAPI
                 }
             });
 
+            // Serviço de autenticação (Utilizado na parte "login"(Matricula))
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
@@ -82,6 +93,8 @@ namespace BRT.HRT.Colaboradores.WebAPI
                     ValidAudience = "Colaboradores.WebApi"
                 };
             });
+
+            // Adiciona a politica do Cors
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -90,6 +103,9 @@ namespace BRT.HRT.Colaboradores.WebAPI
                         .AllowAnyHeader()
                         .AllowCredentials());
             });
+
+            // controla a injeção de dependencias no sistema
+            NativeInjectorConfig.RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -108,9 +124,10 @@ namespace BRT.HRT.Colaboradores.WebAPI
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "HRT API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Human Resource Tool API");
             });
 
+            // configuração da aplicação, habilitada a injeção de DEP algumas funcionalidades do OData
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.EnableDependencyInjection();

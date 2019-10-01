@@ -14,6 +14,8 @@ namespace BRQ.HRT.Colaboradores.Servicos.ViewModel
 
         public string Rg { get; set; }
 
+
+        
         public DateTime DtNasc { get; set; }
 
         public string Telefone { get; set; }

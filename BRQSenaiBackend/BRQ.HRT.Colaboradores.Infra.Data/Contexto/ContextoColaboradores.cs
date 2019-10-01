@@ -16,10 +16,12 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
         {
         }
 
+        public virtual DbSet<Contato> Contato { get; set; }
         public virtual DbSet<Experiencia> Experiencia { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
         public virtual DbSet<Skill> Skill { get; set; }
-        public virtual DbSet<SkillsPessoa> SkillsPessoa { get; set; }
+        public virtual DbSet<SkillPessoa> SkillPessoa { get; set; }
+        public virtual DbSet<TipoContato> TipoContato { get; set; }
         public virtual DbSet<TipoExperiencia> TipoExperiencia { get; set; }
         public virtual DbSet<TipoSkill> TipoSkill { get; set; }
 
@@ -29,13 +31,48 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
             {
 #pragma warning disable CS1030 // diretiva de #aviso
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=collaboratordev.database.windows.net;Initial Catalog=brq_senai;Persist Security Info=True;User ID=brqsenai;Password=@Senai132");
+                optionsBuilder.UseSqlServer("Server=tcp:brqsenai.database.windows.net,1433;Initial Catalog=HTRSenaiColaboradores;Persist Security Info=False;User ID=brqsenai;Password=@Senai132;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 #pragma warning restore CS1030 // diretiva de #aviso
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Contato>(entity =>
+            {
+                entity.HasKey(e => e.IdContato);
+
+                entity.ToTable("contato");
+
+                entity.HasIndex(e => e.Contato1)
+                    .HasName("UQ__contato__870056B9DFB9BF82")
+                    .IsUnique();
+
+                entity.Property(e => e.IdContato).HasColumnName("idContato");
+
+                entity.Property(e => e.Contato1)
+                    .IsRequired()
+                    .HasColumnName("contato")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FkIdPessoa).HasColumnName("fk_idPessoa");
+
+                entity.Property(e => e.FkIdTipoContato).HasColumnName("fk_idTipoContato");
+
+                entity.HasOne(d => d.FkIdPessoaNavigation)
+                    .WithMany(p => p.Contato)
+                    .HasForeignKey(d => d.FkIdPessoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__contato__fk_idPe__59FA5E80");
+
+                entity.HasOne(d => d.FkIdTipoContatoNavigation)
+                    .WithMany(p => p.Contato)
+                    .HasForeignKey(d => d.FkIdTipoContato)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__contato__fk_idTi__59063A47");
+            });
+
             modelBuilder.Entity<Experiencia>(entity =>
             {
                 entity.HasKey(e => e.IdExperiencia);
@@ -56,9 +93,9 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasColumnName("dtInicio")
                     .HasColumnType("date");
 
-                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+                entity.Property(e => e.FkIdPessoa).HasColumnName("fk_idPessoa");
 
-                entity.Property(e => e.IdTipoExperiencia).HasColumnName("idTipoExperiencia");
+                entity.Property(e => e.FkIdTipoExperiencia).HasColumnName("fk_idTipoExperiencia");
 
                 entity.Property(e => e.Instituicao)
                     .IsRequired()
@@ -72,51 +109,51 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdPessoaNavigation)
+                entity.HasOne(d => d.FkIdPessoaNavigation)
                     .WithMany(p => p.Experiencia)
-                    .HasForeignKey(d => d.IdPessoa)
+                    .HasForeignKey(d => d.FkIdPessoa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__experienc__idPes__2645B050");
+                    .HasConstraintName("FK__experienc__fk_id__60A75C0F");
 
-                entity.HasOne(d => d.IdTipoExperienciaNavigation)
+                entity.HasOne(d => d.FkIdTipoExperienciaNavigation)
                     .WithMany(p => p.Experiencia)
-                    .HasForeignKey(d => d.IdTipoExperiencia)
+                    .HasForeignKey(d => d.FkIdTipoExperiencia)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__experienc__idTip__25518C17");
+                    .HasConstraintName("FK__experienc__fk_id__5FB337D6");
             });
 
             modelBuilder.Entity<Pessoa>(entity =>
             {
+                entity.HasKey(e => e.IdPessoa);
+
                 entity.ToTable("pessoa");
 
                 entity.HasIndex(e => e.Cpf)
-                    .HasName("UQ__pessoa__D836E71FD8A14189")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Email)
-                    .HasName("UQ__pessoa__AB6E61640A389535")
+                    .HasName("UQ__pessoa__D836E71F26092FB6")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Matricula)
-                    .HasName("UQ__pessoa__30962D15459B1BB5")
+                    .HasName("UQ__pessoa__30962D1586B48943")
                     .IsUnique();
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.HasIndex(e => e.Rg)
+                    .HasName("UQ__pessoa__321433103FD21E78")
+                    .IsUnique();
+
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
 
                 entity.Property(e => e.Bairro)
-                    .IsRequired()
                     .HasColumnName("bairro")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
-                    .IsRequired()
                     .HasColumnName("cep")
-                    .HasMaxLength(20)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
-                    .IsRequired()
+                    .HasColumnName("cidade")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
@@ -128,32 +165,28 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                 entity.Property(e => e.Cpf)
                     .IsRequired()
                     .HasColumnName("cpf")
-                    .HasMaxLength(20)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.DtNasc)
                     .HasColumnName("dtNasc")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasColumnName("email")
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Estado)
-                    .IsRequired()
                     .HasColumnName("estado")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Logradouro)
-                    .IsRequired()
                     .HasColumnName("logradouro")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Matricula).HasColumnName("matricula");
+                entity.Property(e => e.Matricula)
+                    .IsRequired()
+                    .HasColumnName("matricula")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
@@ -163,16 +196,15 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
                 entity.Property(e => e.Numero).HasColumnName("numero");
 
+                entity.Property(e => e.Pais)
+                    .HasColumnName("pais")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Rg)
                     .IsRequired()
                     .HasColumnName("rg")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Telefone)
-                    .IsRequired()
-                    .HasColumnName("telefone")
-                    .HasMaxLength(20)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
             });
 
@@ -182,50 +214,69 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
                 entity.ToTable("skill");
 
-                entity.HasIndex(e => e.NomeSkill)
-                    .HasName("UQ__skill__D99B4A11EEB75189")
+                entity.HasIndex(e => e.Nome)
+                    .HasName("UQ__skill__6F71C0DCFF718E92")
                     .IsUnique();
 
                 entity.Property(e => e.IdSkill).HasColumnName("idSkill");
 
-                entity.Property(e => e.IdTipoSkill).HasColumnName("idTipoSkill");
+                entity.Property(e => e.FkIdTipoSkill).HasColumnName("fk_idTipoSkill");
 
-                entity.Property(e => e.NomeSkill)
+                entity.Property(e => e.Nome)
                     .IsRequired()
-                    .HasColumnName("nomeSkill")
+                    .HasColumnName("nome")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdTipoSkillNavigation)
+                entity.HasOne(d => d.FkIdTipoSkillNavigation)
                     .WithMany(p => p.Skill)
-                    .HasForeignKey(d => d.IdTipoSkill)
+                    .HasForeignKey(d => d.FkIdTipoSkill)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__skill__idTipoSki__17036CC0");
+                    .HasConstraintName("FK__skill__fk_idTipo__4D94879B");
             });
 
-            modelBuilder.Entity<SkillsPessoa>(entity =>
+            modelBuilder.Entity<SkillPessoa>(entity =>
             {
                 entity.HasKey(e => e.IdSkillPessoa);
 
-                entity.ToTable("skills_pessoa");
+                entity.ToTable("skill_pessoa");
 
                 entity.Property(e => e.IdSkillPessoa).HasColumnName("idSkillPessoa");
 
-                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+                entity.Property(e => e.FkIdPessoa).HasColumnName("fk_idPessoa");
 
-                entity.Property(e => e.IdSkill).HasColumnName("idSkill");
+                entity.Property(e => e.FkIdSkill).HasColumnName("fk_idSkill");
 
-                entity.HasOne(d => d.IdPessoaNavigation)
-                    .WithMany(p => p.SkillsPessoa)
-                    .HasForeignKey(d => d.IdPessoa)
+                entity.HasOne(d => d.FkIdPessoaNavigation)
+                    .WithMany(p => p.SkillPessoa)
+                    .HasForeignKey(d => d.FkIdPessoa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__skills_pe__idPes__29221CFB");
+                    .HasConstraintName("FK__skill_pes__fk_id__6383C8BA");
 
-                entity.HasOne(d => d.IdSkillNavigation)
-                    .WithMany(p => p.SkillsPessoa)
-                    .HasForeignKey(d => d.IdSkill)
+                entity.HasOne(d => d.FkIdSkillNavigation)
+                    .WithMany(p => p.SkillPessoa)
+                    .HasForeignKey(d => d.FkIdSkill)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__skills_pe__idSki__2A164134");
+                    .HasConstraintName("FK__skill_pes__fk_id__6477ECF3");
+            });
+
+            modelBuilder.Entity<TipoContato>(entity =>
+            {
+                entity.HasKey(e => e.IdTipoContato);
+
+                entity.ToTable("tipoContato");
+
+                entity.HasIndex(e => e.Nome)
+                    .HasName("UQ__tipoCont__6F71C0DC750AD411")
+                    .IsUnique();
+
+                entity.Property(e => e.IdTipoContato).HasColumnName("idTipoContato");
+
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasColumnName("nome")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TipoExperiencia>(entity =>
@@ -234,15 +285,15 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
                 entity.ToTable("tipoExperiencia");
 
-                entity.HasIndex(e => e.NomeTipoExperiencia)
-                    .HasName("UQ__tipoExpe__0E05FF0E47143C6F")
+                entity.HasIndex(e => e.Nome)
+                    .HasName("UQ__tipoExpe__6F71C0DCDBF7BB7B")
                     .IsUnique();
 
                 entity.Property(e => e.IdTipoExperiencia).HasColumnName("idTipoExperiencia");
 
-                entity.Property(e => e.NomeTipoExperiencia)
+                entity.Property(e => e.Nome)
                     .IsRequired()
-                    .HasColumnName("nomeTipoExperiencia")
+                    .HasColumnName("nome")
                     .HasMaxLength(255)
                     .IsUnicode(false);
             });
@@ -253,15 +304,15 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
                 entity.ToTable("tipoSkill");
 
-                entity.HasIndex(e => e.NomeTipoSkill)
-                    .HasName("UQ__tipoSkil__A352A3CBFA252030")
+                entity.HasIndex(e => e.Nome)
+                    .HasName("UQ__tipoSkil__6F71C0DC144E27BA")
                     .IsUnique();
 
                 entity.Property(e => e.IdTipoSkill).HasColumnName("idTipoSkill");
 
-                entity.Property(e => e.NomeTipoSkill)
+                entity.Property(e => e.Nome)
                     .IsRequired()
-                    .HasColumnName("nomeTipoSkill")
+                    .HasColumnName("nome")
                     .HasMaxLength(255)
                     .IsUnicode(false);
             });
