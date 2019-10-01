@@ -12,7 +12,18 @@ namespace BRQ.HRT.Colaboradores.Infra.Ioc
     {
         public static void RegisterServices(this IServiceCollection services)
         {
+            services.AddScoped<ITipoSkillRepository, TipoSkillRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
+
+            services.AddScoped<ITipoExperienciaRepository, TipoExperienciaRepository>();
+            services.AddScoped<IExperienciaRepository, ExperienciaRepository>();
+
+            services.AddScoped<ITipoContatoRepository, TipoContatoRepository>();
+            services.AddScoped<IContatoRepository, ContatoRepository>();
+
+            services.AddScoped<ISkillPessoaRepository, SkillPessoaRepository>();
+
+            services.AddScoped<IPessoaRepository, PessoaRepository>();
         }
     }
 }

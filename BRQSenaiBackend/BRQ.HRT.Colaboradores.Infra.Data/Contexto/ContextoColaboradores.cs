@@ -40,7 +40,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
         {
             modelBuilder.Entity<Contato>(entity =>
             {
-                entity.HasKey(e => e.IdContato);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("contato");
 
@@ -48,7 +48,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasName("UQ__contato__870056B9DFB9BF82")
                     .IsUnique();
 
-                entity.Property(e => e.IdContato).HasColumnName("idContato");
+                entity.Property(e => e.Id).HasColumnName("idContato");
 
                 entity.Property(e => e.Contato1)
                     .IsRequired()
@@ -75,11 +75,11 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<Experiencia>(entity =>
             {
-                entity.HasKey(e => e.IdExperiencia);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("experiencia");
 
-                entity.Property(e => e.IdExperiencia).HasColumnName("idExperiencia");
+                entity.Property(e => e.Id).HasColumnName("idExperiencia");
 
                 entity.Property(e => e.Descricao)
                     .HasColumnName("descricao")
@@ -124,7 +124,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<Pessoa>(entity =>
             {
-                entity.HasKey(e => e.IdPessoa);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("pessoa");
 
@@ -140,7 +140,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasName("UQ__pessoa__321433103FD21E78")
                     .IsUnique();
 
-                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+                entity.Property(e => e.Id).HasColumnName("idPessoa");
 
                 entity.Property(e => e.Bairro)
                     .HasColumnName("bairro")
@@ -210,7 +210,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<Skill>(entity =>
             {
-                entity.HasKey(e => e.IdSkill);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("skill");
 
@@ -218,7 +218,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasName("UQ__skill__6F71C0DCFF718E92")
                     .IsUnique();
 
-                entity.Property(e => e.IdSkill).HasColumnName("idSkill");
+                entity.Property(e => e.Id).HasColumnName("idSkill");
 
                 entity.Property(e => e.FkIdTipoSkill).HasColumnName("fk_idTipoSkill");
 
@@ -237,11 +237,11 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<SkillPessoa>(entity =>
             {
-                entity.HasKey(e => e.IdSkillPessoa);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("skill_pessoa");
 
-                entity.Property(e => e.IdSkillPessoa).HasColumnName("idSkillPessoa");
+                entity.Property(e => e.Id).HasColumnName("idSkillPessoa");
 
                 entity.Property(e => e.FkIdPessoa).HasColumnName("fk_idPessoa");
 
@@ -262,7 +262,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<TipoContato>(entity =>
             {
-                entity.HasKey(e => e.IdTipoContato);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("tipoContato");
 
@@ -270,7 +270,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasName("UQ__tipoCont__6F71C0DC750AD411")
                     .IsUnique();
 
-                entity.Property(e => e.IdTipoContato).HasColumnName("idTipoContato");
+                entity.Property(e => e.Id).HasColumnName("idTipoContato");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
@@ -281,7 +281,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<TipoExperiencia>(entity =>
             {
-                entity.HasKey(e => e.IdTipoExperiencia);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("tipoExperiencia");
 
@@ -289,7 +289,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasName("UQ__tipoExpe__6F71C0DCDBF7BB7B")
                     .IsUnique();
 
-                entity.Property(e => e.IdTipoExperiencia).HasColumnName("idTipoExperiencia");
+                entity.Property(e => e.Id).HasColumnName("idTipoExperiencia");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
@@ -300,7 +300,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
 
             modelBuilder.Entity<TipoSkill>(entity =>
             {
-                entity.HasKey(e => e.IdTipoSkill);
+                entity.HasKey(e => e.Id);
 
                 entity.ToTable("tipoSkill");
 
@@ -308,7 +308,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasName("UQ__tipoSkil__6F71C0DC144E27BA")
                     .IsUnique();
 
-                entity.Property(e => e.IdTipoSkill).HasColumnName("idTipoSkill");
+                entity.Property(e => e.Id).HasColumnName("idTipoSkill");
 
                 entity.Property(e => e.Nome)
                     .IsRequired()

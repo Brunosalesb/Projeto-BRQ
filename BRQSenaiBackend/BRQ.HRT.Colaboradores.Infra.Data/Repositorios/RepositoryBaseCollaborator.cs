@@ -1,6 +1,8 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
@@ -20,24 +22,28 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             _dbContext.SaveChanges();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<TEntity>().AsNoTracking();
         }
 
         public TEntity GetById(string id)
         {
-            throw new NotImplementedException();
+            TEntity itemBuscado = _dbContext.Set<TEntity>().Find(id);
+            return itemBuscado;
         }
 
         public void Remove(string id)
         {
-            throw new NotImplementedException();
+            var entity = GetById(id);
+            _dbContext.Set<TEntity>().Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Update(string id, TEntity obj)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(obj);
+            _dbContext.SaveChanges();
         }
     }
 }

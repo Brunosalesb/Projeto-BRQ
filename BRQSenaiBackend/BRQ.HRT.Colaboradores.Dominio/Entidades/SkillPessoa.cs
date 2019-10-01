@@ -5,7 +5,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
 {
     public partial class SkillPessoa
     {
-        public int IdSkillPessoa { get; set; }
+        public int Id { get; set; }
         public int FkIdPessoa { get; set; }
         public int FkIdSkill { get; set; }
 

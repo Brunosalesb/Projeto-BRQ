@@ -7,5 +7,10 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
     public interface IPessoaRepository : IBaseRepository<Pessoa>
     {
+        Pessoa BuscarPessoaPorMatricula(int matricula);
+
+        //void AtribuirSKill(SkillPessoaViewModel dados);
+
+        //void DesAtribuirSkill(SkillsPessoa dados);
     }
 }

@@ -10,7 +10,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
             SkillPessoa = new HashSet<SkillPessoa>();
         }
 
-        public int IdSkill { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public int FkIdTipoSkill { get; set; }
 

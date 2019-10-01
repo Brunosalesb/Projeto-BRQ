@@ -5,7 +5,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
 {
     public partial class Contato
     {
-        public int IdContato { get; set; }
+        public int Id { get; set; }
         public string Contato1 { get; set; }
         public int FkIdTipoContato { get; set; }
         public int FkIdPessoa { get; set; }

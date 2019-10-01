@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
@@ -10,7 +11,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 
         TEntity GetById(string id);
 
-        IEnumerable<TEntity> GetAll();
+        IQueryable<TEntity> GetAll();
 
         void Update(string id, TEntity obj);
 

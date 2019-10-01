@@ -10,7 +10,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
             Contato = new HashSet<Contato>();
         }
 
-        public int IdTipoContato { get; set; }
+        public int Id{ get; set; }
         public string Nome { get; set; }
 
         public ICollection<Contato> Contato { get; set; }
