@@ -8,10 +8,12 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
 {
    public class PessoaViewModel
     {
+        public int Id { get; set; }
         public string Matricula { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Rg { get; set; }
+        [JsonProperty(PropertyName = "DataNascimento")]
         public DateTime DtNasc { get; set; }
         public string Cep { get; set; }
         public string Logradouro { get; set; }
@@ -22,7 +24,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
-
         public ICollection<Contato> Contato { get; set; }
+
     }
 }

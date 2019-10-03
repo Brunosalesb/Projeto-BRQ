@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces
+namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Pessoa
 {
-    public interface IExperienciaService : IBaseService<ExperienciaViewModel>
+   public interface IPessoaService : IBaseService<PessoaViewModel>
     {
-
     }
 }

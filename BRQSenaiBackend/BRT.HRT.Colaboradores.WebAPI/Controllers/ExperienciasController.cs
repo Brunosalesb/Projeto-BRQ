@@ -2,6 +2,7 @@
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Experiencia;
 using BRQ.HRT.Colaboradores.Aplicacao.Services;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
@@ -30,7 +31,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         }
 
         [EnableQuery]
-        [HttpGet]
+        [HttpGet("")]
         public IActionResult ListarTodasExp()
         {
             try
@@ -74,7 +75,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 {
                     return NotFound(new { Mensagem = $"Pessoa do ID: {id}, não foi encontrada!" });
                 }
-                return Ok(_experienciaRepository.ListarExperienciasPorIdPessoa(id));
+                return Ok(_mapperExp.GetAll(id.ToString()));
             }
             catch (Exception ex)
             {
@@ -82,19 +83,19 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        //[HttpPost]
-        //public IActionResult CadastrarExp(ExperienciaViewModel exp)
-        //{
-        //    try
-        //    {
-
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
+        [HttpPost("cadastrar")]
+        public IActionResult CadastrarExp(CadastroExperienciaViewModel exp)
+        {
+            try
+            {
+                _mapperCadExp.Add(exp);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
 
         [HttpPut ("{id}")]
         public IActionResult AtualizarExp(int id, ExperienciaViewModel xp)
@@ -115,7 +116,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeletarExp (int id)
         {
             try
@@ -134,10 +135,5 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
-
-
-
-
-
     }
 }

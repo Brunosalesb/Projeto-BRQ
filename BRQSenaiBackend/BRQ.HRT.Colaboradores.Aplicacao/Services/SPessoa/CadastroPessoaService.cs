@@ -60,5 +60,10 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa
         {
             throw new NotImplementedException();
         }
+
+        public void Update(CadastroPessoaViewModel obj)
+        {
+
+        }
     }
 }

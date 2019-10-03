@@ -85,7 +85,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
         {
             BRQ.HRT.Colaboradores.Dominio.Entidades.Experiencia exp = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Experiencia>(obj);
             _experienciaRepository.Update(exp);
-
         }
 
         public void Update(string id, ExperienciaViewModel obj)

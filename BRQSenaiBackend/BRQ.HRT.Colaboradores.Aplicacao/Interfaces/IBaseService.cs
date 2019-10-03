@@ -17,6 +17,8 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces
 
         void Update(string id, TEntity obj);
 
+        void Update(TEntity obj);
+
         void Remove(string id);
     }
 }

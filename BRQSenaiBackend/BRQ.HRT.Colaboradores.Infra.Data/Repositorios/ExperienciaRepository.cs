@@ -2,6 +2,7 @@
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
@@ -14,7 +15,10 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 
         public List<Experiencia> ListarExperienciasPorIdPessoa(int id)
         {
-            throw new NotImplementedException();
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Experiencia.Where(x => x.FkIdPessoaNavigation.Id == id).ToList();
+            }
         }
     }
 }

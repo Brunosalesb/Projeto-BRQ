@@ -65,7 +65,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Skill
 
         public SkillViewModel GetById(string id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<SkillViewModel>(_skillRepository.GetById(id));
         }
 
         public void Remove(string id)
@@ -74,6 +74,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Skill
         }
 
         public void Update(string id, SkillViewModel obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(SkillViewModel obj)
         {
             throw new NotImplementedException();
         }
