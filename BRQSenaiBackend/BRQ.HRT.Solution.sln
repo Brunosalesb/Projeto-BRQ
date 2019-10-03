@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra.Ioc", "5 - Infra.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BRQ.HRT.Colaboradores.Infra.Ioc", "BRQ.HRT.Colaboradores.Infra.Ioc\BRQ.HRT.Colaboradores.Infra.Ioc.csproj", "{B75FFCCB-E20A-478F-8F75-FDA4098EBBCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BRQ.HRT.Colaboradores.Dominio", "BRQ.HRT.Colaboradores.Dominio\BRQ.HRT.Colaboradores.Dominio.csproj", "{E52EE3B6-FDA4-41EC-A255-17B902F2F1EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BRQ.HRT.Colaboradores.Dominio", "BRQ.HRT.Colaboradores.Dominio\BRQ.HRT.Colaboradores.Dominio.csproj", "{E52EE3B6-FDA4-41EC-A255-17B902F2F1EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

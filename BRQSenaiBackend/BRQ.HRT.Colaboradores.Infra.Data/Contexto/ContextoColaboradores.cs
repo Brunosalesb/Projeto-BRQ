@@ -15,7 +15,6 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
             : base(options)
         {
         }
-
         public virtual DbSet<Contato> Contato { get; set; }
         public virtual DbSet<Experiencia> Experiencia { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }

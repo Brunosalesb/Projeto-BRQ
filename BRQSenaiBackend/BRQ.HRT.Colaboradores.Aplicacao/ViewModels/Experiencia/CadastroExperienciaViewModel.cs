@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
+namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia
 {
-    class ExperienciaViewModel
+    public class CadastroExperienciaViewModel
     {
         public string Titulo { get; set; }
         public string Instituicao { get; set; }

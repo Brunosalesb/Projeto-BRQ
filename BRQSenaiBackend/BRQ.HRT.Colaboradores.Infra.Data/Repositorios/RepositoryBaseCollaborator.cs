@@ -45,5 +45,10 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             _dbContext.Set<TEntity>().Update(obj);
             _dbContext.SaveChanges();
         }
+
+        public void Update(TEntity obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
-using BRQ.HRT.Colaboradores.Dominio.Entidades;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Skill;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,40 +16,22 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     [ApiController]
     public class SkillsController : ControllerBase
     {
-        private readonly ISkillRepository _skillRepository;
+        private readonly ICadastroSkillService _mapperCadSkill;
+        private readonly ISkillService _mapperSkill;
 
-        public SkillsController(ISkillRepository skillRepository)
+        public SkillsController(ICadastroSkillService mapperCadSkill, ISkillService mapperSkill)
         {
-            _skillRepository = skillRepository;
+            _mapperCadSkill = mapperCadSkill;
+            _mapperSkill = mapperSkill;
         }
 
+        [EnableQuery]
         [HttpGet]
-        public IActionResult ListarTodos()
+        public IActionResult ListarSkill()
         {
             try
             {
-            return Ok(_skillRepository.GetAll());
-
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult ListarPorId(string id)
-        {
-            try
-            {
-                Skill skillBuscada = _skillRepository.GetById(id);
-
-                if (skillBuscada == null)
-                {
-                    return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
-                }
-
-                return Ok(skillBuscada);
+                return Ok(_mapperSkill.GetAll());
             }
             catch (Exception)
             {
@@ -56,27 +39,5 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest();
             }
         }
-
-        [HttpDelete("{id}")]
-        public IActionResult Deletar(string id)
-        {
-            try
-            {
-                Skill skillBuscada = _skillRepository.GetById(id);
-                if (skillBuscada == null)
-                {
-                    return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
-                }
-                _skillRepository.Remove(id);
-
-                return Ok();
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
-            }
-        }
-      
     }
 }

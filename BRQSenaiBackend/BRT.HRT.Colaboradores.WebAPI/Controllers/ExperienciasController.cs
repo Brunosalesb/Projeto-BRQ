@@ -1,4 +1,8 @@
-﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
+﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Experiencia;
+using BRQ.HRT.Colaboradores.Aplicacao.Services;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +18,15 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         private readonly IExperienciaRepository _experienciaRepository;
         private readonly IPessoaRepository _pessoaRepository;
 
-        public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository)
+        private readonly ICadastroExperienciaService _mapperCadExp;
+        private readonly IExperienciaService _mapperExp;
+
+        public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository, ICadastroExperienciaService mapperCadExp, IExperienciaService mapperExp)
         {
             _experienciaRepository = experienciaRepository;
             _pessoaRepository = pessoaRepository;
+            _mapperCadExp = mapperCadExp;
+            _mapperExp = mapperExp;
         }
 
         [EnableQuery]
@@ -26,7 +35,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                return Ok(_experienciaRepository.GetAll());
+                return Ok(_mapperExp.GetAll());
             }
             catch (Exception ex)
             {
@@ -46,7 +55,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
 
-                return Ok(ExpBuscada);
+                return Ok(_mapperExp.GetById(id.ToString()));
             }
             catch (Exception ex)
             {
@@ -54,17 +63,31 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        //[EnableQuery()]
-        //[HttpGet("usuario/{id}")]
-        //public IActionResult BuscarTodasPorIdPessoa(int id)
+        [EnableQuery()]
+        [HttpGet("usuario/{id}")]
+        public IActionResult BuscarTodasPorIdPessoa(int id)
+        {
+            try
+            {
+                Pessoa PessoaBuscada = _pessoaRepository.GetById(id.ToString());
+                if (PessoaBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Pessoa do ID: {id}, não foi encontrada!" });
+                }
+                return Ok(_experienciaRepository.ListarExperienciasPorIdPessoa(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
+
+        //[HttpPost]
+        //public IActionResult CadastrarExp(ExperienciaViewModel exp)
         //{
         //    try
         //    {
-        //        Pessoa PessoaBuscada = _pessoaRepository.GetById(id.ToString());
-        //        if (PessoaBuscada == null)
-        //        {
-        //            return NotFound(new { Mensagem = $"Pessoa do ID: {id}, não foi encontrada!" });
-        //        }
+
         //    }
         //    catch (Exception)
         //    {
@@ -72,6 +95,47 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         //        throw;
         //    }
         //}
+
+        [HttpPut ("{id}")]
+        public IActionResult AtualizarExp(int id, ExperienciaViewModel xp)
+        {
+            try
+            {
+                Experiencia expBuscada = _experienciaRepository.GetById(id.ToString());
+                if (expBuscada == null)
+                {
+                    NotFound(new { Mensagem = $"Experiência não encontrada!" });
+                }
+                _mapperExp.Update(id.ToString(), xp);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult DeletarExp (int id)
+        {
+            try
+            {
+                Experiencia ExpBuscada = _experienciaRepository.GetById(id.ToString());
+                if(ExpBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Experiência não encontrada!" });
+                }
+
+                _experienciaRepository.Remove(id.ToString());
+                return Ok(new { Mensagem = $"Experiência deletada com sucesso!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
+
+
 
 
 

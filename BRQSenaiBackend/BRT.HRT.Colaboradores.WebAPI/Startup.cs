@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using BRQ.HRT.Colaboradores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
+using BRQ.HRT.Colaboradores.WebAPI.Extensions;
 
 namespace BRT.HRT.Colaboradores.WebAPI
 {
@@ -106,6 +107,9 @@ namespace BRT.HRT.Colaboradores.WebAPI
 
             // controla a injeção de dependencias no sistema
             NativeInjectorConfig.RegisterServices(services);
+
+            // Adiciona a configuração do auto mapper
+            services.AddAutoMapperSetup();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

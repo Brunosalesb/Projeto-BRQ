@@ -14,6 +14,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
         IQueryable<TEntity> GetAll();
 
         void Update(string id, TEntity obj);
+        void Update(TEntity obj);
 
         void Remove(string id);
     }

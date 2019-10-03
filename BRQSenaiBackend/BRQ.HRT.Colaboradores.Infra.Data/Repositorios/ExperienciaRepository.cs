@@ -11,5 +11,10 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         public ExperienciaRepository(ContextoColaboradores dbContext) : base(dbContext)
         {
         }
+
+        public List<Experiencia> ListarExperienciasPorIdPessoa(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
