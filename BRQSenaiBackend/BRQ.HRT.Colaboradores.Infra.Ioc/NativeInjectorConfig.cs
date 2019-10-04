@@ -1,4 +1,7 @@
-﻿using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Skill;
+using BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill;
+using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using BRQ.HRT.Colaboradores.Infra.Data.Repositorios;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -24,7 +27,9 @@ namespace BRQ.HRT.Colaboradores.Infra.Ioc
             services.AddScoped<ISkillPessoaRepository, SkillPessoaRepository>();
 
             services.AddScoped<IPessoaRepository, PessoaRepository>();
-            
+
+            services.AddScoped<ISkillService, SkillService>();
+            services.AddScoped<ICadastroSkillService, CadastroSkillService>();
         }
     }
 }

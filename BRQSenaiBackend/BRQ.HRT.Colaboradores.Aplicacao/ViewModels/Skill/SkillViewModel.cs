@@ -9,6 +9,5 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public ICollection<TipoSkill> IdTipoSkill { get; set; }
     }
 }

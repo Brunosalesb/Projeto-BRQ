@@ -1,20 +1,25 @@
-﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
+﻿using AutoMapper;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 {
-    class SkillService : ISkillService
+    public class SkillService : ISkillService
     {
-        private readonly IMapper _mapper;
-        private readonly ISkillRepository _skillRepository;
-        private readonly IPessoaRepository _pessoaRepository;
+        private  readonly IMapper _mapper;
+        private  readonly ISkillRepository _skillRepository;
+        private  readonly IPessoaRepository _pessoaRepository;
 
-        public SkillService(IMapper mapper, ISkillRepository skillRepository)
+        public SkillService(IMapper mapper, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
         {
             _mapper = mapper;
             _skillRepository = skillRepository;
+            _pessoaRepository = pessoaRepository;
         }
 
         public void Add(string userId, SkillViewModel obj)
@@ -31,7 +36,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
         {
             try
             {
-                BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa pessoa = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
+                Dominio.Entidades.Pessoa pessoa = _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
 
                 return _mapper.Map<List<SkillViewModel>>(pessoa.SkillPessoa);
             }
@@ -46,7 +51,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
         {
             try
             {
-                return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll());
+                return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll().ToList());
             }
             catch (Exception)
             {
@@ -67,7 +72,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 
         public void Remove(string id)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update(string id, SkillViewModel obj)

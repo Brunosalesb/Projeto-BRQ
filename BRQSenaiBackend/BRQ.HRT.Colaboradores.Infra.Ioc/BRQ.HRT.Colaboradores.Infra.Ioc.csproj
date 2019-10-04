@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BRQ.HRT.Colaboradores.Aplicacao\BRQ.HRT.Colaboradores.Aplicacao.csproj" />
     <ProjectReference Include="..\BRQ.HRT.Colaboradores.Infra.Data\BRQ.HRT.Colaboradores.Infra.Data.csproj" />
   </ItemGroup>
 

@@ -4683,6 +4683,7 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "AutoMapper": "9.0.0",
+          "BRQ.HRT.Colaboradores.Aplicacao": "1.0.0",
           "BRQ.HRT.Colaboradores.Infra.Data": "1.0.0",
           "Microsoft.AspNetCore.OData": "7.2.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1"

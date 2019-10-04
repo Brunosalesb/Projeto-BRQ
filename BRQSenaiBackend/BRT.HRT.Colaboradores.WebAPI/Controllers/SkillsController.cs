@@ -25,9 +25,9 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         private readonly IPessoaRepository _pessoaRepository;
 
 
-        public SkillsController(ICadastroSkillService mapperCadSkill, ISkillService mapperSkill, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
+        public SkillsController(ICadastroSkillService mapperCadastroSkill, ISkillService mapperSkill, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
         {
-            _mapperCadastroSkill = mapperCadSkill;
+            _mapperCadastroSkill = mapperCadastroSkill;
             _mapperSkill = mapperSkill;
             _skillRepository = skillRepository;
             _pessoaRepository = pessoaRepository;
@@ -39,12 +39,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                return Ok(_mapperSkill.GetAll());
+                return Ok(_skillRepository.GetAll());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(new{ Erro = ex.ToString()});
             }
         }
 
@@ -60,7 +60,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                     return NotFound(new { Mensagem = $"A skill com id {id} não foi encontrada" });
                 }
 
-                return Ok(_mapperSkill.GetById(id.ToString()));
+                return Ok(_skillRepository.GetById(id.ToString()));
             }
             catch (Exception)
             {
@@ -113,11 +113,11 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 
         [EnableQuery]
         [HttpPost]
-        public IActionResult CadastrarSkill(CadastroSkillViewModel skill)
+        public IActionResult CadastrarSkill(Skill skill)
         {
             try
             {
-                _mapperCadastroSkill.Add(skill);
+                _skillRepository.Add(skill);
                 return Ok();
             }
             catch (Exception)
