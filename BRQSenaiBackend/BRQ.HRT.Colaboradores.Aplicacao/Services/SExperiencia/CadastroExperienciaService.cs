@@ -61,5 +61,10 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Experiencia
         {
             throw new NotImplementedException();
         }
+
+        public void Update(CadastroExperienciaViewModel obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

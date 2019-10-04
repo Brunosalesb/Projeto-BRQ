@@ -1,8 +1,0 @@
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\bin\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.deps.json
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\bin\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.dll
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\bin\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.pdb
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\obj\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.csproj.CoreCompileInputs.cache
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\obj\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.AssemblyInfoInputs.cache
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\obj\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.AssemblyInfo.cs
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\obj\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.dll
-C:\Users\51418943800\Desktop\HRTBackend\BRQ.HRT.Colaboradores.Dominio\obj\Debug\netcoreapp2.1\BRQ.HRT.Colaboradores.Dominio.pdb

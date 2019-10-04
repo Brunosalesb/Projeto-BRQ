@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 {
+    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class ExperienciasController : ControllerBase
     {
         private readonly IExperienciaRepository _experienciaRepository;

@@ -57,7 +57,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 Skill skillBuscada = _skillRepository.GetById(id.ToString());
                 if (skillBuscada == null)
                 {
-                    return NotFound(new { Mensagem = $"A skill com id {id} não foi encontrada"});
+                    return NotFound(new { Mensagem = $"A skill com id {id} não foi encontrada" });
                 }
 
                 return Ok(_mapperSkill.GetById(id.ToString()));
@@ -129,16 +129,16 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 
         [EnableQuery]
         [HttpPut("{id}")]
-        public IActionResult EditarSkill(int id,SkillViewModel skill)
+        public IActionResult EditarSkill(int id, SkillViewModel skill)
         {
             try
             {
                 Skill skillBuscada = _skillRepository.GetById(id.ToString());
                 if (skillBuscada == null)
                 {
-                    return NotFound(new{ Mensagem = $"A skill {id} não foi encontrada"});
+                    return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
                 }
-                _mapperSkill.Update(id.ToString(),skill);
+                _mapperSkill.Update(id.ToString(), skill);
                 return Ok();
             }
             catch (Exception)

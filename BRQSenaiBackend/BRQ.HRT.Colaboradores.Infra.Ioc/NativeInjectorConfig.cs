@@ -24,6 +24,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Ioc
             services.AddScoped<ISkillPessoaRepository, SkillPessoaRepository>();
 
             services.AddScoped<IPessoaRepository, PessoaRepository>();
+            
         }
     }
 }

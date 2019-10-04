@@ -44,7 +44,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
         {
             try
             {
-                BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa pessoa = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
+                Dominio.Entidades.Pessoa pessoa = _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
 
                 return _mapper.Map<List<ExperienciaViewModel>>(pessoa.Experiencia);
             }

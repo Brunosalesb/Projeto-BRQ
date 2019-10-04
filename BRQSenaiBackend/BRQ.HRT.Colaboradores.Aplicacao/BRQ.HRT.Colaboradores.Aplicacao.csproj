@@ -20,8 +20,4 @@
     <ProjectReference Include="..\BRQ.HRT.Colaboradores.Dominio\BRQ.HRT.Colaboradores.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\STipoExperiencia\" />
-  </ItemGroup>
-
 </Project>

@@ -1,12 +1,9 @@
-﻿using AutoMapper;
-using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
-using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Skill
+namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 {
     class SkillService : ISkillService
     {
