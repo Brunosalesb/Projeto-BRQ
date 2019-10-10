@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,14 +24,23 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             _pessoaRepository = pessoaRepository;
         }
 
-        public void Add(string userId, SkillViewModel obj)
+        public void Add(string userId, CadastroSkillViewModel obj)
         {   
             throw new NotImplementedException();
         }
 
-        public void Add(SkillViewModel obj)
+        public void Add(CadastroSkillViewModel obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Skill skill = _mapper.Map<Skill>(obj);
+                _skillRepository.Add(skill);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<SkillViewModel> GetAll(int userId)
@@ -82,7 +93,16 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 
         public void Update(SkillViewModel obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                BRQ.HRT.Colaboradores.Dominio.Entidades.Skill skill= _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Skill>(obj);
+                _skillRepository.Update(skill);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

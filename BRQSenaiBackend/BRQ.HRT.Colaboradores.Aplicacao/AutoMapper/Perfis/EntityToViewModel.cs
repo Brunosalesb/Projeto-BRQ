@@ -4,6 +4,8 @@ using AutoMapper;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Pessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMPessoa;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMTipoExperiencia;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
 {
@@ -11,9 +13,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
     {
         public EntityToViewModel()
         {
+            CreateMap<TipoSkill, SkillViewModel>()
+                .ReverseMap();
             CreateMap<Skill, SkillViewModel>()
                 .ReverseMap();
-            CreateMap<TipoSkill, SkillViewModel>()
+            CreateMap<Skill, CadastroSkillViewModel>()
                 .ReverseMap();
             CreateMap<Experiencia, ExperienciaViewModel>()
                 .ReverseMap();
@@ -32,6 +36,10 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
                 .ReverseMap();
 
             CreateMap<TipoContato, TipoContatoViewModel>()
+                .ReverseMap();
+            CreateMap<TipoExperiencia, TipoExperienciaViewModel>()
+                .ReverseMap();
+            CreateMap<TipoExperiencia, CadastroTipoExperienciaViewModel>()
                 .ReverseMap();
         }
         

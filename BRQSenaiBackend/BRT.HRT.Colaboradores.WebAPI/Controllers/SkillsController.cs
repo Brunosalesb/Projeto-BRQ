@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
-using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Skill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
@@ -21,13 +20,11 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     {
         private readonly ISkillService _mapperSkill;
         private readonly ISkillRepository _skillRepository;
-        private readonly ICadastroSkillService _mapperCadastroSkill;
         private readonly IPessoaRepository _pessoaRepository;
 
 
-        public SkillsController(ICadastroSkillService mapperCadastroSkill, ISkillService mapperSkill, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
+        public SkillsController(ISkillService mapperSkill, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
         {
-            _mapperCadastroSkill = mapperCadastroSkill;
             _mapperSkill = mapperSkill;
             _skillRepository = skillRepository;
             _pessoaRepository = pessoaRepository;
@@ -112,14 +109,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 
         [EnableQuery]
         [HttpPost]
-        public IActionResult CadastrarSkill(Skill skill)
+        public IActionResult CadastrarSkill(CadastroSkillViewModel skill)
         {
             try
             {
-                _skillRepository.Add(skill);
+                _mapperSkill.Add(skill);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return BadRequest();
@@ -135,15 +132,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 Skill skillBuscada = _skillRepository.GetById(id);
                 if (skillBuscada == null)
                 {
-                    return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
+                    NotFound(new { Mensagem = $"Skill não foi encontrada" });
                 }
-                _mapperSkill.Update(id.ToString(), skill);
+                _mapperSkill.Update(skill);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 

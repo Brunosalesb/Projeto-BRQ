@@ -16,12 +16,10 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     public class TipoExperienciasController : ControllerBase
     {
         private readonly ITipoExperienciaService _mapperTipoExp;
-        private readonly ICadastroTipoExperienciaService _mapperCadTipoExp;
 
-        public TipoExperienciasController(ITipoExperienciaService mapperTipoExp, ICadastroTipoExperienciaService mapperCadTipoExp)
+        public TipoExperienciasController(ITipoExperienciaService mapperTipoExp)
         {
             _mapperTipoExp = mapperTipoExp;
-            _mapperCadTipoExp = mapperCadTipoExp;
         }
 
         [EnableQuery]
@@ -43,7 +41,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                _mapperCadTipoExp.Add(tipoExp);
+                _mapperTipoExp.Add(tipoExp);
                 return Ok();
             }
             catch (Exception ex)

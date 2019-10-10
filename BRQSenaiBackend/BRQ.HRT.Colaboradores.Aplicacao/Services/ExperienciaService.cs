@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
@@ -25,14 +26,19 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             _experienciaRepository = experienciaRepository;
         }
 
-        public void Add(string userId, ExperienciaViewModel obj)
+        public void Add(CadastroExperienciaViewModel obj)
         {
-            throw new NotImplementedException();
-        }
 
-        public void Add(ExperienciaViewModel obj)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                Experiencia exp = _mapper.Map<Experiencia>(obj);
+                _experienciaRepository.Add(exp);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
         }
 
         /// <summary>
@@ -66,19 +72,9 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             }
         }
 
-        public ExperienciaViewModel GetById(string userId, string id)
-        {
-            throw new NotImplementedException();
-        }
-
         public ExperienciaViewModel GetById(int id)
         {
             return _mapper.Map<ExperienciaViewModel>(_experienciaRepository.GetById(id));
-        }
-
-        public void Remove(string id)
-        {
-            throw new NotImplementedException();
         }
 
         public void Update(ExperienciaViewModel obj)
@@ -87,9 +83,5 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             _experienciaRepository.Update(exp);
         }
 
-        public void Update(string id, ExperienciaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
-using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Experiencia;
 using BRQ.HRT.Colaboradores.Aplicacao.Services;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
@@ -22,19 +21,17 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         private readonly IExperienciaRepository _experienciaRepository;
         private readonly IPessoaRepository _pessoaRepository;
 
-        private readonly ICadastroExperienciaService _mapperCadExp;
         private readonly IExperienciaService _mapperExp;
 
-        public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository, ICadastroExperienciaService mapperCadExp, IExperienciaService mapperExp)
+        public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository,  IExperienciaService mapperExp)
         {
             _experienciaRepository = experienciaRepository;
             _pessoaRepository = pessoaRepository;
-            _mapperCadExp = mapperCadExp;
             _mapperExp = mapperExp;
         }
 
         [EnableQuery]
-        [HttpGet("")]
+        [HttpGet]
         public IActionResult ListarTodasExp()
         {
             try
@@ -86,12 +83,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpPost("cadastrar")]
+        [HttpPost]
         public IActionResult CadastrarExp(CadastroExperienciaViewModel exp)
         {
             try
             {
-                _mapperCadExp.Add(exp);
+                _mapperExp.Add(exp);
                 return Ok();
             }
             catch (Exception ex)
@@ -110,7 +107,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 {
                     NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
-                _mapperExp.Update(id.ToString(), xp);
+                _mapperExp.Update(xp);
                 return Ok();
             }
             catch (Exception ex)
