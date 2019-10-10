@@ -1,5 +1,12 @@
 ﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Experiencia;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.IPessoa;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Pessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Skill;
+using BRQ.HRT.Colaboradores.Aplicacao.Services;
+using BRQ.HRT.Colaboradores.Aplicacao.Services.Experiencia;
+using BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa;
+using BRQ.HRT.Colaboradores.Aplicacao.Services.SPessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using BRQ.HRT.Colaboradores.Infra.Data.Repositorios;
@@ -15,6 +22,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Ioc
     {
         public static void RegisterServices(this IServiceCollection services)
         {
+            services.AddScoped<IPessoaService,PessoaService>();
             services.AddScoped<ITipoSkillRepository, TipoSkillRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
 
@@ -28,8 +36,17 @@ namespace BRQ.HRT.Colaboradores.Infra.Ioc
 
             services.AddScoped<IPessoaRepository, PessoaRepository>();
 
+            services.AddScoped<ICadastroPessoaService, CadastroPessoaService>();
+            services.AddScoped<IPessoaContatoService, PessoaContatoService>();
+            services.AddScoped<ICadastroExperienciaService, CadastroExperienciaService>();
+            services.AddScoped<IExperienciaService, ExperienciaService>();
             services.AddScoped<ISkillService, SkillService>();
             services.AddScoped<ICadastroSkillService, CadastroSkillService>();
+
+            //services.AddScoped<IPessoaRepository, PessoaRepository>();
+
+
+
         }
     }
 }

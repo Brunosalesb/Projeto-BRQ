@@ -26,7 +26,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CadastroSkillViewModel> GetAll(string userId)
+        public IEnumerable<CadastroSkillViewModel> GetAll(int userId)
         {
             throw new NotImplementedException();
         }
@@ -41,7 +41,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             throw new NotImplementedException();
         }
 
-        public CadastroSkillViewModel GetById(string id)
+        public CadastroSkillViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,9 @@ using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Pessoa
 {
-    public interface ICadastroPessoaService : IBaseService<CadastroPessoaViewModel>
+    public interface ICadastroPessoaService 
     {
+        void Add(CadastroPessoaViewModel obj);
+        void Update(CadastroPessoaViewModel obj);
     }
 }

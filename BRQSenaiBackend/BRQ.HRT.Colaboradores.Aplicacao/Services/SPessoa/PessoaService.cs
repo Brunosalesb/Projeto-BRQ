@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Pessoa;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.IPessoa;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMPessoa;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
-using BRQ.HRT.Colaboradores.Dominio.Entidades;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
-namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa
+namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SPessoa
 {
     public class PessoaService : IPessoaService
     {
@@ -21,50 +19,17 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa
             _pessoaRepository = pessoaRepository;
         }
 
-        public void Add(string userId, PessoaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(PessoaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<PessoaViewModel> GetAll(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<PessoaViewModel> GetAll()
         {
-            return _mapper.Map<List<PessoaViewModel>>(_pessoaRepository.GetAll());
+            return _mapper.Map<List<PessoaViewModel>>(_pessoaRepository.GetAll().ToList());
         }
 
-        public PessoaViewModel GetById(string userId, string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public PessoaViewModel GetById(string id)
+        public PessoaViewModel GetById(int id)
         {
             return _mapper.Map<PessoaViewModel>(_pessoaRepository.GetById(id));
         }
 
-        public void Remove(string id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Update(string id, PessoaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Update(PessoaViewModel obj)
-        {
-            Dominio.Entidades.Pessoa p = _mapper.Map<Dominio.Entidades.Pessoa>(obj);
-            _pessoaRepository.Update(p);
-        }
     }
 }

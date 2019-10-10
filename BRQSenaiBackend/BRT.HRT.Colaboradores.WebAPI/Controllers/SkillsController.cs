@@ -19,9 +19,9 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     [ApiController]
     public class SkillsController : ControllerBase
     {
-        private readonly ICadastroSkillService _mapperCadastroSkill;
         private readonly ISkillService _mapperSkill;
         private readonly ISkillRepository _skillRepository;
+        private readonly ICadastroSkillService _mapperCadastroSkill;
         private readonly IPessoaRepository _pessoaRepository;
 
 
@@ -33,13 +33,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             _pessoaRepository = pessoaRepository;
         }
 
-        [EnableQuery]
         [HttpGet]
         public IActionResult ListarSkills()
         {
             try
             {
-                return Ok(_skillRepository.GetAll());
+                return Ok(_mapperSkill.GetAll());
             }
             catch (Exception ex)
             {
@@ -54,13 +53,13 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Skill skillBuscada = _skillRepository.GetById(id.ToString());
+                Skill skillBuscada = _skillRepository.GetById(id);
                 if (skillBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"A skill com id {id} não foi encontrada" });
                 }
 
-                return Ok(_skillRepository.GetById(id.ToString()));
+                return Ok(_skillRepository.GetById(id));
             }
             catch (Exception)
             {
@@ -95,13 +94,13 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Skill skillBuscada = _skillRepository.GetById(id.ToString());
+                Skill skillBuscada = _skillRepository.GetById(id);
                 if (skillBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
                 }
 
-                _skillRepository.Remove(id.ToString());
+                _skillRepository.Remove(id);
                 return Ok();
             }
             catch (Exception)
@@ -133,7 +132,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Skill skillBuscada = _skillRepository.GetById(id.ToString());
+                Skill skillBuscada = _skillRepository.GetById(id);
                 if (skillBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });

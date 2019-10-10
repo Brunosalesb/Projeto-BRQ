@@ -1,7 +1,4 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
@@ -9,8 +6,8 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
     {
         Pessoa BuscarPessoaPorMatricula(int matricula);
 
-        //void AtribuirSKill(SkillPessoaViewModel dados);
+        void AtribuirSKill(SkillPessoa dados);
 
-        //void DesAtribuirSkill(SkillsPessoa dados);
+        void DesAtribuirSkill(int id);
     }
 }

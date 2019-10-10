@@ -27,13 +27,14 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             return _dbContext.Set<TEntity>().AsNoTracking();
         }
 
-        public TEntity GetById(string id)
+        public TEntity GetById(int id)
         {
+            
             TEntity itemBuscado = _dbContext.Set<TEntity>().Find(id);
             return itemBuscado;
         }
 
-        public void Remove(string id)
+        public void Remove(int id)
         {
             var entity = GetById(id);
             _dbContext.Set<TEntity>().Remove(entity);

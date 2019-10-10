@@ -20,50 +20,15 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa
             _pessoaRepository = pessoaRepository;
         }
 
-        public void Add(string userId, CadastroPessoaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Add(CadastroPessoaViewModel obj)
         {
             BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa p = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa>(obj);
             _pessoaRepository.Add(p);
         }
-
-        public IEnumerable<CadastroPessoaViewModel> GetAll(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<CadastroPessoaViewModel> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public CadastroPessoaViewModel GetById(string userId, string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CadastroPessoaViewModel GetById(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(string id, CadastroPessoaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(CadastroPessoaViewModel obj)
         {
-
+            Dominio.Entidades.Pessoa p = _mapper.Map<Dominio.Entidades.Pessoa>(obj);
+            _pessoaRepository.Update(p);
         }
     }
 }

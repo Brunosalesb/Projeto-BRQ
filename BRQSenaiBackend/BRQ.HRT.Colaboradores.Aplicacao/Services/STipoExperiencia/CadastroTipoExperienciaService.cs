@@ -31,7 +31,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.STipoExperiencia
             _tipoExperienciaRepository.Add(tipoExp);
         }
 
-        public IEnumerable<CadastroTipoExperienciaViewModel> GetAll(string userId)
+        public IEnumerable<CadastroTipoExperienciaViewModel> GetAll(int userId)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.STipoExperiencia
             throw new NotImplementedException();
         }
 
-        public CadastroTipoExperienciaViewModel GetById(string id)
+        public CadastroTipoExperienciaViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }

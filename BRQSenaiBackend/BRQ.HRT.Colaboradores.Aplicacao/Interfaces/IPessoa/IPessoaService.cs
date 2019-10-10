@@ -1,11 +1,14 @@
-﻿using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
+﻿using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMPessoa;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Pessoa
+namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.IPessoa
 {
-   public interface IPessoaService : IBaseService<PessoaViewModel>
+   public interface IPessoaService
     {
+        PessoaViewModel GetById(int id);
+
+        IEnumerable<PessoaViewModel> GetAll();
     }
 }

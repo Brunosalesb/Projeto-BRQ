@@ -53,13 +53,13 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Experiencia ExpBuscada = _experienciaRepository.GetById(id.ToString());
+                Experiencia ExpBuscada = _experienciaRepository.GetById(id);
                 if (ExpBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
 
-                return Ok(_mapperExp.GetById(id.ToString()));
+                return Ok(_mapperExp.GetById(id));
             }
             catch (Exception ex)
             {
@@ -73,12 +73,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Pessoa PessoaBuscada = _pessoaRepository.GetById(id.ToString());
+                Pessoa PessoaBuscada = _pessoaRepository.GetById(id);
                 if (PessoaBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Pessoa do ID: {id}, não foi encontrada!" });
                 }
-                return Ok(_mapperExp.GetAll(id.ToString()));
+                return Ok(_mapperExp.GetAll(id));
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Experiencia expBuscada = _experienciaRepository.GetById(id.ToString());
+                Experiencia expBuscada = _experienciaRepository.GetById(id);
                 if (expBuscada == null)
                 {
                     NotFound(new { Mensagem = $"Experiência não encontrada!" });
@@ -124,13 +124,13 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                Experiencia ExpBuscada = _experienciaRepository.GetById(id.ToString());
+                Experiencia ExpBuscada = _experienciaRepository.GetById(id);
                 if(ExpBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
 
-                _experienciaRepository.Remove(id.ToString());
+                _experienciaRepository.Remove(id);
                 return Ok(new { Mensagem = $"Experiência deletada com sucesso!" });
             }
             catch (Exception ex)

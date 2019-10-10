@@ -27,12 +27,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Experiencia
             _experienciaRepository.Add(exp);
         }
 
-        public void Add(string userId, CadastroExperienciaViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<CadastroExperienciaViewModel> GetAll(string userId)
+        public IEnumerable<CadastroExperienciaViewModel> GetAll(int userId)
         {
             throw new NotImplementedException();
         }
@@ -42,12 +37,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Experiencia
             throw new NotImplementedException();
         }
 
-        public CadastroExperienciaViewModel GetById(string userId, string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CadastroExperienciaViewModel GetById(string id)
+        public CadastroExperienciaViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -66,5 +56,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Experiencia
         {
             throw new NotImplementedException();
         }
-    }
+
+     }
 }

@@ -9,13 +9,13 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
     {
         void Add(TEntity obj);
 
-        TEntity GetById(string id);
+        TEntity GetById(int id);
 
         IQueryable<TEntity> GetAll();
 
         void Update(string id, TEntity obj);
         void Update(TEntity obj);
 
-        void Remove(string id);
+        void Remove(int id);
     }
 }

@@ -29,7 +29,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.STipoExperiencia
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TipoExperienciaViewModel> GetAll(string userId)
+        public IEnumerable<TipoExperienciaViewModel> GetAll(int userId)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.STipoExperiencia
             throw new NotImplementedException();
         }
 
-        public TipoExperienciaViewModel GetById(string id)
+        public TipoExperienciaViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }

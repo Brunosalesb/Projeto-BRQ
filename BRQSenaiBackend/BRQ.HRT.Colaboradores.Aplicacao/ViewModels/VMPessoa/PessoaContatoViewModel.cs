@@ -1,4 +1,5 @@
-﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
+﻿using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Pessoa;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
 {
-   public class PessoaViewModel
+   public class PessoaContatoViewModel
     {
         public int Id { get; set; }
         public string Matricula { get; set; }
@@ -24,7 +25,8 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
-        public ICollection<Contato> Contato { get; set; }
+
+        public ICollection<ContatoViewModel> Contato { get; set; }
 
     }
 }

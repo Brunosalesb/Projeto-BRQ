@@ -5,14 +5,13 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces
 {
     public interface IBaseService<TEntity> where TEntity : class
     {
-        void Add(string userId, TEntity obj);
+       
         void Add(TEntity obj);
 
-        TEntity GetById(string userId, string id);
-        TEntity GetById(string id);
+        TEntity GetById(int id);
 
 
-        IEnumerable<TEntity> GetAll(string userId);
+        IEnumerable<TEntity> GetAll(int userId);
         IEnumerable<TEntity> GetAll();
 
         void Update(string id, TEntity obj);

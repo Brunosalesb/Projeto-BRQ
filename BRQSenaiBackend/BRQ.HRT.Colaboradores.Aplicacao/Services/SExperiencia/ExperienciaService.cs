@@ -40,7 +40,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public IEnumerable<ExperienciaViewModel> GetAll(string userId)
+        public IEnumerable<ExperienciaViewModel> GetAll(int userId)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             throw new NotImplementedException();
         }
 
-        public ExperienciaViewModel GetById(string id)
+        public ExperienciaViewModel GetById(int id)
         {
             return _mapper.Map<ExperienciaViewModel>(_experienciaRepository.GetById(id));
         }

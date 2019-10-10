@@ -11,9 +11,9 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 {
     public class SkillService : ISkillService
     {
-        private  readonly IMapper _mapper;
-        private  readonly ISkillRepository _skillRepository;
-        private  readonly IPessoaRepository _pessoaRepository;
+        private readonly IMapper _mapper;
+        private readonly IPessoaRepository _pessoaRepository;
+        private readonly ISkillRepository _skillRepository;
 
         public SkillService(IMapper mapper, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
         {
@@ -23,7 +23,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
         }
 
         public void Add(string userId, SkillViewModel obj)
-        {
+        {   
             throw new NotImplementedException();
         }
 
@@ -32,7 +32,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             throw new NotImplementedException();
         }
 
-        public IEnumerable<SkillViewModel> GetAll(string userId)
+        public IEnumerable<SkillViewModel> GetAll(int userId)
         {
             try
             {
@@ -51,21 +51,21 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
         {
             try
             {
-                return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll().ToList());
+                return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw new Exception();
             }
         }
 
-        public SkillViewModel GetById(string userId, string id)
+        public SkillViewModel GetById(string userId, string Sid)
         {
             throw new NotImplementedException();
         }
 
-        public SkillViewModel GetById(string id)
+        public SkillViewModel GetById(int id)
         {
             return _mapper.Map<SkillViewModel>(_skillRepository.GetById(id));
         }
