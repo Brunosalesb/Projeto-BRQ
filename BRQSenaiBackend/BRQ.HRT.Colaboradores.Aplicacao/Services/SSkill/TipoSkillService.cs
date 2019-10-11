@@ -35,29 +35,29 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
                 throw;
             }
         }
-        
-        IEnumerable<TipoSkillViewModel> ITipoSkillService.GetAll(int userId)
+
+        public IEnumerable<TipoSkillViewModel> GetAll(int userId)
         {
             try
             {
-                Dominio.Entidades.Pessoa pessoa= _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
+                Dominio.Entidades.Pessoa pessoa = _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
 
                 return _mapper.Map<List<TipoSkillViewModel>>(pessoa.SkillPessoa);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw new Exception();
             }
         }
 
-        IEnumerable<TipoSkillViewModel> ITipoSkillService.GetAll()
+        public IEnumerable<TipoSkillViewModel> GetAll()
         {
             try
             {
                 return _mapper.Map<List<TipoSkillViewModel>>(_tipoSkillRepository.GetAll());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw new Exception();
             }

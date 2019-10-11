@@ -2,6 +2,7 @@
 using BRQ.HRT.Colaboradores.Aplicacao.Services;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMExperiencia;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
@@ -98,7 +99,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         }
 
         [HttpPut ("{id}")]
-        public IActionResult AtualizarExp(int id, ExperienciaViewModel xp)
+        public IActionResult AtualizarExp(int id, EditarExperienciaViewModel xp)
         {
             try
             {

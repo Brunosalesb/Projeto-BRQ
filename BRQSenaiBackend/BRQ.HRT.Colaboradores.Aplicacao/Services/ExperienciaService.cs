@@ -2,6 +2,7 @@
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMExperiencia;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
@@ -77,7 +78,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             return _mapper.Map<ExperienciaViewModel>(_experienciaRepository.GetById(id));
         }
 
-        public void Update(ExperienciaViewModel obj)
+        public void Update(EditarExperienciaViewModel obj)
         {
             BRQ.HRT.Colaboradores.Dominio.Entidades.Experiencia exp = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Experiencia>(obj);
             _experienciaRepository.Update(exp);

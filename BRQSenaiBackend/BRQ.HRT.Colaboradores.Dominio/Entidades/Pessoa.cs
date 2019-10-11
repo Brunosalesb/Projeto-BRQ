@@ -26,6 +26,7 @@ namespace BRQ.HRT.Colaboradores.Dominio.Entidades
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
+        public bool? Status { get; set; }
 
         public ICollection<Contato> Contato { get; set; }
         public ICollection<Experiencia> Experiencia { get; set; }

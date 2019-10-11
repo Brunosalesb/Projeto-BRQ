@@ -1,4 +1,5 @@
-﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
+﻿using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int FkIdTipoSkill { get; set; }
+        public ICollection<Dominio.Entidades.Skill> FkIdTipoSkillNavigation{ get; set; }
+
     }
 }

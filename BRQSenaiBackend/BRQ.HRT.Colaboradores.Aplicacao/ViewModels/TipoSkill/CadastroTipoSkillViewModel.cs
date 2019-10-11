@@ -6,6 +6,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill
 {
     public class CadastroTipoSkillViewModel
     {
-        public int Nome { get; set; }
+        public string Nome { get; set; }
     }
 }

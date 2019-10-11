@@ -1,6 +1,7 @@
 ﻿using System;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.ISkill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill;
+using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,12 +12,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     public class TipoSkillsController : ControllerBase
     {
         private readonly ITipoSkillService _mapperTipoSkill;
-        
+
+
         public TipoSkillsController(ITipoSkillService mapperTipoSkill)
         {
             _mapperTipoSkill = mapperTipoSkill;
         }
 
+        [EnableQuery]
         [HttpGet]
         public IActionResult ListarTipoSkills()
         {

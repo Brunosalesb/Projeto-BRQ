@@ -12,10 +12,5 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         {
 
         }
-
-        public List<Skill> ListarSkillPorIdPessoa(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

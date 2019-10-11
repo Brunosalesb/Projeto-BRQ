@@ -2,6 +2,7 @@
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
@@ -36,13 +37,13 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             }
         }
 
-        public IEnumerable<SkillViewModel> GetAll(int userId)
+        public IEnumerable<SkillPessoaViewModel> GetAll(int userId)
         {
             try
             {
                 Dominio.Entidades.Pessoa pessoa = _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
 
-                return _mapper.Map<List<SkillViewModel>>(pessoa.SkillPessoa);
+                return _mapper.Map<List<SkillPessoaViewModel>>(pessoa.SkillPessoa);
             }
             catch (Exception)
             {
@@ -73,13 +74,13 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
         {
             try
             {
-                BRQ.HRT.Colaboradores.Dominio.Entidades.Skill skill = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Skill>(obj);
+               Skill skill = _mapper.Map<Skill>(obj);
                 _skillRepository.Update(skill);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw new Exception();
             }
         }
     }

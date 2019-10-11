@@ -26,6 +26,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             _pessoaRepository = pessoaRepository;
         }
 
+        [EnableQuery]
         [HttpGet]
         public IActionResult ListarSkills()
         {
@@ -61,25 +62,25 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        //[EnableQuery]
-        //[HttpGet("usuario/{id}")]
-        //public IActionResult ListarTodasPorIdPessoa(int id)
-        //{
-        //    try
-        //    {
-        //        Pessoa pessoaBuscada = _pessoaRepository.GetById(id.ToString());
-        //        if (pessoaBuscada == null)
-        //        {
-        //            return NotFound(new { Mensagem = $"A pessoa com id: {id} não foi encontrada!" });
-        //        }
-        //        return Ok(_mapperSkill.GetAll(id.ToString()));
-        //    }
-        //    catch (Exception)
-        //    {
+        [EnableQuery]
+        [HttpGet("usuario/{id}")]
+        public IActionResult ListarTodasPorIdPessoa(int id)
+        {
+            try
+            {
+                Pessoa pessoaBuscada = _pessoaRepository.GetById(id);
+                if (pessoaBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"A pessoa com id: {id} não foi encontrada!" });
+                }
+                return Ok(_mapperSkill.GetAll(id));
+            }
+            catch (Exception)
+            {
 
-        //        return BadRequest();
-        //    }
-        //}
+                return BadRequest();
+            }
+        }
 
         [EnableQuery]
         [HttpPost]

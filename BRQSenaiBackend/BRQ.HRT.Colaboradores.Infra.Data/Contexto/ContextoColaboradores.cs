@@ -15,6 +15,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
             : base(options)
         {
         }
+
         public virtual DbSet<Contato> Contato { get; set; }
         public virtual DbSet<Experiencia> Experiencia { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
@@ -28,10 +29,8 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#pragma warning disable CS1030 // diretiva de #aviso
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=tcp:brqsenai.database.windows.net,1433;Initial Catalog=HTRSenaiColaboradores;Persist Security Info=False;User ID=brqsenai;Password=@Senai132;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-#pragma warning restore CS1030 // diretiva de #aviso
             }
         }
 
@@ -205,6 +204,8 @@ namespace BRQ.HRT.Colaboradores.Infra.Data
                     .HasColumnName("rg")
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Status).HasColumnName("status");
             });
 
             modelBuilder.Entity<Skill>(entity =>
