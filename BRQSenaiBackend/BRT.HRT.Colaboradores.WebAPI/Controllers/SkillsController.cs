@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
@@ -58,10 +54,10 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 
                 return Ok(_skillRepository.GetById(id));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 
@@ -86,28 +82,6 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         //}
 
         [EnableQuery]
-        [HttpDelete("id")]
-        public IActionResult DeletarSkill(int id)
-        {
-            try
-            {
-                Skill skillBuscada = _skillRepository.GetById(id);
-                if (skillBuscada == null)
-                {
-                    return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
-                }
-
-                _skillRepository.Remove(id);
-                return Ok();
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
-            }
-        }
-
-        [EnableQuery]
         [HttpPost]
         public IActionResult CadastrarSkill(CadastroSkillViewModel skill)
         {
@@ -119,7 +93,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 

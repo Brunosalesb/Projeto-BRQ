@@ -1,37 +1,66 @@
-﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.ISkill;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
+﻿using AutoMapper;
+using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.ISkill;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
+using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 {
     public class TipoSkillService : ITipoSkillService
     {
-        public void Add(CadastroSkillViewModel obj)
+
+        private readonly IMapper _mapper;
+        private readonly ITipoSkillRepository _tipoSkillRepository;
+        private readonly IPessoaRepository _pessoaRepository;
+
+        public TipoSkillService(IMapper mapper, ITipoSkillRepository tipoSkillRepository, IPessoaRepository pessoaRepository)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _tipoSkillRepository = tipoSkillRepository;
+            _pessoaRepository = pessoaRepository;
         }
 
-        public IEnumerable<SkillViewModel> GetAll(int userId)
+        public void Add(CadastroTipoSkillViewModel obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TipoSkill tipoSkill = _mapper.Map<TipoSkill>(obj);
+                _tipoSkillRepository.Add(tipoSkill);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
+        IEnumerable<TipoSkillViewModel> ITipoSkillService.GetAll(int userId)
+        {
+            try
+            {
+                Dominio.Entidades.Pessoa pessoa= _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
+
+                return _mapper.Map<List<TipoSkillViewModel>>(pessoa.SkillPessoa);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception();
+            }
         }
 
-        public IEnumerable<SkillViewModel> GetAll()
+        IEnumerable<TipoSkillViewModel> ITipoSkillService.GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public SkillViewModel GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(SkillViewModel obj)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                return _mapper.Map<List<TipoSkillViewModel>>(_tipoSkillRepository.GetAll());
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
         }
     }
 }

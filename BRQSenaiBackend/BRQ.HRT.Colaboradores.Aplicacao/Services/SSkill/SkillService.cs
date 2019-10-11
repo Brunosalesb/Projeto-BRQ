@@ -6,8 +6,6 @@ using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 {
@@ -22,11 +20,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             _mapper = mapper;
             _skillRepository = skillRepository;
             _pessoaRepository = pessoaRepository;
-        }
-
-        public void Add(string userId, CadastroSkillViewModel obj)
-        {   
-            throw new NotImplementedException();
         }
 
         public void Add(CadastroSkillViewModel obj)
@@ -64,16 +57,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             {
                 return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw new Exception();
             }
-        }
-
-        public SkillViewModel GetById(string userId, string Sid)
-        {
-            throw new NotImplementedException();
         }
 
         public SkillViewModel GetById(int id)
@@ -81,21 +69,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             return _mapper.Map<SkillViewModel>(_skillRepository.GetById(id));
         }
 
-        public void Remove(string id)
-        {
-            
-        }
-
-        public void Update(string id, SkillViewModel obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(SkillViewModel obj)
         {
             try
             {
-                BRQ.HRT.Colaboradores.Dominio.Entidades.Skill skill= _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Skill>(obj);
+                BRQ.HRT.Colaboradores.Dominio.Entidades.Skill skill = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Skill>(obj);
                 _skillRepository.Update(skill);
             }
             catch (Exception)
