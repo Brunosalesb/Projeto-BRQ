@@ -93,25 +93,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         //    }
         //}
 
-        //[EnableQuery]
-        //[HttpPut("{id}")]
-        //public IActionResult EditarTipoSkill(int id, TipoSkillViewModel tipoSkill)
-        //{
-        //    try
-        //    {
-        //        TipoSkill tipoSkillBuscada = _tipoSkillRepository.GetById(id);
-        //        if (tipoSkillBuscada == null)
-        //        {
-        //            NotFound(new { Mensagem = $"Tipo skill não foi encontrada" });
-        //        }
-        //        _mapperTipoSkill.Update(tipoSkill);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(new { Erro = ex.ToString() });
-        //    }
-        //}
+      
 
     }
 }

@@ -6,8 +6,8 @@ using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Pessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMPessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMTipoExperiencia;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMExperiencia;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
 {

@@ -53,7 +53,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                     return NotFound(new { Mensagem = $"A skill com id {id} não foi encontrada" });
                 }
 
-                return Ok(_skillRepository.GetById(id));
+                return Ok(_mapperSkill.GetById(id));
             }
             catch (Exception ex)
             {
@@ -100,7 +100,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 
         [EnableQuery]
         [HttpPut("{id}")]
-        public IActionResult EditarSkill(int id, SkillViewModel skill)
+        public IActionResult EditarSkill(int id, CadastroSkillViewModel skill)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 {
                     NotFound(new { Mensagem = $"Skill não foi encontrada" });
                 }
-                _mapperSkill.Update(skill);
+                _mapperSkill.Update(skill, skillBuscada.Id);
                 return Ok();
             }
             catch (Exception ex)
@@ -118,5 +118,20 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
+        [EnableQuery]
+        [HttpDelete]
+        public IActionResult DeletarSkill(int id)
+        {
+            try
+            {
+                _skillRepository.Remove(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
     }
 }

@@ -25,9 +25,10 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa
             BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa p = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Pessoa>(obj);
             _pessoaRepository.Add(p);
         }
-        public void Update(CadastroPessoaViewModel obj)
+        public void Update(CadastroPessoaViewModel obj, int idPessoa)
         {
             Dominio.Entidades.Pessoa p = _mapper.Map<Dominio.Entidades.Pessoa>(obj);
+            p.Id = idPessoa;
             _pessoaRepository.Update(p);
         }
     }

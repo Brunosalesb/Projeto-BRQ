@@ -29,8 +29,9 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 
         public TEntity GetById(int id)
         {
-            
             TEntity itemBuscado = _dbContext.Set<TEntity>().Find(id);
+            _dbContext.Entry(itemBuscado).State = EntityState.Detached;
+
             return itemBuscado;
         }
 
@@ -41,11 +42,6 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             _dbContext.SaveChanges();
         }
 
-        public void Update(string id, TEntity obj)
-        {
-            _dbContext.Set<TEntity>().Update(obj);
-            _dbContext.SaveChanges();
-        }
 
         public void Update(TEntity obj)
         {

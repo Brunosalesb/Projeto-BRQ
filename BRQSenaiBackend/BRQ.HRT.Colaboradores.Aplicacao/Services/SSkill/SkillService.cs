@@ -5,6 +5,7 @@ using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 
@@ -70,14 +71,15 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             return _mapper.Map<SkillViewModel>(_skillRepository.GetById(id));
         }
 
-        public void Update(SkillViewModel obj)
+        public void Update(CadastroSkillViewModel obj, int id)
         {
             try
             {
-               Skill skill = _mapper.Map<Skill>(obj);
-                _skillRepository.Update(skill);
+                Skill skillBuscada = _mapper.Map<Skill>(obj);
+                skillBuscada.Id = id;
+                _skillRepository.Update(skillBuscada);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw new Exception();

@@ -9,7 +9,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces
 {
     public interface ISkillService
     {
-        void Update(SkillViewModel obj);
+        void Update(CadastroSkillViewModel obj, int id);
         IEnumerable<SkillPessoaViewModel> GetAll(int userId);
         IEnumerable<SkillViewModel> GetAll();
         SkillViewModel GetById(int id);

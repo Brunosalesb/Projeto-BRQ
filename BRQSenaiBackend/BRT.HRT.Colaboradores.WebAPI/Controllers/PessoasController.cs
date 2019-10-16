@@ -4,6 +4,7 @@ using System.Linq;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.IPessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.Pessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Pessoa;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
@@ -103,19 +104,19 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 return BadRequest(new { Erro = ex.Message });
             }
         }
-        [HttpPut]
-        public IActionResult Edit(CadastroPessoaViewModel p)
+        [HttpPut("{id}")]
+        public IActionResult Edit(int id, CadastroPessoaViewModel p)
         {
             try
             {
-                int id = Int32.Parse(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+               // int id = Int32.Parse(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                Dominio.Entidades.Pessoa PessoaBuscada = _pessoaRepository.GetById(id);
+                Pessoa PessoaBuscada = _pessoaRepository.GetById(id);
                 if (PessoaBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Pessoa que possui id: {id}, nao pode ser encontrada" });
                 }
-                _CadastroPessoaMapper.Update(p);
+                _CadastroPessoaMapper.Update(p, PessoaBuscada.Id);
 
                 return Ok();
             }
