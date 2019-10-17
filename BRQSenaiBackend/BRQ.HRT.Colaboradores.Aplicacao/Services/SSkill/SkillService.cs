@@ -5,9 +5,11 @@ using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using BRQ.HRT.Colaboradores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
 {
@@ -38,13 +40,14 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             }
         }
 
-        public IEnumerable<SkillPessoaViewModel> GetAll(int userId)
+        public IEnumerable<SkillPessoa> GetAll(int userId)
         {
             try
             {
-                Dominio.Entidades.Pessoa pessoa = _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
-
-                return _mapper.Map<List<SkillPessoaViewModel>>(pessoa.SkillPessoa);
+                using (ContextoColaboradores ctx = new ContextoColaboradores())
+                {
+                    return ctx.SkillPessoa.Where(x => x.FkIdPessoaNavigation.Id == userId).ToList();
+                }
             }
             catch (Exception)
             {
@@ -59,7 +62,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             {
                 return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw new Exception();

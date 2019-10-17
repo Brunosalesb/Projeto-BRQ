@@ -10,7 +10,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public ICollection<Dominio.Entidades.Skill> FkIdTipoSkillNavigation{ get; set; }
+        public ICollection<Dominio.Entidades.Skill> FkIdTipoSkillNavigation { get; set; }
 
     }
 }
