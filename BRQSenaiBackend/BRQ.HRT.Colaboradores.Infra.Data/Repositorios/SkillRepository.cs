@@ -1,7 +1,9 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
@@ -11,6 +13,14 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         public SkillRepository(ContextoColaboradores dbContext) : base(dbContext)
         {
 
+        }
+
+        public List<Skill> ListaSkills()
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Skill.Include(x => x.FkIdTipoSkillNavigation).ToList();
+            }
         }
     }
 }

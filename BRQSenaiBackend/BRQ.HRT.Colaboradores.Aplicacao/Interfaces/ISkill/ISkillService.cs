@@ -12,8 +12,9 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces
     {
         void Update(CadastroSkillViewModel obj, int id);
         IEnumerable<SkillPessoa> GetAll(int userId);
-        IEnumerable<SkillViewModel> GetAll();
+        IEnumerable<SkillViewModel> ListaSkills();
         SkillViewModel GetById(int id);
         void Add(CadastroSkillViewModel obj);
+
     }
 }

@@ -56,13 +56,13 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             }
         }
 
-        public IEnumerable<SkillViewModel> GetAll()
+        public IEnumerable<SkillViewModel> ListaSkills()
         {
             try
             {
-                return _mapper.Map<List<SkillViewModel>>(_skillRepository.GetAll());
+                return _mapper.Map<List<SkillViewModel>>(_skillRepository.ListaSkills());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw new Exception();

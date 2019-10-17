@@ -32,7 +32,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                return Ok(_mapperSkill.GetAll());
+                return Ok(_mapperSkill.ListaSkills());
             }
             catch (Exception ex)
             {
