@@ -24,12 +24,12 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.Pessoa
 
         public IEnumerable<PessoaContatoViewModel> GetAll()
         {
-            return _mapper.Map<List<PessoaContatoViewModel>>(_pessoaRepository.GetAll().ToList());
+            return _mapper.Map<IEnumerable<PessoaContatoViewModel>>(_pessoaRepository.BuscarTodosDados());
         }
 
         public PessoaContatoViewModel GetById(int id)
         {
-            return _mapper.Map<PessoaContatoViewModel>(_pessoaRepository.GetById(id));
+            return _mapper.Map<PessoaContatoViewModel>(_pessoaRepository.BuscarTodosDadosPorID(id));
         }
     }
 }

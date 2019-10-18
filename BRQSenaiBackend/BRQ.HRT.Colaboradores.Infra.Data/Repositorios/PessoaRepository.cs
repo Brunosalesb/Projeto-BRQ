@@ -1,5 +1,6 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +17,36 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
 
         public void AtribuirSKill(SkillPessoa dados)
         {
-            throw new NotImplementedException();
-        }
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                ctx.SkillPessoa.Add(dados);
+                ctx.SaveChanges();
+            }
+            }
 
-        public Pessoa BuscarPessoaPorMatricula(int matricula)
+        public List<Pessoa> BuscarTodosDados()
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-                return ctx.Pessoa.Where(p => p.Matricula == matricula.ToString()).FirstOrDefault();
+
+                return ctx.Pessoa.Include(x => x.Contato).Include("Contato.FkIdTipoContatoNavigation").Include(y=> y.Experiencia).AsNoTracking().ToList();
+            }
+            }
+
+        public Pessoa BuscarTodosDadosPorID(int id)
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+
+                return ctx.Pessoa.Include(x => x.Contato).Include("Contato.FkIdTipoContatoNavigation").Include(y => y.Experiencia).AsNoTracking().Where(x=> x.Id == id).FirstOrDefault();
+            }
+        }
+
+        public Pessoa BuscarPessoaPorMatricula(String matricula)
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Pessoa.AsNoTracking().Where(p => p.Matricula == matricula.ToString()).FirstOrDefault();
             }
         }
 
@@ -31,9 +54,9 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-                SkillPessoa sp = ctx.SkillPessoa.FirstOrDefault();
-                //ctx.SkillsPessoa.Remove(dados);
-                //ctx.SaveChanges();
+                SkillPessoa sp = ctx.SkillPessoa.AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+                ctx.SkillPessoa.Remove(sp);
+                ctx.SaveChanges();
             }
         }
     }

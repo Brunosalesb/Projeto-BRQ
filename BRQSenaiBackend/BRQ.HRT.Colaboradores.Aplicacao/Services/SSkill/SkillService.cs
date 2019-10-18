@@ -2,10 +2,10 @@
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
-using BRQ.HRT.Colaboradores.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,6 +26,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             _pessoaRepository = pessoaRepository;
         }
 
+        //cadastra a skill utilizando viewModel
         public void Add(CadastroSkillViewModel obj)
         {
             try
@@ -40,23 +41,21 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             }
         }
 
-        public IEnumerable<SkillPessoa> GetAll(int userId)
+        //lista todas as skills de um usuario utilizando viewModel
+        public IEnumerable<SkillPorIdViewModel> GetAll(int userId)
         {
             try
             {
-                using (ContextoColaboradores ctx = new ContextoColaboradores())
-                {
-                    return ctx.SkillPessoa.Where(x => x.FkIdPessoaNavigation.Id == userId).ToList();
-                }
+                return _mapper.Map<List<SkillPorIdViewModel>>(_skillRepository.ListaSkillsPorIdUsuario(userId));
             }
             catch (Exception)
             {
-
                 throw new Exception();
             }
         }
 
-        public IEnumerable<SkillViewModel> ListaSkills()
+        //Lista todas as skills existentes
+        public IEnumerable<SkillViewModel> GetAll()
         {
             try
             {
@@ -69,11 +68,21 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             }
         }
 
-        public SkillViewModel GetById(int id)
+        //lista uma skill pelo id dela
+        public CadastroSkillViewModel GetById(int id)
         {
-            return _mapper.Map<SkillViewModel>(_skillRepository.GetById(id));
+            try
+            {
+                return _mapper.Map<CadastroSkillViewModel>(_skillRepository.GetById(id));
+            }
+            catch (Exception)
+            {
+
+                throw new Exception();
+            }
         }
 
+        //edita uma skill utilizando viewModel
         public void Update(CadastroSkillViewModel obj, int id)
         {
             try

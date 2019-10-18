@@ -1,5 +1,6 @@
 ﻿using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,14 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
                 return ctx.Experiencia.Where(x => x.FkIdPessoaNavigation.Id == id).ToList();
+            }
+        }
+
+        public List<Experiencia> ListarTodasExperiencias()
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Experiencia.Include(x => x.FkIdTipoExperienciaNavigation).ToList();
             }
         }
     }

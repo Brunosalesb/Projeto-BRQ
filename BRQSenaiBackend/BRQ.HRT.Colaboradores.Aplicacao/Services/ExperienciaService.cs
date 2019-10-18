@@ -2,7 +2,6 @@
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMExperiencia;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System;
@@ -51,9 +50,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
         {
             try
             {
-                Dominio.Entidades.Pessoa pessoa = _mapper.Map<Dominio.Entidades.Pessoa>(_pessoaRepository.GetById(userId));
-
-                return _mapper.Map<List<ExperienciaViewModel>>(pessoa.Experiencia);
+                return _mapper.Map<List<ExperienciaViewModel>>(_experienciaRepository.ListarExperienciasPorIdPessoa(userId));
             }
             catch (Exception ex)
             {
@@ -61,11 +58,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             }
         }
 
-        public IEnumerable<ExperienciaViewModel> GetAll()
+        public IEnumerable<ExperienciaViewModel> ListarTodasExperiencias()
         {
             try
             {
-                return _mapper.Map<List<ExperienciaViewModel>>(_experienciaRepository.GetAll());
+                return _mapper.Map<List<ExperienciaViewModel>>(_experienciaRepository.ListarTodasExperiencias());
             }
             catch (Exception ex)
             {
@@ -78,9 +75,10 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             return _mapper.Map<ExperienciaViewModel>(_experienciaRepository.GetById(id));
         }
 
-        public void Update(EditarExperienciaViewModel obj)
+        public void Update(CadastroExperienciaViewModel obj, int id)
         {
-            BRQ.HRT.Colaboradores.Dominio.Entidades.Experiencia exp = _mapper.Map<BRQ.HRT.Colaboradores.Dominio.Entidades.Experiencia>(obj);
+           Experiencia exp = _mapper.Map<Experiencia>(obj);
+            exp.Id = id;
             _experienciaRepository.Update(exp);
         }
 

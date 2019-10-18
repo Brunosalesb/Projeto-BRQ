@@ -13,12 +13,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     {
         private readonly ITipoSkillService _mapperTipoSkill;
 
-
         public TipoSkillsController(ITipoSkillService mapperTipoSkill)
         {
             _mapperTipoSkill = mapperTipoSkill;
         }
 
+        //metodo para listar os tipos de skill existentes
         [EnableQuery]
         [HttpGet]
         public IActionResult ListarTipoSkills()
@@ -29,11 +29,11 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
-                  
+        
+        //metodo para cadastrar o tipo da skill
         [EnableQuery]
         [HttpPost]
         public IActionResult CadastrarTipoSkill(CadastroTipoSkillViewModel tipoSkill)
@@ -50,50 +50,6 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        //[EnableQuery]
-        //[HttpGet("{id}")]
-        //public IActionResult BuscarPorId(int id)
-        //{
-        //    try
-        //    {
-        //        TipoSkill tipoSkillBuscada = _tipoSkillRepository.GetById(id);
-        //        if (tipoSkillBuscada == null)
-        //        {
-        //            return NotFound(new { Mensagem = $"O tipo skill com id {id} não foi encontrada" });
-        //        }
-
-        //        return Ok(_tipoSkillRepository.GetById(id));
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return BadRequest();
-        //    }
-        //}
-        
-        //[EnableQuery]
-        //[HttpDelete("id")]
-        //public IActionResult DeletarTipoSkill(int id)
-        //{
-        //    try
-        //    {
-        //        TipoSkill tipoSkillBuscada = _tipoSkillRepository.GetById(id);
-        //        if (tipoSkillBuscada == null)
-        //        {
-        //            return NotFound(new { Mensagem = $"A skill {id} não foi encontrada" });
-        //        }
-
-        //        _tipoSkillRepository.Remove(id);
-        //        return Ok();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return BadRequest();
-        //    }
-        //}
-
-      
 
     }
 }

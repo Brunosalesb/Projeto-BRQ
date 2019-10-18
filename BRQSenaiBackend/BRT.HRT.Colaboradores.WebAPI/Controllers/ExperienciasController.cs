@@ -1,16 +1,10 @@
 ﻿using BRQ.HRT.Colaboradores.Aplicacao.Interfaces;
-using BRQ.HRT.Colaboradores.Aplicacao.Services;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMExperiencia;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 {
@@ -37,13 +31,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
-                return Ok(_mapperExp.GetAll());
+                return Ok(_mapperExp.ListarTodasExperiencias());
             }
             catch (Exception ex)
             {
                 return BadRequest(new { Erro = ex.ToString() });
             }
         }
+
 
         [EnableQuery]
         [HttpGet("{id}")]
@@ -99,7 +94,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         }
 
         [HttpPut ("{id}")]
-        public IActionResult AtualizarExp(int id, EditarExperienciaViewModel xp)
+        public IActionResult AtualizarExp(int id, CadastroExperienciaViewModel xp)
         {
             try
             {
@@ -108,7 +103,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 {
                     NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
-                _mapperExp.Update(xp);
+                _mapperExp.Update(xp, expBuscada.Id);
                 return Ok();
             }
             catch (Exception ex)

@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BRQ.HRT.Colaboradores.Dominio\BRQ.HRT.Colaboradores.Dominio.csproj" />
-    <ProjectReference Include="..\BRQ.HRT.Colaboradores.Infra.Data\BRQ.HRT.Colaboradores.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

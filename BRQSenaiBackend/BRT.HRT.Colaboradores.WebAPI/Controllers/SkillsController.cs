@@ -26,13 +26,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             _pessoaRepository = pessoaRepository;
         }
 
+        //metodo para listar as skills existentes
         [EnableQuery]
         [HttpGet]
         public IActionResult ListarSkills()
         {
             try
             {
-                return Ok(_mapperSkill.ListaSkills());
+                return Ok(_mapperSkill.GetAll());
             }
             catch (Exception ex)
             {
@@ -41,16 +42,18 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
+        //metodo para listar uma skill pelo id
         [EnableQuery]
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             try
             {
+                //busca a skill pelo id e verifica se ela é encontrada
                 Skill skillBuscada = _skillRepository.GetById(id);
                 if (skillBuscada == null)
                 {
-                    return NotFound(new { Mensagem = $"A skill com id {id} não foi encontrada" });
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill {id}" });
                 }
 
                 return Ok(_mapperSkill.GetById(id));
@@ -62,12 +65,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
+        //metodo para listar todas as skill de um usuario passando o id do usuario
         [EnableQuery]
         [HttpGet("usuario/{id}")]
         public IActionResult ListarTodasPorIdPessoa(int id)
         {
             try
             {
+                //busca a pessoa pelo id e verifica se ela é encontrada
                 Pessoa pessoaBuscada = _pessoaRepository.GetById(id);
                 if (pessoaBuscada == null)
                 {
@@ -75,13 +80,14 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
                 }
                 return Ok(_mapperSkill.GetAll(id));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(new { Erro = ex.ToString() });
             }
         }
 
+        //metodo para cadastrar uma skill
         [EnableQuery]
         [HttpPost]
         public IActionResult CadastrarSkill(CadastroSkillViewModel skill)
@@ -98,16 +104,18 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
+        //metodo para editar uma skill existente
         [EnableQuery]
         [HttpPut("{id}")]
         public IActionResult EditarSkill(int id, CadastroSkillViewModel skill)
         {
             try
             {
+                //busca a skill pelo id e verifica se ela é encontrada
                 Skill skillBuscada = _skillRepository.GetById(id);
                 if (skillBuscada == null)
                 {
-                    NotFound(new { Mensagem = $"Skill não foi encontrada" });
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill {id}" });
                 }
                 _mapperSkill.Update(skill, skillBuscada.Id);
                 return Ok();
@@ -118,6 +126,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
+        //metodo para deletar uma skill existente
         [EnableQuery]
         [HttpDelete]
         public IActionResult DeletarSkill(int id)

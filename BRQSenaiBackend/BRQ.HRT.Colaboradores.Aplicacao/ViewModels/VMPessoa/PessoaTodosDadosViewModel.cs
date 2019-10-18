@@ -25,8 +25,9 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
-
+        [JsonProperty(PropertyName = "Contatos")]
         public ICollection<ContatoViewModel> Contato { get; set; }
+        public ICollection<ExperienciaViewModel> Experiencia { get; set; }
 
     }
 }

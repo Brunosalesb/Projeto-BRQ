@@ -14,6 +14,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
         public string Descricao { get; set; }
         public DateTime DtInicio { get; set; }
         public DateTime DtFim { get; set; }
-        public TipoExperienciaViewModel TipoExperiencia { get; set; }
+        public CadastroTipoExperienciaViewModel FkIdTipoExperienciaNavigation { get; set; }
     }
 }

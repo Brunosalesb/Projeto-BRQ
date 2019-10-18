@@ -5,9 +5,9 @@ using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Pessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMPessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMTipoExperiencia;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMExperiencia;
-using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Skill;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.TipoSkill;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkill;
 
 namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
 {
@@ -16,26 +16,29 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
         public EntityToViewModel()
         {
             CreateMap<TipoSkill, TipoSkillViewModel>()
-                .ReverseMap();
+    .ReverseMap();
             CreateMap<TipoSkill, CadastroTipoSkillViewModel>()
                 .ReverseMap();
             CreateMap<Skill, SkillViewModel>()
                .ReverseMap();
             CreateMap<Skill, CadastroSkillViewModel>()
-                .ReverseMap();
+                 .ReverseMap();
+            CreateMap<SkillPessoa, SkillPorIdViewModel>()
+                 .ReverseMap();
+
             CreateMap<Experiencia, ExperienciaViewModel>()
                 .ReverseMap();
             CreateMap<Experiencia, CadastroExperienciaViewModel>()
                 .ReverseMap();
-            CreateMap<Experiencia, EditarExperienciaViewModel>()
-                .ReverseMap();
-
             CreateMap<Pessoa, CadastroPessoaViewModel>()
                 .ReverseMap();
 
             CreateMap<Pessoa, PessoaContatoViewModel>()
                 .ReverseMap();
             CreateMap<Pessoa, PessoaViewModel>()
+                .ReverseMap();
+
+            CreateMap<SkillPessoa, SkillViewModel>()
                 .ReverseMap();
 
             CreateMap<Contato, ContatoViewModel>()
@@ -48,6 +51,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
             CreateMap<TipoExperiencia, CadastroTipoExperienciaViewModel>()
                 .ReverseMap();
         }
-        
+
     }
 }

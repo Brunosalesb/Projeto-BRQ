@@ -22,6 +22,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             _pessoaRepository = pessoaRepository;
         }
 
+        //cadastra o tipo da skill utilizando viewModel
         public void Add(CadastroTipoSkillViewModel obj)
         {
             try
@@ -31,11 +32,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
             }
             catch (Exception)
             {
-
-                throw;
+                throw new Exception();
             }
         }
 
+        //lista o tipo de skill utilizando viewModel
         public IEnumerable<TipoSkillViewModel> GetAll()
         {
             try

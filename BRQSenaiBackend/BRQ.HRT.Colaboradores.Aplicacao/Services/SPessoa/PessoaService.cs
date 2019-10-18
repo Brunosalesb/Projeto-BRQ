@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.IPessoa;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMPessoa;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,13 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SPessoa
         {
             _mapper = mapper;
             _pessoaRepository = pessoaRepository;
+        }
+
+        public void AtribuirSkill(SkillPessoaViewModel skillPessoa)
+        {
+            SkillPessoa sp = _mapper.Map<SkillPessoa>(skillPessoa);
+
+             _pessoaRepository.AtribuirSKill(sp);
         }
 
         public IEnumerable<PessoaViewModel> GetAll()
