@@ -20,7 +20,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-                return ctx.SkillPessoa.Where(x => x.FkIdPessoaNavigation.Id == id).ToList();
+                return ctx.SkillPessoa.Include(x => x.FkIdSkillNavigation).Include(x => x.FkIdSkillNavigation.FkIdTipoSkillNavigation).Where(x => x.FkIdPessoaNavigation.Id == id).ToList();
             }
         }
 
@@ -30,6 +30,15 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
                 return ctx.Skill.Include(x => x.FkIdTipoSkillNavigation).ToList();
+            }
+        }
+
+        //busca skill por id
+        public Skill BuscaSkillPorId(int id)
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Skill.Include(x => x.FkIdTipoSkillNavigation).Where(x => x.Id == id).FirstOrDefault();
             }
         }
     }

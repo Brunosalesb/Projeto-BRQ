@@ -25,13 +25,17 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         private IPessoaContatoService _pessoaContatoMapper;
         private IPessoaRepository _pessoaRepository;
         private IPessoaService _pessoaMapper;
+        private ISkillRepository _skillRepository;
+        private ISkillPessoaRepository _skillPessoaRepository;
 
-        public PessoasController(ICadastroPessoaService CadastroPessoaMapper, IPessoaContatoService pessoaMapper, IPessoaRepository pessoaRepository, IPessoaService pessoaService)
+        public PessoasController(ICadastroPessoaService CadastroPessoaMapper, IPessoaContatoService pessoaMapper, IPessoaRepository pessoaRepository, IPessoaService pessoaService, ISkillRepository skillRepository, ISkillPessoaRepository skillPessoaRepository)
         {
             _CadastroPessoaMapper = CadastroPessoaMapper;
             _pessoaContatoMapper = pessoaMapper;
             _pessoaRepository = pessoaRepository;
             _pessoaMapper = pessoaService;
+            _skillRepository = skillRepository;
+            _skillPessoaRepository = skillPessoaRepository;
         }
 
         [HttpPost]
@@ -150,11 +154,21 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         }
 
         [HttpPost("atribuirSkill")]
-        public IActionResult AtribuirSkill(SkillPessoaViewModel skillAtribuida)
+        public IActionResult AtribuirSkill(SkillPessoaCadastroViewModel skillAtribuida)
         {
             try
             {
-
+                Pessoa pessoaBuscada = _pessoaRepository.GetById(skillAtribuida.FkIdPessoa);
+                if (pessoaBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar a pessoa" });
+                }
+                Skill skillBuscada = _skillRepository.GetById(skillAtribuida.FkIdSkill);
+                if (skillBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill" });
+                }
+                _pessoaMapper.AtribuirSkill(skillAtribuida);
                 return Ok();
             }
             catch (Exception ex)
@@ -167,6 +181,11 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
+                SkillPessoa skillBuscada = _skillPessoaRepository.GetById(id);
+                if (skillBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill" });
+                }
                 _pessoaRepository.DesAtribuirSkill(id);
                 return Ok();
             }

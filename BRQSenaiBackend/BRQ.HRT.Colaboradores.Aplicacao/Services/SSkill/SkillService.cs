@@ -69,11 +69,11 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
         }
 
         //lista uma skill pelo id dela
-        public CadastroSkillViewModel GetById(int id)
+        public SkillViewModel GetById(int id)
         {
             try
             {
-                return _mapper.Map<CadastroSkillViewModel>(_skillRepository.GetById(id));
+                return _mapper.Map<SkillViewModel>(_skillRepository.BuscaSkillPorId(id));
             }
             catch (Exception)
             {

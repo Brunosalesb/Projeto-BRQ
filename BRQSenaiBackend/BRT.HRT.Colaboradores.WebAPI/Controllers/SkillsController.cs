@@ -17,13 +17,15 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         private readonly ISkillService _mapperSkill;
         private readonly ISkillRepository _skillRepository;
         private readonly IPessoaRepository _pessoaRepository;
+        private readonly ITipoSkillRepository _tipoSkillRepository;
 
 
-        public SkillsController(ISkillService mapperSkill, ISkillRepository skillRepository, IPessoaRepository pessoaRepository)
+        public SkillsController(ISkillService mapperSkill, ISkillRepository skillRepository, IPessoaRepository pessoaRepository, ITipoSkillRepository tipoSkillRepository)
         {
             _mapperSkill = mapperSkill;
             _skillRepository = skillRepository;
             _pessoaRepository = pessoaRepository;
+            _tipoSkillRepository = tipoSkillRepository;
         }
 
         //metodo para listar as skills existentes
@@ -33,6 +35,7 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
+                
                 return Ok(_mapperSkill.GetAll());
             }
             catch (Exception ex)
@@ -94,6 +97,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         {
             try
             {
+                //busca o tipo da skill pelo id e verifica se ela é encontrada
+                TipoSkill tipoSkillBuscada = _tipoSkillRepository.GetById(skill.FkIdTipoSkill);
+                if (tipoSkillBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar o tipo da skill {skill.FkIdTipoSkill}" });
+                }
                 _mapperSkill.Add(skill);
                 return Ok();
             }
@@ -113,10 +122,13 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             {
                 //busca a skill pelo id e verifica se ela é encontrada
                 Skill skillBuscada = _skillRepository.GetById(id);
-                if (skillBuscada == null)
+                //busca o tipo da skill pelo id e verifica se ela é encontrada
+                TipoSkill tipoSkillBuscada = _tipoSkillRepository.GetById(skill.FkIdTipoSkill);
+                if (skillBuscada == null || tipoSkillBuscada == null)
                 {
-                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill {id}" });
+                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill e/ou o tipo da skill" });
                 }
+
                 _mapperSkill.Update(skill, skillBuscada.Id);
                 return Ok();
             }

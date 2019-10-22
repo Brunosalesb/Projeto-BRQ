@@ -11,6 +11,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.IPessoa
         PessoaViewModel GetById(int id);
 
         IEnumerable<PessoaViewModel> GetAll();
-        void AtribuirSkill(SkillPessoaViewModel skillPessoa);
+        void AtribuirSkill(SkillPessoaCadastroViewModel skillAtribuida);
     }
 }

@@ -6,9 +6,9 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa
 {
    public class SkillPessoaCadastroViewModel
     {
-        public int IdPessoa { get; set; }
+        public int FkIdPessoa { get; set; }
 
-        public int IdSkill { get; set; }
+        public int FkIdSkill { get; set; }
 
     }
 }

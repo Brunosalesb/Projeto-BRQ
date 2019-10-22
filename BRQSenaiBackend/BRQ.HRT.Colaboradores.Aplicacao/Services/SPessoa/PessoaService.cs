@@ -21,7 +21,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SPessoa
             _pessoaRepository = pessoaRepository;
         }
 
-        public void AtribuirSkill(SkillPessoaViewModel skillPessoa)
+        public void AtribuirSkill(SkillPessoaCadastroViewModel skillPessoa)
         {
             SkillPessoa sp = _mapper.Map<SkillPessoa>(skillPessoa);
 
