@@ -7,7 +7,8 @@ namespace BRQ.HRT.Colaboradores.Dominio.Interfaces
 {
     public interface IExperienciaRepository : IBaseRepository<Experiencia>
     {
-        List<Experiencia> ListarExperienciasPorIdPessoa(int id);
+        Experiencia BuscarExperienciaPorId(int id);
+        List<Experiencia> BuscarExperienciaPorIdPessoa(int id);
         List<Experiencia> ListarTodasExperiencias();
     }
 }

@@ -30,6 +30,10 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         public TEntity GetById(int id)
         {
             TEntity itemBuscado = _dbContext.Set<TEntity>().Find(id);
+            if (itemBuscado == null)
+            {
+                return itemBuscado; 
+            }
             _dbContext.Entry(itemBuscado).State = EntityState.Detached;
 
             return itemBuscado;

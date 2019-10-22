@@ -14,14 +14,6 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         {
         }
 
-        public List<Experiencia> ListarExperienciasPorIdPessoa(int id)
-        {
-            using (ContextoColaboradores ctx = new ContextoColaboradores())
-            {
-                return ctx.Experiencia.Where(x => x.FkIdPessoaNavigation.Id == id).ToList();
-            }
-        }
-
         public List<Experiencia> ListarTodasExperiencias()
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
@@ -29,5 +21,23 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
                 return ctx.Experiencia.Include(x => x.FkIdTipoExperienciaNavigation).ToList();
             }
         }
+
+        public Experiencia BuscarExperienciaPorId(int id)
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Experiencia.Include(x => x.FkIdTipoExperienciaNavigation).Where(y => y.Id == id).FirstOrDefault();
+            }
+
+        }
+
+        public List<Experiencia> BuscarExperienciaPorIdPessoa(int id)
+        {
+            using (ContextoColaboradores ctx = new ContextoColaboradores())
+            {
+                return ctx.Experiencia.Where(x => x.FkIdPessoaNavigation.Id == id).Include(y => y.FkIdTipoExperienciaNavigation).ToList();
+            }
+        }
+
     }
 }

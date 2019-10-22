@@ -41,6 +41,7 @@ namespace BRQ.HRT.Colaboradores.Infra.Ioc
             services.AddScoped<ITipoExperienciaService, TipoExperienciaService>();
             services.AddScoped<ISkillService, SkillService>();
             services.AddScoped<ITipoSkillService, TipoSkillService>();
+            services.AddScoped<IContatoService,ContatoService>();
             #endregion
 
         }

@@ -11,7 +11,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces
         void Update(CadastroExperienciaViewModel obj, int id);
         IEnumerable<ExperienciaViewModel> GetAll(int userId);
         IEnumerable<ExperienciaViewModel> ListarTodasExperiencias();
-        ExperienciaViewModel GetById(int id);
+        ExperienciaViewModel BuscarExperienciaPorId(int id);
         void Add(CadastroExperienciaViewModel obj);
     }
 }

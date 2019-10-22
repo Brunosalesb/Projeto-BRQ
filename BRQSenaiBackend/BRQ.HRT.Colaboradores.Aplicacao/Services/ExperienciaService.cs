@@ -50,7 +50,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
         {
             try
             {
-                return _mapper.Map<List<ExperienciaViewModel>>(_experienciaRepository.ListarExperienciasPorIdPessoa(userId));
+                return _mapper.Map<List<ExperienciaViewModel>>(_experienciaRepository.BuscarExperienciaPorIdPessoa(userId));
             }
             catch (Exception ex)
             {
@@ -70,9 +70,9 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services
             }
         }
 
-        public ExperienciaViewModel GetById(int id)
+        public ExperienciaViewModel BuscarExperienciaPorId(int id)
         {
-            return _mapper.Map<ExperienciaViewModel>(_experienciaRepository.GetById(id));
+            return _mapper.Map<ExperienciaViewModel>(_experienciaRepository.BuscarExperienciaPorId(id));
         }
 
         public void Update(CadastroExperienciaViewModel obj, int id)

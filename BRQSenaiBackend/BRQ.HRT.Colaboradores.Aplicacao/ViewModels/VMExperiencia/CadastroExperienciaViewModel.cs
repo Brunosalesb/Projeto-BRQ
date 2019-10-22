@@ -10,11 +10,13 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Experiencia
         public string Titulo { get; set; }
         public string Instituicao { get; set; }
         public string Descricao { get; set; }
-        [JsonProperty(PropertyName = "DataInicio")]
+        [JsonProperty(PropertyName = "dataInicio")]
         public DateTime DtInicio { get; set; }
-        [JsonProperty(PropertyName = "DataFim")]
+        [JsonProperty(PropertyName = "dataFim")]
         public DateTime DtFim { get; set; }
+        [JsonProperty(PropertyName = "tipoExperiencia")]
         public int FkIdTipoExperiencia { get; set; }
+        [JsonProperty(PropertyName = "pessoa")]
         public int FkIdPessoa { get; set; }
     }
 }

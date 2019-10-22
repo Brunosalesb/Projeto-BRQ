@@ -1,4 +1,5 @@
 ﻿using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.Pessoa;
+using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa;
 using BRQ.HRT.Colaboradores.Dominio.Entidades;
 using Newtonsoft.Json;
 using System;
@@ -27,7 +28,10 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels
         public string Pais { get; set; }
         [JsonProperty(PropertyName = "Contatos")]
         public ICollection<ContatoViewModel> Contato { get; set; }
+        [JsonProperty(PropertyName = "Experiencias")]
         public ICollection<ExperienciaViewModel> Experiencia { get; set; }
+        [JsonProperty(PropertyName = "SkillsDaPessoa")]
+        public ICollection<SkillPessoaViewModel> SkillPessoa { get; set; }
 
     }
 }

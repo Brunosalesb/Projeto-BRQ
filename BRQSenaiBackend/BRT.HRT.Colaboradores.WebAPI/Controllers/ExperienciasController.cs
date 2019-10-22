@@ -15,13 +15,15 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     {
         private readonly IExperienciaRepository _experienciaRepository;
         private readonly IPessoaRepository _pessoaRepository;
+        private readonly ITipoExperienciaRepository _tipoExpRepository;
 
         private readonly IExperienciaService _mapperExp;
 
-        public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository,  IExperienciaService mapperExp)
+        public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository, IExperienciaService mapperExp, ITipoExperienciaRepository tipoExpRepository)
         {
             _experienciaRepository = experienciaRepository;
             _pessoaRepository = pessoaRepository;
+            _tipoExpRepository = tipoExpRepository;
             _mapperExp = mapperExp;
         }
 
@@ -47,12 +49,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             try
             {
                 Experiencia ExpBuscada = _experienciaRepository.GetById(id);
+
                 if (ExpBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
-
-                return Ok(_mapperExp.GetById(id));
+                return Ok(_mapperExp.BuscarExperienciaPorId(id));
             }
             catch (Exception ex)
             {
@@ -67,9 +69,10 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             try
             {
                 Pessoa PessoaBuscada = _pessoaRepository.GetById(id);
+
                 if (PessoaBuscada == null)
                 {
-                    return NotFound(new { Mensagem = $"Pessoa do ID: {id}, não foi encontrada!" });
+                    return NotFound(new { Mensagem = $"Pessoa não encontrada!" });
                 }
                 return Ok(_mapperExp.GetAll(id));
             }
@@ -82,8 +85,16 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         [HttpPost]
         public IActionResult CadastrarExp(CadastroExperienciaViewModel exp)
         {
+
             try
             {
+                TipoExperiencia tipoExpValidacao = _tipoExpRepository.GetById(exp.FkIdTipoExperiencia);
+                Pessoa pessoaValidacao = _pessoaRepository.GetById(exp.FkIdPessoa);
+                
+                if(tipoExpValidacao == null && pessoaValidacao == null)
+                {
+                    return NotFound(new { Mensagem = $"Pessoa e/ou tipo de experiência não existe!" });
+                }
                 _mapperExp.Add(exp);
                 return Ok();
             }
@@ -93,15 +104,17 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-        [HttpPut ("{id}")]
+        [HttpPut("{id}")]
         public IActionResult AtualizarExp(int id, CadastroExperienciaViewModel xp)
         {
             try
             {
+                TipoExperiencia tipoExpValidacao = _tipoExpRepository.GetById(xp.FkIdTipoExperiencia);
                 Experiencia expBuscada = _experienciaRepository.GetById(id);
+
                 if (expBuscada == null)
                 {
-                    NotFound(new { Mensagem = $"Experiência não encontrada!" });
+                    return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
                 _mapperExp.Update(xp, expBuscada.Id);
                 return Ok();
@@ -113,16 +126,15 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletarExp (int id)
+        public IActionResult DeletarExp(int id)
         {
             try
             {
                 Experiencia ExpBuscada = _experienciaRepository.GetById(id);
-                if(ExpBuscada == null)
+                if (ExpBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
-
                 _experienciaRepository.Remove(id);
                 return Ok(new { Mensagem = $"Experiência deletada com sucesso!" });
             }

@@ -28,17 +28,16 @@ namespace BRQ.HRT.Colaboradores.Infra.Data.Repositorios
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-
-                return ctx.Pessoa.Include(x => x.Contato).Include("Contato.FkIdTipoContatoNavigation").Include(y=> y.Experiencia).AsNoTracking().ToList();
+                return ctx.Pessoa.Include(x => x.Contato).Include("Contato.FkIdTipoContatoNavigation").Include(y => y.Experiencia).Include("Experiencia.FkIdTipoExperienciaNavigation").Include(v=> v.SkillPessoa).Include("SkillPessoa.FkIdSkillNavigation").Include("SkillPessoa.FkIdSkillNavigation.FkIdTipoSkillNavigation").AsNoTracking().ToList();
             }
+
             }
 
         public Pessoa BuscarTodosDadosPorID(int id)
         {
             using (ContextoColaboradores ctx = new ContextoColaboradores())
             {
-
-                return ctx.Pessoa.Include(x => x.Contato).Include("Contato.FkIdTipoContatoNavigation").Include(y => y.Experiencia).AsNoTracking().Where(x=> x.Id == id).FirstOrDefault();
+                return ctx.Pessoa.Include(x => x.Contato).Include("Contato.FkIdTipoContatoNavigation").Include(y => y.Experiencia).Include("Experiencia.FkIdTipoExperienciaNavigation").Include(v => v.SkillPessoa).Include("SkillPessoa.FkIdSkillNavigation").Include("SkillPessoa.FkIdSkillNavigation.FkIdTipoSkillNavigation").AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
             }
         }
 
