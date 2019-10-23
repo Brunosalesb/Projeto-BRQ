@@ -44,5 +44,12 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.STipoExperiencia
                 throw new Exception(ex.Message);
             }
         }
+
+        public void Update(CadastroTipoExperienciaViewModel obj, int id)
+        {
+            TipoExperiencia tipoExp = _mapper.Map<TipoExperiencia>(obj);
+            tipoExp.Id = id;
+            _tipoExperienciaRepository.Update(tipoExp);
+        }
     }
 }

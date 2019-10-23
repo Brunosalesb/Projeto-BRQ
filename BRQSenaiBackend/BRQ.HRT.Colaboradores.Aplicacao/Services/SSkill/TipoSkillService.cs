@@ -48,5 +48,21 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SSkill
                 throw new Exception();
             }
         }
+
+        //edita o tipo da skill
+        public void Update(CadastroTipoSkillViewModel obj, int id)
+        {
+            try
+            {
+                TipoSkill tipoSkillBuscada = _mapper.Map<TipoSkill>(obj);
+                tipoSkillBuscada.Id = id;
+                _tipoSkillRepository.Update(tipoSkillBuscada);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception();
+            }
+        }
     }
 }

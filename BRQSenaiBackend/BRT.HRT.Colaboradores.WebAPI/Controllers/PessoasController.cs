@@ -24,18 +24,16 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         private ICadastroPessoaService _CadastroPessoaMapper;
         private IPessoaContatoService _pessoaContatoMapper;
         private IPessoaRepository _pessoaRepository;
-        private IPessoaService _pessoaMapper;
         private ISkillRepository _skillRepository;
-        private ISkillPessoaRepository _skillPessoaRepository;
+        private IPessoaService _pessoaMapper;
 
-        public PessoasController(ICadastroPessoaService CadastroPessoaMapper, IPessoaContatoService pessoaMapper, IPessoaRepository pessoaRepository, IPessoaService pessoaService, ISkillRepository skillRepository, ISkillPessoaRepository skillPessoaRepository)
+        public PessoasController(ICadastroPessoaService CadastroPessoaMapper, IPessoaContatoService pessoaMapper, IPessoaRepository pessoaRepository, IPessoaService pessoaService, ISkillRepository skillRepository)
         {
             _CadastroPessoaMapper = CadastroPessoaMapper;
             _pessoaContatoMapper = pessoaMapper;
             _pessoaRepository = pessoaRepository;
             _pessoaMapper = pessoaService;
             _skillRepository = skillRepository;
-            _skillPessoaRepository = skillPessoaRepository;
         }
 
         [HttpPost]
@@ -156,36 +154,24 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
         [HttpPost("atribuirSkill")]
         public IActionResult AtribuirSkill(SkillPessoaCadastroViewModel skillAtribuida)
         {
-            try
+            Pessoa pessoaBuscada = _pessoaRepository.GetById(skillAtribuida.FkIdPessoa);
+            if (pessoaBuscada == null)
             {
-                Pessoa pessoaBuscada = _pessoaRepository.GetById(skillAtribuida.FkIdPessoa);
-                if (pessoaBuscada == null)
-                {
-                    return NotFound(new { Mensagem = $"Não foi possível encontrar a pessoa" });
-                }
-                Skill skillBuscada = _skillRepository.GetById(skillAtribuida.FkIdSkill);
-                if (skillBuscada == null)
-                {
-                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill" });
-                }
-                _pessoaMapper.AtribuirSkill(skillAtribuida);
-                return Ok();
+                return NotFound(new { Mensagem = $"Não foi possível encontrar a pessoa" });
             }
-            catch (Exception ex)
+            Skill skillBuscada = _skillRepository.GetById(skillAtribuida.FkIdSkill);
+            if (skillBuscada == null)
             {
-                return BadRequest(new { error = ex.Message });
+                return NotFound(new { Mensagem = $"Não foi possível encontrar a skill" });
             }
+            _pessoaMapper.AtribuirSkill(skillAtribuida);
+            return Ok();
         }
         [HttpDelete("desatribuirskill/{id}")]
         public IActionResult DesatribuirSkill(int id)
         {
             try
             {
-                SkillPessoa skillBuscada = _skillPessoaRepository.GetById(id);
-                if (skillBuscada == null)
-                {
-                    return NotFound(new { Mensagem = $"Não foi possível encontrar a skill" });
-                }
                 _pessoaRepository.DesAtribuirSkill(id);
                 return Ok();
             }

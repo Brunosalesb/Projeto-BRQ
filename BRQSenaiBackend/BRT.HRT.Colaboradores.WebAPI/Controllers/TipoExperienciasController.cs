@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using BRQ.HRT.Colaboradores.Aplicacao.Interfaces.ITipoExperiencia;
 using BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMTipoExperiencia;
+using BRQ.HRT.Colaboradores.Dominio.Entidades;
+using BRQ.HRT.Colaboradores.Dominio.Interfaces;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +18,12 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     public class TipoExperienciasController : ControllerBase
     {
         private readonly ITipoExperienciaService _mapperTipoExp;
+        private readonly ITipoExperienciaRepository _tipoExpRepository;
 
-        public TipoExperienciasController(ITipoExperienciaService mapperTipoExp)
+        public TipoExperienciasController(ITipoExperienciaService mapperTipoExp, ITipoExperienciaRepository tipoExpRepository)
         {
             _mapperTipoExp = mapperTipoExp;
+            _tipoExpRepository = tipoExpRepository;
         }
 
         [EnableQuery]
@@ -43,6 +47,45 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             {
                 _mapperTipoExp.Add(tipoExp);
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, CadastroTipoExperienciaViewModel tipoExp)
+        {
+            try
+            {
+                TipoExperiencia tipoExpBuscada = _tipoExpRepository.GetById(id);
+
+                if (tipoExpBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Tipo de experiência não encontrada!" });
+                }
+                _mapperTipoExp.Update(tipoExp, tipoExpBuscada.Id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Erro = ex.ToString() });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                TipoExperiencia tipoExpBuscada = _tipoExpRepository.GetById(id);
+                if (tipoExpBuscada == null)
+                {
+                    return NotFound(new { Mensagem = $"Tipo de experiência não encontrada!" });
+                }
+                _tipoExpRepository.Remove(id);
+                return Ok(new { Mensagem = $"Tipo de experiência deletada com sucesso!" });
             }
             catch (Exception ex)
             {

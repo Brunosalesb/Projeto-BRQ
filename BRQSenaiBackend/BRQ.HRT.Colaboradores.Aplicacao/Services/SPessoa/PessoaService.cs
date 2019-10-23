@@ -25,7 +25,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SPessoa
         {
             SkillPessoa sp = _mapper.Map<SkillPessoa>(skillPessoa);
 
-             _pessoaRepository.AtribuirSKill(sp);
+            _pessoaRepository.AtribuirSKill(sp);
         }
 
         public IEnumerable<PessoaViewModel> GetAll()
@@ -37,8 +37,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Services.SPessoa
         {
             return _mapper.Map<PessoaViewModel>(_pessoaRepository.GetById(id));
         }
-
-
 
     }
 }

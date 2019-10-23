@@ -7,6 +7,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.ITipoExperiencia
 {
     public interface ITipoExperienciaService 
     {
+        void Update(CadastroTipoExperienciaViewModel obj, int id);
         void Add(CadastroTipoExperienciaViewModel obj);
         IEnumerable<TipoExperienciaViewModel> GetAll();
     }

@@ -19,22 +19,21 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
         public EntityToViewModel()
         {
             CreateMap<TipoSkill, TipoSkillViewModel>()
-                .ReverseMap();
-
+    .ReverseMap();
             CreateMap<TipoSkill, CadastroTipoSkillViewModel>()
                 .ReverseMap();
-
             CreateMap<Skill, SkillViewModel>()
                .ReverseMap();
             CreateMap<Skill, CadastroSkillViewModel>()
-               .ReverseMap();
-
+                 .ReverseMap();
             CreateMap<SkillPessoa, SkillPorIdViewModel>()
                  .ReverseMap();
 
             CreateMap<Experiencia, ExperienciaViewModel>()
                 .ReverseMap();
             CreateMap<Experiencia, CadastroExperienciaViewModel>()
+                .ReverseMap();
+            CreateMap<Pessoa, CadastroPessoaViewModel>()
                 .ReverseMap();
 
             CreateMap<Pessoa, CadastroPessoaViewModel>()
@@ -51,19 +50,16 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.AutoMapper.Perfis
 
             CreateMap<Contato, ContatoViewModel>()
                 .ReverseMap();
-            CreateMap<Contato, ContatoCadastroViewModel>()
-                .ReverseMap();
 
             CreateMap<TipoContato, TipoContatoViewModel>()
                 .ReverseMap();
-
             CreateMap<TipoExperiencia, TipoExperienciaViewModel>()
                 .ReverseMap();
-
             CreateMap<TipoExperiencia, CadastroTipoExperienciaViewModel>()
                 .ReverseMap();
 
-            
+            CreateMap<Contato, ContatoCadastroViewModel>()
+                .ReverseMap();
         }
 
     }

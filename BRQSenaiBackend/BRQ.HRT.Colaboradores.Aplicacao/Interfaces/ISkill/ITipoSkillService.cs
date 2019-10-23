@@ -10,5 +10,7 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.Interfaces.ISkill
     {
         IEnumerable<TipoSkillViewModel> GetAll();
         void Add(CadastroTipoSkillViewModel obj);
+        void Update(CadastroTipoSkillViewModel obj, int id);
+
     }
 }

@@ -10,5 +10,6 @@ namespace BRQ.HRT.Colaboradores.Aplicacao.ViewModels.VMSkillPessoa
 
         public int FkIdSkill { get; set; }
 
+
     }
 }

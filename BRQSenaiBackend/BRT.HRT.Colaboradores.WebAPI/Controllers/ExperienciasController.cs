@@ -13,23 +13,23 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
     [ApiController]
     public class ExperienciasController : ControllerBase
     {
+        private readonly ITipoExperienciaRepository _tipoExpRepository;
         private readonly IExperienciaRepository _experienciaRepository;
         private readonly IPessoaRepository _pessoaRepository;
-        private readonly ITipoExperienciaRepository _tipoExpRepository;
 
         private readonly IExperienciaService _mapperExp;
 
         public ExperienciasController(IExperienciaRepository experienciaRepository, IPessoaRepository pessoaRepository, IExperienciaService mapperExp, ITipoExperienciaRepository tipoExpRepository)
         {
+            _tipoExpRepository = tipoExpRepository;
             _experienciaRepository = experienciaRepository;
             _pessoaRepository = pessoaRepository;
-            _tipoExpRepository = tipoExpRepository;
             _mapperExp = mapperExp;
         }
 
         [EnableQuery]
         [HttpGet]
-        public IActionResult ListarTodasExp()
+        public IActionResult ListarTodas()
         {
             try
             {
@@ -41,16 +41,15 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             }
         }
 
-
         [EnableQuery]
         [HttpGet("{id}")]
         public IActionResult BuscarPorID(int id)
         {
             try
             {
-                Experiencia ExpBuscada = _experienciaRepository.GetById(id);
+                Experiencia expBuscada = _experienciaRepository.GetById(id);
 
-                if (ExpBuscada == null)
+                if (expBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
                 }
@@ -64,13 +63,13 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
 
         [EnableQuery()]
         [HttpGet("usuario/{id}")]
-        public IActionResult BuscarTodasPorIdPessoa(int id)
+        public IActionResult BuscarTodasPorIDPessoa(int id)
         {
             try
             {
-                Pessoa PessoaBuscada = _pessoaRepository.GetById(id);
+                Pessoa pessoaBuscada = _pessoaRepository.GetById(id);
 
-                if (PessoaBuscada == null)
+                if (pessoaBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Pessoa não encontrada!" });
                 }
@@ -90,8 +89,8 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             {
                 TipoExperiencia tipoExpValidacao = _tipoExpRepository.GetById(exp.FkIdTipoExperiencia);
                 Pessoa pessoaValidacao = _pessoaRepository.GetById(exp.FkIdPessoa);
-                
-                if(tipoExpValidacao == null && pessoaValidacao == null)
+
+                if (tipoExpValidacao == null || pessoaValidacao == null)
                 {
                     return NotFound(new { Mensagem = $"Pessoa e/ou tipo de experiência não existe!" });
                 }
@@ -110,11 +109,18 @@ namespace BRQ.HRT.Colaboradores.WebAPI.Controllers
             try
             {
                 TipoExperiencia tipoExpValidacao = _tipoExpRepository.GetById(xp.FkIdTipoExperiencia);
+                Pessoa pessoaValidacao = _pessoaRepository.GetById(xp.FkIdPessoa);
                 Experiencia expBuscada = _experienciaRepository.GetById(id);
+
 
                 if (expBuscada == null)
                 {
                     return NotFound(new { Mensagem = $"Experiência não encontrada!" });
+                }
+
+                if (tipoExpValidacao == null || pessoaValidacao == null)
+                {
+                    return NotFound(new { Mensagem = $"Pessoa e/ou tipo de experiência não existe!" });
                 }
                 _mapperExp.Update(xp, expBuscada.Id);
                 return Ok();
