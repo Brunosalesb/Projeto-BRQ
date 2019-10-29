@@ -1,0 +1,13 @@
+<div>
+    <h2>Cadastrar Vaga</h2>
+    <form #v="ngForm" (ngSubmit)="cadastrarVaga(v)">
+        <input type="text" id="titulo" [(ngModel)]="vaga.titulo" name="titulo" #titulo="ngModel">
+        <input type="date" id="dtPublicacao" [(ngModel)]="vaga.dtPublicacao" name="dtPublicacao" #titulo="ngModel">
+        <input type="text" id="localidade" [(ngModel)]="vaga.localidade" name="localidade" #localidade="ngModel">
+        <input type="text" id="horario" [(ngModel)]="vaga.horario" name="horario" #horario="ngModel">
+        <input type="date" id="dtInicio" [(ngModel)]="vaga.dtInicio" name="dtInicio" #dtInicio="ngModel">
+        <input type="date" id="dtFim" [(ngModel)]="vaga.dtFim" name="dtFim" #dtFim="ngModel">
+        <input type="text" id="empresa" [(ngModel)]="vaga.empresa" name="empresa" #empresa="ngModel">
+        <button type="submit">cadastrar</button> 
+    </form>
+</div>
