@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Services} from "../../../ApiService";
 import { o } from "odata";
+import { RequestVaga } from '../Model/vagas.model';
 
 @Component({
   selector: 'app-listar-vagas',
@@ -8,7 +9,7 @@ import { o } from "odata";
   styleUrls: ['./listar-vagas.component.css']
 })
 export class ListarVagasComponent implements OnInit {
-  lista: Array<any>;
+  lista: RequestVaga;
   constructor(private api:Services) { }
 
   ngOnInit() {

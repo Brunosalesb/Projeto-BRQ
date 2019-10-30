@@ -1,4 +1,4 @@
-export interface RequestVaga{
+export interface Base{
     titulo: "",
     dtPublicacao: "",
     localidade: "",
@@ -6,4 +6,12 @@ export interface RequestVaga{
     dtInicio: "",
     dtFim: "",
     empresa: ""
+}
+
+export interface RequestEditar extends Base{
+
+}
+
+export interface RequestVaga extends Base{
+
 }

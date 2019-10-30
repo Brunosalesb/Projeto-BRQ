@@ -8,10 +8,10 @@ import { ListarVagaPorIdComponent } from './Componentes/Vagas/listar-vaga-por-id
 
 const routes: Routes = [
   {path:"vagas/listar",component:ListarVagasComponent},
-  {path:"vagas/listar/id",component:ListarVagaPorIdComponent},
+  {path:"vagas/listar/:id",component:ListarVagaPorIdComponent},
   {path:"vagas/cadastrar",component:CadastrarVagasComponent},
   {path:"vagas/deletar",component:DeletarVagasComponent},
-  {path:"vagas/editar",component:EditarVagasComponent}
+  //{path:"vagas/editar",component:EditarVagasComponent}
 
 ];
 
