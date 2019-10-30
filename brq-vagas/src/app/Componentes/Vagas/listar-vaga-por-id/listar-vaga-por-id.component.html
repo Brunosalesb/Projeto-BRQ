@@ -1,10 +1,20 @@
-<div *ngIf="lista">
-    <div>{{lista.titulo}}</div>
-    <div>{{lista.dtPublicacao}}</div>
-    <div>{{lista.localidade}}</div>
-    <div>{{lista.horario}}</div>
-    <div>{{lista.dtInicio}}</div>
-    <div>{{lista.dtFim}}</div>
-    <div>{{lista.empresa}}</div>
-    <div>{{lista.fkTipoVinculo}}</div>
+<mat-toolbar color="primary" class="nav">
+    <span>BRQ</span>
+</mat-toolbar>
+
+<h1>Vaga</h1>
+<div class="vaga">
+    <div class="barra-vaga"></div>
+    <div *ngIf="lista">
+        <div>
+            <div class="titulo">{{lista.titulo}}</div><br>
+            <!-- <div class="tipoVinculo">{{lista.TipoVinculo}}</div> -->
+        </div>
+        <div class="local">{{lista.localidade}}</div>
+        <!--<div>{{lista.empresa}}</div>
+        <div>{{lista.horario}}</div>
+        <div>{{lista.dtInicio}}</div>
+        <div>{{lista.dtFim}}</div>
+        <div>{{lista.dtPublicacao}}</div> -->
+    </div>
 </div>

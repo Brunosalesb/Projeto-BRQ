@@ -9,6 +9,8 @@ import { CadastrarVagasComponent } from './Componentes/Vagas/cadastrar-vagas/cad
 import { DeletarVagasComponent } from './Componentes/Vagas/deletar-vagas/deletar-vagas.component';
 import { EditarVagasComponent } from './Componentes/Vagas/editar-vagas/editar-vagas.component';
 import { ListarVagaPorIdComponent } from './Componentes/Vagas/listar-vaga-por-id/listar-vaga-por-id.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ListarVagaPorIdComponent } from './Componentes/Vagas/listar-vaga-por-id
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [Services],
   bootstrap: [AppComponent]

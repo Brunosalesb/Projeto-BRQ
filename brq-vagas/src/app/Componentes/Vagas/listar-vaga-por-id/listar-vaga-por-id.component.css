@@ -1,0 +1,37 @@
+.nav{
+    background-color: darkcyan;
+}
+
+h1{
+    text-align: center;
+}
+
+.barra-vaga{
+    width: 7%;
+    margin: auto;
+    height: 800px;
+    background-color: orange;
+    float: left;
+}
+
+.vaga{
+    background-color: darkcyan;
+    text-align: center;
+    width: 60%;
+     margin: auto;
+    height: 800px;
+}
+
+.titulo{
+    float: left;
+    margin: 5%;
+}
+
+.tipoVinculo{
+    float: left;
+    }
+
+.local{
+    float: right;
+    margin: 5%;
+}
