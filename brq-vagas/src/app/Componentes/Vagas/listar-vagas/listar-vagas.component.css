@@ -1,0 +1,47 @@
+.nav{
+    background-color: #005F9C;
+}
+
+h1{
+    text-align: center;
+}
+
+.barra-vaga{
+    width: 7%;
+    margin: auto;
+    height: auto;
+    background-color: #F27405;
+    float: left;
+}
+
+.vaga{
+    background-color: #F27405;
+    text-align: center;
+    width: 40%;
+     margin: auto auto 3% auto;
+    height: auto;
+    /* border-radius: 1em; */
+}
+
+.header-vaga{
+    padding-top: 3%;
+}
+
+.descricao{
+    margin: 5% 8% 0 8%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.vaga .descricao{
+    text-align: justify;
+}
+
+.ver-vaga{
+    margin:1% 0 3% 0;
+    background-color: #005F9C;
+}

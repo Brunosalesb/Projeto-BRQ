@@ -6,15 +6,37 @@
 <div class="vaga">
     <div class="barra-vaga"></div>
     <div *ngIf="lista">
-        <div>
-            <div class="titulo">{{lista.titulo}}</div><br>
-            <!-- <div class="tipoVinculo">{{lista.TipoVinculo}}</div> -->
+        <mat-grid-list class="header-vaga" cols="2" rowHeight="13:1">
+            <mat-grid-tile>Título: {{lista.titulo}}</mat-grid-tile>
+            <mat-grid-tile>Localidade: {{lista.localidade}}</mat-grid-tile>
+            <mat-grid-tile>Tipo de vínculo: {{lista.TipoVinculo}}</mat-grid-tile>
+            <mat-grid-tile>Empresa: {{lista.empresa}}</mat-grid-tile>
+        </mat-grid-list>
+        <div class="descricao">Descrição:
+            <br>
+            <span>{{lista.descricao}}</span>
         </div>
-        <div class="local">{{lista.localidade}}</div>
-        <!--<div>{{lista.empresa}}</div>
-        <div>{{lista.horario}}</div>
-        <div>{{lista.dtInicio}}</div>
-        <div>{{lista.dtFim}}</div>
-        <div>{{lista.dtPublicacao}}</div> -->
+        <div class="requisito">Requisitos:
+            <br>
+            <span>{{lista.requisito}}</span>
+        </div>
+        <div class="beneficio">Benefícios:
+            <br>
+            <span>{{lista.beneficio}}</span>
+        </div>
+        <div class="horario">Horário:
+            <br>
+            <span>{{lista.horario}}</span>
+        </div>
+        <div class="salario">Salário:
+            <br>
+            <span>{{lista.salario}}</span>
+        </div>
+        <div class="contato">Contatos:
+            <br>
+            <span>{{lista.contato}}</span>
+        </div>
+        <div class="dtPublicacao">Data de publicação:<span>{{lista.dtPublicacao}}</span></div>
     </div>
+
 </div>

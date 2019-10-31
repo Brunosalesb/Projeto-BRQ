@@ -1,12 +1,23 @@
+<mat-toolbar color="primary" class="nav">
+    <span>BRQ</span>
+</mat-toolbar>
+<h1>Vagas</h1>
+
+
 <div *ngFor="let l of lista">
-    <div>{{l.titulo}}</div>
-    <div>{{l.dtPublicacao}}</div>
-    <div>{{l.localidade}}</div>
-    <div>{{l.horario}}</div>
-    <div>{{l.dtInicio}}</div>
-    <div>{{l.dtFim}}</div>
-    <div>{{l.empresa}}</div>
-    <div>{{l.fkTipoVinculo}}</div>
-    <button routerLink="/vagas/listar/{{l.id}}">ver vaga id: {{l.id}}</button>
-    <br>
+    <div class="vaga">
+        <div class="barra-vaga"></div>
+        <mat-grid-list class="header-vaga" cols="2" rowHeight="15:1">
+            <mat-grid-tile>Título: {{l.titulo}}</mat-grid-tile>
+            <mat-grid-tile>Localidade: {{l.localidade}}</mat-grid-tile>
+            <mat-grid-tile>Tipo de vínculo: {{l.TipoVinculo}}</mat-grid-tile>
+            <mat-grid-tile>Empresa: {{l.empresa}}</mat-grid-tile>
+        </mat-grid-list>
+        <div class="descricao">Descrição:
+            <br>
+            <span>{{l.descricao}}</span>
+        </div>
+        <button class="ver-vaga" mat-button routerLink="/vagas/listar/{{l.id}}">ver vaga</button>
+    </div>
 </div>
+

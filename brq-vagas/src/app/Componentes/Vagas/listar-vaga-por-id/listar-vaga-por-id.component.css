@@ -9,7 +9,7 @@ h1{
 .barra-vaga{
     width: 7%;
     margin: auto;
-    height: 800px;
+    height: auto;
     background-color: orange;
     float: left;
 }
@@ -19,19 +19,43 @@ h1{
     text-align: center;
     width: 60%;
      margin: auto;
-    height: 800px;
+    height: auto;
 }
 
-.titulo{
-    float: left;
-    margin: 5%;
+.header-vaga{
+    padding-top: 3%;
 }
 
-.tipoVinculo{
-    float: left;
-    }
+.descricao{
+    margin: 5% 8% 0 8%;
+    text-align: justify;
+}
 
-.local{
+.requisito{
+    margin: 5% 8% 0 8%;
+    text-align: justify;
+}
+
+.beneficio{
+    margin: 5% 8% 0 8%;
+    text-align: justify;
+}
+
+.horario{
+    margin: 5% 8% 0 8%;
+    text-align: justify;
+}
+
+.salario{
+    margin: 5% 8% 0 8%;
+    text-align: justify;
+}
+
+.contato{
+    margin: 5% 8% 0 8%;
+    text-align: justify;
+}
+
+.dtPublicacao{
     float: right;
-    margin: 5%;
 }
