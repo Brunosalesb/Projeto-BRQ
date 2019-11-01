@@ -7,9 +7,7 @@ h1{
 }
 
 .barra-vaga{
-    width: 7%;
-    margin: auto;
-    height: auto;
+    width: 15%;
     background-color: orange;
     float: left;
 }
@@ -18,8 +16,9 @@ h1{
     background-color: darkcyan;
     text-align: center;
     width: 60%;
-     margin: auto;
+     margin: auto auto 5% auto;
     height: auto;
+    display: flex;
 }
 
 .header-vaga{
@@ -58,4 +57,5 @@ h1{
 
 .dtPublicacao{
     float: right;
+    margin-top: 2%;
 }

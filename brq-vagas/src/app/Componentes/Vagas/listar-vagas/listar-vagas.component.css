@@ -6,13 +6,11 @@ h1{
     text-align: center;
 }
 
-.barra-vaga{
-    width: 7%;
-    margin: auto;
-    height: auto;
-    background-color: #F27405;
+/* .barra-vaga{
+    width: 15%;
+    background-color: pink;
     float: left;
-}
+} */
 
 .vaga{
     background-color: #F27405;
@@ -20,11 +18,13 @@ h1{
     width: 40%;
      margin: auto auto 3% auto;
     height: auto;
+    /* display: flex; */
     /* border-radius: 1em; */
 }
 
 .header-vaga{
     padding-top: 3%;
+
 }
 
 .descricao{
@@ -44,4 +44,5 @@ h1{
 .ver-vaga{
     margin:1% 0 3% 0;
     background-color: #005F9C;
+    
 }
