@@ -1,5 +1,5 @@
 .nav{
-    background-color: #005F9C;
+    background-color: #035A7D;
 }
 
 h1{
@@ -13,11 +13,12 @@ h1{
 } */
 
 .vaga{
-    background-color: #F27405;
+    background-color: #035A7D;
     text-align: center;
     width: 40%;
      margin: auto auto 3% auto;
     height: auto;
+    color: white;
     /* display: flex; */
     /* border-radius: 1em; */
 }
@@ -38,11 +39,12 @@ h1{
 }
 
 .vaga .descricao{
-    text-align: justify;
+    text-align: left;
 }
 
 .ver-vaga{
-    margin:1% 0 3% 0;
-    background-color: #005F9C;
+    margin:3% 0 3% 0;
+    background-color: #f27405;
+    color: white;
     
 }

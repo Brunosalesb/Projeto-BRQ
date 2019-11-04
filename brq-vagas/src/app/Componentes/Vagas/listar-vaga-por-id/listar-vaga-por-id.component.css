@@ -1,5 +1,5 @@
 .nav{
-    background-color: darkcyan;
+    background-color: #035A7D;
 }
 
 h1{
@@ -8,54 +8,129 @@ h1{
 
 .barra-vaga{
     width: 15%;
-    background-color: orange;
+    background-color: #f27405;
     float: left;
 }
 
+.topo-vaga{
+    margin-top: 3%;
+}
+.titulo{
+    float: left;
+    margin: auto auto auto 7%;
+}
+
+.empresa{
+    float: right;
+    margin:  auto 10% auto auto;
+}
+
+.vinculo{
+    float: left;
+    margin: 3% auto auto 7%;
+}
+
+.local{
+    float: right;
+    margin:  3% 10% auto auto;
+}
+
 .vaga{
-    background-color: darkcyan;
+    background-color: #035A7D;
     text-align: center;
-    width: 60%;
+    width: 80%;
      margin: auto auto 5% auto;
     height: auto;
     display: flex;
-}
-
-.header-vaga{
-    padding-top: 3%;
+    color: white;
 }
 
 .descricao{
-    margin: 5% 8% 0 8%;
-    text-align: justify;
+    margin: 15% 8% auto 8%;
+    text-align: left;
 }
 
 .requisito{
-    margin: 5% 8% 0 8%;
-    text-align: justify;
+    margin: 5% 8% auto 8%;
+    text-align: left;
 }
 
 .beneficio{
-    margin: 5% 8% 0 8%;
-    text-align: justify;
+    margin: 5% 8% auto 8%;
+    text-align: left;
 }
 
 .horario{
-    margin: 5% 8% 0 8%;
-    text-align: justify;
+    margin: 5% 8% auto 8%;
+    text-align: left;
 }
 
 .salario{
-    margin: 5% 8% 0 8%;
-    text-align: justify;
+    margin: 5% 8% auto 8%;
+    text-align: left;
 }
 
 .contato{
-    margin: 5% 8% 0 8%;
-    text-align: justify;
+    margin: 5% 8% auto 8%;
+    text-align: left;
 }
 
 .dtPublicacao{
     float: right;
-    margin-top: 2%;
+    margin: 2% 2% auto auto;
+    color: rgba(153,153,153,0.9)
+}
+
+.candidatar{
+    margin: -3% auto 3% auto ;
+    display: flex;
+    background-color: #f27405;
+    color: white;
+}
+
+@media only screen and (max-width: 850px) {
+
+.nav{
+    background-color: #035A7D;
+}
+
+.barra-vaga{
+    width: 30%;
+    background-color: #f27405;
+    float: left;
+}
+
+.titulo{
+    float: none;
+    margin: auto auto 3% auto;
+}
+
+.local{
+    float: none;
+    margin: auto auto auto auto;
+}
+
+.empresa{
+    float: none;
+    margin: auto auto 3% auto;
+}
+
+.vinculo{
+    float: none;
+    margin: auto auto 3% auto;
+}
+
+.descricao{
+    margin: 5% 9% auto 9%;
+}
+
+.br{
+    display: none;
+}
+
+.dtPublicacao{
+    float: right;
+    margin: 7% 2% auto auto;
+    color: rgba(153,153,153,0.9)
+}
 }

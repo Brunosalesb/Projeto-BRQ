@@ -6,12 +6,20 @@
 <div class="vaga">
     <div class="barra-vaga"></div>
     <div *ngIf="lista">
-        <mat-grid-list class="header-vaga" cols="2" rowHeight="13:1">
-            <mat-grid-tile>Título: {{lista.titulo}}</mat-grid-tile>
-            <mat-grid-tile>Localidade: {{lista.localidade}}</mat-grid-tile>
-            <mat-grid-tile>Tipo de vínculo: {{lista.TipoVinculo}}</mat-grid-tile>
-            <mat-grid-tile>Empresa: {{lista.empresa}}</mat-grid-tile>
-        </mat-grid-list>
+        <div class="topo-vaga">
+            <div class="titulo">Titulo:
+                <span>{{lista.titulo}}</span>
+            </div>
+            <div class="empresa">Empresa:
+                <span>{{lista.empresa}}</span>
+            </div><br class="br">
+            <div class="vinculo">Tipo de vinculo:
+                <span>{{lista.TipoVinculo}}</span>
+            </div>
+            <div class="local">Local:
+                <span>{{lista.localidade}}</span>
+            </div>
+        </div>
         <div class="descricao">Descrição:
             <br>
             <span>{{lista.descricao}}</span>
@@ -36,7 +44,9 @@
             <br>
             <span>{{lista.contato}}</span>
         </div>
-        <div class="dtPublicacao">Data de publicação:<span>{{lista.dtPublicacao}}</span></div>
+        <div class="dtPublicacao">Data de publicação:
+            <span>{{lista.dtPublicacao}}</span>
+        </div>
     </div>
-
 </div>
+<button class="candidatar" mat-button>Candidate-se</button>
