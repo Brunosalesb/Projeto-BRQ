@@ -6,6 +6,16 @@ h1{
     text-align: center;
 }
 
+.vaga{
+    background-color: #035A7D;
+    text-align: center;
+    width: 80%;
+     margin: auto auto 5% auto;
+    height: auto;
+    display: flex;
+    color: white;
+}
+
 .barra-vaga{
     width: 15%;
     background-color: #f27405;
@@ -18,12 +28,13 @@ h1{
 .titulo{
     float: left;
     margin: auto auto auto 7%;
-    font-size: 30px;
+    font-size: 180%;
 }
 
 .empresa{
     float: right;
-    margin: auto 8% auto auto;
+    margin: auto 10% auto auto;
+    font-size: 1em;
 }
 
 .vinculo{
@@ -36,15 +47,6 @@ h1{
     text-align: left;
 }
 
-.vaga{
-    background-color: #035A7D;
-    text-align: center;
-    width: 80%;
-     margin: auto auto 5% auto;
-    height: auto;
-    display: flex;
-    color: white;
-}
 
 .descricao{
     margin: 5% 8% auto 8%;
@@ -79,7 +81,8 @@ h1{
 .dtPublicacao{
     float: right;
     margin: 2% 2% auto auto;
-    color: rgba(153,153,153,0.9)
+    color: rgb(199, 199, 199,0.9);
+    margin-bottom: 1%;
 }
 
 .candidatar{
@@ -121,8 +124,9 @@ h1{
 }
 
 .dtPublicacao{
-    float: right;
-    margin: 7% 2% auto auto;
-    color: rgba(153,153,153,0.9)
+    color: rgb(199, 199, 199,0.9);
+    margin-bottom: 1%;
+    text-align: left;
+    margin: 5% 8% 3% 8%;
 }
 }

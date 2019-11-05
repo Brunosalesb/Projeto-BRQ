@@ -12,12 +12,15 @@ export class CadastrarVagasComponent implements OnInit {
 
   vaga: RequestVaga = {
     titulo: "",
-    dtPublicacao: "",
+    empresa: "",
+    TipoVinculo: "",
     localidade: "",
+    descricao: "",
+    requisito: "",
+    beneficio: "",
     horario: "",
-    dtInicio: "",
-    dtFim: "",
-    empresa: ""
+    salario: "",
+    dtPublicacao: ""
   }
 
   sucesso=false;

@@ -1,11 +1,14 @@
 export interface Base{
     titulo: "",
-    dtPublicacao: "",
+    empresa: "",
+    TipoVinculo: "",
     localidade: "",
+    descricao: "",
+    requisito: "",
+    beneficio: "",
     horario: "",
-    dtInicio: "",
-    dtFim: "",
-    empresa: ""
+    salario: "",
+    dtPublicacao: ""
 }
 
 export interface RequestEditar extends Base{
