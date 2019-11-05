@@ -18,21 +18,22 @@ h1{
 .titulo{
     float: left;
     margin: auto auto auto 7%;
+    font-size: 30px;
 }
 
 .empresa{
     float: right;
-    margin:  auto 10% auto auto;
+    margin: auto 8% auto auto;
 }
 
 .vinculo{
-    float: left;
-    margin: 3% auto auto 7%;
+    margin: 15% 8% auto 8%;
+    text-align: left;
 }
 
 .local{
-    float: right;
-    margin:  3% 10% auto auto;
+    margin: 5% 8% auto 8%;
+    text-align: left;
 }
 
 .vaga{
@@ -46,7 +47,7 @@ h1{
 }
 
 .descricao{
-    margin: 15% 8% auto 8%;
+    margin: 5% 8% auto 8%;
     text-align: left;
 }
 
@@ -105,23 +106,14 @@ h1{
     margin: auto auto 3% auto;
 }
 
-.local{
-    float: none;
-    margin: auto auto auto auto;
-}
-
 .empresa{
+    margin: 15% 8% auto 8%;
+    text-align: left;
     float: none;
-    margin: auto auto 3% auto;
 }
 
 .vinculo{
-    float: none;
-    margin: auto auto 3% auto;
-}
-
-.descricao{
-    margin: 5% 9% auto 9%;
+    margin: 5% 8% auto 8%;
 }
 
 .br{
