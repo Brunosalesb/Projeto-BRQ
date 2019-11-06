@@ -7,17 +7,17 @@
 <div *ngFor="let l of lista">
     <div class="vaga">
         <div class="barra-vaga"></div>
-        <mat-grid-list class="header-vaga" cols="2" rowHeight="15:1">
-            <mat-grid-tile>Título: {{l.titulo}}</mat-grid-tile>
-            <mat-grid-tile>Localidade: {{l.localidade}}</mat-grid-tile>
-            <mat-grid-tile>Tipo de vínculo: {{l.TipoVinculo}}</mat-grid-tile>
-            <mat-grid-tile>Empresa: {{l.empresa}}</mat-grid-tile>
-        </mat-grid-list>
-        <div class="descricao">Descrição:
-            <br>
-            <span>{{l.descricao}}</span>
+        <div class="titulo">
+            <strong>{{l.titulo}}</strong>
         </div>
-        <button class="ver-vaga" mat-button routerLink="/vagas/listar/{{l.id}}">ver vaga</button>
+        <div class="empresa">
+            <strong>Empresa: </strong>
+            <span>{{l.empresa}}</span>
+        </div>
+        <div class="vinculo">
+            <strong>Tipo de vínculo: </strong>
+            <span>{{l.TipoVinculo}}</span>
+        </div>
+        <!-- <button class="ver-vaga" mat-button routerLink="/vagas/listar/{{l.id}}">ver vaga</button> -->
     </div>
 </div>
-
