@@ -1,0 +1,39 @@
+.nav{
+    background-color: #035A7D;
+}
+
+h1{
+    text-align: center;
+}
+
+.vaga{
+    background-color: #035A7D;
+    text-align: center;
+    width: 80%;
+     margin: auto auto 5% auto;
+    height: 500px;
+    display: flex;
+    color: white;
+}
+
+.barra-vaga{
+    width: 15%;
+    background-color: #f27405;
+    float: left;
+}
+
+.formvaga{
+    margin: 2% auto auto auto;
+    text-align: end;
+}
+
+input{
+    margin-bottom: 9%;
+}
+
+.cadastrar{
+    margin: -3% auto 3% auto ;
+    display: flex;
+    background-color: #f27405;
+    color: white;
+}
