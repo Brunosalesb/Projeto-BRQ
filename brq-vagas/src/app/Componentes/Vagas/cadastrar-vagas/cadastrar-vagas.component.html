@@ -2,22 +2,67 @@
     <span>BRQ</span>
 </mat-toolbar>
 
-
-<h1>Cadastrar Vaga</h1>
+<h1>Vaga</h1>
 <div class="vaga">
     <div class="barra-vaga"></div>
-    <form class="formvaga" #v="ngForm" (ngSubmit)="cadastrarVaga(v)">
-        <div class="titulo">Título: <input type="text" id="titulo" [(ngModel)]="vaga.titulo" name="titulo" #titulo="ngModel"></div>
-        <div class="empresa">Empresa: <input type="text" id="empresa" [(ngModel)]="vaga.empresa" name="empresa" #empresa="ngModel"></div>
-        <div class="vinculo">Vínculo: <input type="text" id="TipoVinculo" [(ngModel)]="vaga.TipoVinculo" name="TipoVinculo" #TipoVinculo="ngModel"></div>
-        <div class="local">Local: <input type="text" id="localidade" [(ngModel)]="vaga.localidade" name="localidade" #localidade="ngModel"></div>
-        <div class="descricao">Descrição: <input type="text" id="descricao" [(ngModel)]="vaga.descricao" name="descricao" #descricao="ngModel"></div>
-        <div class="requisito">Requisitos: <input type="text" id="requisito" [(ngModel)]="vaga.requisito" name="requisito" #requisito="ngModel"></div>
-        <div class="beneficio">Benefícios: <input type="text" id="beneficio" [(ngModel)]="vaga.beneficio" name="beneficio" #beneficio="ngModel"></div>
-        <div class="horario">Horário: <input type="text" id="horario" [(ngModel)]="vaga.horario" name="horario" #horario="ngModel"></div>
-        <div class="salario">Salário: <input type="text" id="salario" [(ngModel)]="vaga.salario" name="salario" #salario="ngModel"></div>
-        <div class="contato">Contato: <input type="text" id="contato" [(ngModel)]="vaga.contato" name="contato" #contato="ngModel"></div>
-        <div class="dtPublicacao"><input type="date" id="dtPublicacao" [(ngModel)]="vaga.dtPublicacao" name="dtPublicacao" #titulo="ngModel"></div>
-    </form>
+    <div class="topo-vaga">
+        <div class="titulo">
+            <span>
+                Título:
+                <input type="text" id="titulo" [(ngModel)]="vaga.titulo" name="titulo" #titulo="ngModel">
+            </span>
+        </div>
+        <div class="empresa">
+            <span>
+                Empresa:
+                <input type="text" id="empresa" [(ngModel)]="vaga.empresa" name="empresa" #empresa="ngModel">
+            </span>
+        </div>
+    </div>
+    <div class="vinculo">
+        <span>
+            <div class="vinculo">Vínculo:
+                <input type="text" id="TipoVinculo" [(ngModel)]="vaga.TipoVinculo" name="TipoVinculo" #TipoVinculo="ngModel">
+            </div>
+        </span>
+    </div>
+    <!--<div class="local">
+        <strong>Local:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="descricao">
+        <strong>Descrição:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="requisito">
+        <strong>Requisitos:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="beneficio">
+        <strong>Benefícios:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="horario">
+        <strong>Horário:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="salario">
+        <strong>Salário:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="contato">
+        <strong>Contatos:</strong>
+        <br>
+        <span>a</span>
+    </div>
+    <div class="dtPublicacao">Data de publicação:
+        <span>a</span>
+    </div> -->
 </div>
-<button class="cadastrar" mat-button type="submit">cadastrar</button>
+<button class="candidatar" mat-button>Candidate-se</button>
