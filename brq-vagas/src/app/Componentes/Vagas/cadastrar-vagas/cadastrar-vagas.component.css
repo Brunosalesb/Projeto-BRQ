@@ -6,12 +6,121 @@ h1{
     text-align: center;
 }
 
-.cadastrar{
-    margin: -3% auto 3% auto ;
+.vaga{
+    background-color: #035A7D;
+    text-align: center;
+    width: 80%;
+     margin: auto auto 5% auto;
+    height: auto;
     display: flex;
-    background-color: #f27405;
     color: white;
 }
 
-.cadastro{
+input{
+    outline: none;
+    background: #f6f6f6;
+    border: none;
+    border-bottom: 1px solid #f77903;
+    background-color: rgb(23, 76, 97);
+    color: white;
+    width: 25%;
+    padding: 10px auto auto 10px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+textarea{
+    outline: none;
+    background: #f6f6f6;
+    border-color: #f27405;
+    border-bottom: 1px solid #f77903;
+    margin-bottom: 3vh;
+    background-color: rgb(23, 76, 97);
+    color: white;
+    resize: none;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.formvaga{
+    width: 100%;
+}
+
+.barra-vaga{
+    width: 15%;
+    background-color: #f27405;
+    float: left;
+}
+
+.topo-vaga{
+    margin-top: 3%;
+}
+.titulo{
+    float: left;
+    margin: auto auto auto 7%;
+    text-align: left;
+}
+
+#titulo{
+    width: 173%;
+}
+
+.empresa{
+    float: right;
+    margin: auto 18.9% auto auto;
+    text-align: left;
+}
+
+#empresa{
+    width: 173%;
+}
+
+.vinculo{
+    margin: 10% auto auto 7%;
+    text-align: left;
+}
+
+.local{
+    margin: 3% auto auto 7%;
+    text-align: left;
+}
+
+
+.descricao{
+    margin: 3% auto auto 7%;
+    text-align: left;
+}
+
+.descricao textarea{
+    width: 90%;
+    height: 20vh;
+}
+
+.requisito{
+    margin: 3% auto auto 7%;
+    text-align: left;
+}
+
+.beneficio{
+    margin: 3% auto auto 7%;
+    text-align: left;
+}
+
+.horario{
+    margin: 3% auto auto 7%;
+        text-align: left;
+}
+
+.salario{
+    margin: 3% auto auto 7%;
+    text-align: left;
+}
+
+.contato{
+    margin: 3% auto auto 7%;
+        text-align: left;
+}
+
+.cadastrar{
+    background-color: #f27405;
+    color: white;
+    margin: 5% auto 3% auto;
 }
