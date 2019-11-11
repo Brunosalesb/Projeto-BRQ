@@ -8,6 +8,8 @@ export interface Base{
     beneficio: "",
     horario: "",
     salario: "",
+    telefone: "",
+    email:"",
     dtPublicacao: ""
 }
 

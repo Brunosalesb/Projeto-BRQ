@@ -20,6 +20,8 @@ export class CadastrarVagasComponent implements OnInit {
     beneficio: "",
     horario: "",
     salario: "",
+    telefone: "",
+    email:"",
     dtPublicacao: ""
   }
 

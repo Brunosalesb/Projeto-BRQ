@@ -80,13 +80,13 @@ h1{
 
 .dtPublicacao{
     float: right;
-    margin: 2% 2% auto auto;
+    margin: auto 2% auto auto;
     color: rgb(199, 199, 199,0.9);
     margin-bottom: 1%;
 }
 
 .candidatar{
-    margin: -3% auto 3% auto ;
+    margin: 3% auto 3% auto ;
     display: flex;
     background-color: #f27405;
     color: white;
@@ -129,4 +129,8 @@ h1{
     text-align: left;
     margin: 5% 8% 3% 8%;
 }
+.candidatar{
+    margin: 8% auto 2% auto;
+}
+
 }
