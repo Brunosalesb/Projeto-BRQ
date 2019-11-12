@@ -12,11 +12,3 @@ export interface Base{
     email:"",
     dtPublicacao: ""
 }
-
-export interface RequestEditar extends Base{
-
-}
-
-export interface RequestVaga extends Base{
-
-}

@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:"vagas/listar/:id",component:ListarVagaPorIdComponent},
   {path:"vagas/cadastrar",component:CadastrarVagasComponent},
   {path:"vagas/deletar",component:DeletarVagasComponent},
-  //{path:"vagas/editar",component:EditarVagasComponent}
+  {path:"vagas/editar/:id",component:EditarVagasComponent}
 
 ];
 

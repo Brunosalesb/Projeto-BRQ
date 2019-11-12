@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Services } from 'src/app/ApiService';
-import { RequestVaga } from '../Model/vagas.model';
+import { Base } from '../Model/vagas.model';
 import { o } from 'odata';
 import { ActivatedRoute } from '../../../../../node_modules/@angular/router';
 
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '../../../../../node_modules/@angular/router';
   styleUrls: ['./listar-vaga-por-id.component.css']
 })
 export class ListarVagaPorIdComponent implements OnInit {
-  lista:RequestVaga;
+  lista: Base;
   id:string;
   constructor(private api:Services,private route:ActivatedRoute) { }
 
@@ -26,5 +26,4 @@ export class ListarVagaPorIdComponent implements OnInit {
     .query()
     .then(data=>this.lista=data)
   }
-
 }

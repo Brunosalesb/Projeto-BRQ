@@ -2,10 +2,10 @@
     background-color: #035A7D;
 }
 
-h1{
+#titulo-pag{
     text-align: center;
+    margin: 2% auto 3% auto;
 }
-
 .vaga{
     background-color: #035A7D;
     text-align: center;
@@ -27,7 +27,7 @@ h1{
 }
 .titulo{
     float: left;
-    margin: auto auto auto 7%;
+    margin: auto auto auto 7.8%;
     font-size: 180%;
 }
 
@@ -86,6 +86,13 @@ h1{
 }
 
 .candidatar{
+    margin: 3% auto 3% auto ;
+    display: flex;
+    background-color: #f27405;
+    color: white;
+}
+
+.ver-vaga{
     margin: 3% auto 3% auto ;
     display: flex;
     background-color: #f27405;

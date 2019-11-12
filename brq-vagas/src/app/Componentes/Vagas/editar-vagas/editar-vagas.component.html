@@ -1,1 +1,79 @@
-<p>editar-vagas works!</p>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<mat-toolbar color="primary" class="nav">
+    <span>BRQ</span>
+</mat-toolbar>
+
+
+<form class="formvaga" #v="ngForm" (ngSubmit)="EditarVaga(v)">
+    <section class="testimonial py-5" id="testimonial">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-4 py-5 text-white text-center" id="brq">
+                    <div class=" ">
+                        <div class="card-body">
+                            <img src="../../../../assets/Imagens/BRQ.png" style="width:50%">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 py-5 border" id="container">
+                    <h4 class="pb-4">Editar Vaga</h4>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Título" id="titulo" [(ngModel)]="vaga.titulo" name="titulo" #titulo="ngModel">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" id="empresa" placeholder="Empresa" class="form-control" [(ngModel)]="vaga.empresa" name="empresa" #empresa="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="TipoVinculo" placeholder="Vínculo" class="form-control" [(ngModel)]="vaga.TipoVinculo" name="TipoVinculo"
+                                #TipoVinculo="ngModel">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" id="localidade" placeholder="Local" class="form-control" [(ngModel)]="vaga.localidade" name="localidade"
+                                #localidade="ngModel">
+                        </div>
+                        <div class="form-group col-md-12" id="descricao">
+                            <textarea type="text" id="descricao" cols="40" rows="5" placeholder="Descrição" class="form-control" [(ngModel)]="vaga.descricao"
+                                name="descricao" #descricao="ngModel"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="requisito" placeholder="Requisitos" class="form-control" [(ngModel)]="vaga.requisito" name="requisito"
+                                #requisito="ngModel">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" id="beneficio" placeholder="benefícios" class="form-control" [(ngModel)]="vaga.beneficio" name="beneficio"
+                                #beneficio="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="horario" placeholder="Horário" class="form-control" [(ngModel)]="vaga.horario" name="horario" #horario="ngModel">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" id="salario" placeholder="Salário" class="form-control" [(ngModel)]="vaga.salario" name="salario" #salario="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" id="telefone" placeholder="Telefone" class="form-control" [(ngModel)]="vaga.telefone" name="telefone"
+                                #telefone="ngModel">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" id="email" placeholder="Email" class="form-control" [(ngModel)]="vaga.email" name="email" #email="ngModel">
+                        </div>
+                        <button class="cadastrar" mat-button type="submit">Concluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

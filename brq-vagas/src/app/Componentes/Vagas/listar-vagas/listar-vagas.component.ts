@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Services} from "../../../ApiService";
 import { o } from "odata";
-import { RequestVaga } from '../Model/vagas.model';
+import { Base } from '../Model/vagas.model';
 
 @Component({
   selector: 'app-listar-vagas',
@@ -9,7 +9,7 @@ import { RequestVaga } from '../Model/vagas.model';
   styleUrls: ['./listar-vagas.component.css']
 })
 export class ListarVagasComponent implements OnInit {
-  lista: RequestVaga;
+  lista: Base;
   constructor(private api:Services) { }
 
   ngOnInit() {
@@ -22,6 +22,5 @@ export class ListarVagasComponent implements OnInit {
     .get()
     .query()
     .then(data => this.lista = data)
-    .catch(err=>console.log(err))
   }
 }

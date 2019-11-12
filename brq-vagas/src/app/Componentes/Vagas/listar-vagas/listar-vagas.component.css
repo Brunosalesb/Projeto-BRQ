@@ -1,14 +1,14 @@
 .nav{
     background-color: #035A7D;
 }
-
-h1{
+#titulo-pag{
     text-align: center;
+    margin: 2% auto 3% auto;
 }
 
 .vaga{
     background-color: #035A7D;
-    width: 80%;
+    width: 70%;
      margin: auto auto 5% auto;
     height: 20%;
     display: flex;
@@ -27,7 +27,7 @@ h1{
 }
 .titulo{
     float: left;
-    margin: auto auto auto 7%;
+    margin: auto auto auto 7.6%;
     font-size: x-large;
 }
 

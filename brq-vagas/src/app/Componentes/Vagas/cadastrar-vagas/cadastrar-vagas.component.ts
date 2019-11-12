@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RequestVaga} from '../Model/vagas.model';
+import {Base} from '../Model/vagas.model';
 import { Services } from 'src/app/ApiService';
 import { o } from 'odata';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-cadastrar-vagas',
@@ -10,7 +11,7 @@ import { o } from 'odata';
 })
 export class CadastrarVagasComponent implements OnInit {
 
-  vaga: RequestVaga = {
+  vaga: Base = {
     titulo: "",
     empresa: "",
     TipoVinculo: "",
@@ -28,7 +29,7 @@ export class CadastrarVagasComponent implements OnInit {
   sucesso=false;
   erro=false;
   lista:Array<any>;
-  constructor(private api:Services) { }
+  constructor(private api:Services,private router:Router) { }
 
   ngOnInit() {
   }
@@ -38,9 +39,8 @@ export class CadastrarVagasComponent implements OnInit {
     const response = o(url)
     .post('',this.vaga)
     .query()
-    .then(data=>{console.log(data),this.sucesso=true})
-    .catch(err=>{console.log(err),this.erro=true})
-    console.log(form.value);
+    alert("Vaga cadastrada com sucesso!")
+    this.router.navigate([`/vagas/listar/`])
   }
 
 }
