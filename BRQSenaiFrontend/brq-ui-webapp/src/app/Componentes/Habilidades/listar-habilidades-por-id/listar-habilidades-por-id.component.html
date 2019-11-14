@@ -1,0 +1,23 @@
+<div class="titulo">
+    <h3>Habilidades</h3>
+
+    <button (click)="openDialog()" *ngIf="permissao" >
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
+{{quantidade}}
+<div>
+    <div *ngFor="let l of listaSkill" class="lista" >
+        <div class="lista-skill" >
+            <a>{{l.fkIdSkillNavigation.nome}}</a>
+            <!-- <i (click)="desatribuirSkill(d.id)" class="fas fa-trash"></i> -->
+        </div>
+    </div>
+    <p (click)="verTodas()">Ver Mais</p>
+    <!-- <div *ngIf="listaVazia">
+        <p>Ver Todas...</p>
+    </div>
+    <div *ngIf="!listaVazia" class="ListaVazia">
+        <a>Você não tem nenhuma skill ainda :(</a>
+    </div> -->
+</div>

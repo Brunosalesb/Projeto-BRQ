@@ -1,0 +1,132 @@
+.skill{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.skill h2{
+    color: #005F9C;
+}
+
+.skillType{
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 2vh;
+}
+.skillType td{
+    font-weight: lighter;
+    color: #005F9C;
+}
+.list-skill{
+    display: flex;
+    width: 100%;
+    
+    flex-direction: column;
+}
+.skill-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+}
+.skill-container button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-action{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* /////////////////////////////////////////////////////////////////////// */
+.container-edit{
+    width: 40vh;
+    border: 1px solid #005F9C;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.container-edit p{
+    color: #005F9C;
+    font-weight: bold;
+    
+}
+.container-edit strong{
+    font-style: italic;
+}
+.container-edit form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.container-edit input{
+    border: none;
+    background: #f6f6f6;
+    border-bottom:2px solid #f77903 ;
+    margin-bottom: 1vh;
+}
+.editclass{
+    padding: 1vh;
+}
+.container-edit select{
+    border: none;
+    margin-bottom: 1vh;
+    background: #f6f6f6;
+    border-bottom:2px solid #f77903 ;
+}
+.container-edit button{
+    border: 1px solid gray;
+    background: #005F9C;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    padding: 1vh;
+}
+.btn-edit-del{
+    display: flex;
+    justify-content: space-between;
+    width: 10vh;
+    /* background: #000; */
+}
+.editButton{
+    color: orange;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn button{
+    padding: 10px;
+    background:#005F9C;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+.verMais{
+  
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+.verMais button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f77903;
+    font-weight: bold;
+    font-size: 14pt;
+}
+#alert{
+    width: 10%;
+    display: flex;
+   
+}

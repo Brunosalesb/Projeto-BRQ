@@ -1,0 +1,19 @@
+<div>
+    <h2>Cadastre novas Skills!</h2>
+    <form #f="ngForm" (ngSubmit)="cadastrar(f)">
+        <label for="nome">Nome da Skill</label>
+        <input type="text" id="nome" [(ngModel)]="skill.nome" name="nome" #nome="ngModel">
+        <label for="TipoSkill">Tipo de Habilidade</label>
+        <select name="tipo" #tipo="ngModel" [(ngModel)]="skill.fkIdTipoSkill" id="TipoSkill">
+            <option value="{{l.id}}" *ngFor="let l of lista" >{{l.nome}}</option>
+        </select>
+    <button type="submit">Enviar</button>
+    </form>
+</div>
+<div *ngIf="erro" class="err">
+    <p>Algum Erro Aconteceu :(</p>
+</div>
+
+<div *ngIf="sucesso" class="suc">
+        <p>Skill Cadastrada</p>
+    </div>

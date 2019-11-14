@@ -1,0 +1,100 @@
+h3 {
+    color: #0378A6;
+    font-size: 16pt;
+    text-align: center;
+    transform: translateX(-10px);
+}
+
+h5 {
+    font-size: 13pt;
+    color: #F27405;
+}
+
+.titulo {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.exp {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.flex-content {
+    margin-top: 20px;
+    flex-direction: row;
+    display: flex;
+    border: 1px solid black;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: flex-start;
+}
+
+.flex-item {
+    padding: 8px;
+    margin: 10px;
+    color: black;
+}
+
+.flex-item p {
+    color: #F27405;
+}
+
+.flex-item a {
+    font-weight: 500;
+}
+
+.flex-content button {
+    border: none;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+    font-size: 13pt;
+    font-weight: 400;
+}
+.flex-content button:hover{
+    color: rgb(153, 150, 150);
+
+}
+.btn-add{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-add button {
+    background: #F27405;
+    border: none;
+    border-radius: 15px;
+    font-size: 12pt;
+    color:white;
+    width: 30px;
+    height:30px;
+    cursor: pointer;
+
+}
+
+
+strong{
+    color: #0378A6;
+}
+.Del {
+    justify-content: space-around;
+    flex-direction: row;
+    display: flex;
+    padding: 4px;
+}
+.Del button{
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    color: white;
+}
+.delete{
+    display: flex;
+    justify-content: center;
+}

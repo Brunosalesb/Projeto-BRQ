@@ -1,0 +1,47 @@
+.rodape-bar{
+    height: auto;
+    background: #005F9C;
+    display: flex; /*Usado para deixar logo, frase e imagens na mesma linha*/
+    padding: 1% 1%;
+    color: #fff; /*Cor da letra*/
+    justify-content: space-between;
+    font-size: 1.2em;
+    /* position: absolute;
+    width: 98%;
+    bottom: 0; */
+}
+
+
+
+/*  O código abaixo, combinado com o comentado no html, mostra um rodapé com o logo acima e no centro, e um menu.
+
+.rodape{
+    background: #005F9C;   
+    text-align: center;          centraliza o logo 
+}
+
+.menurodape{
+    padding: 1% 1%;
+    background: #005F9C;
+    height: 85px;
+}
+
+.menurodape ul{
+    list-style-type: none;
+    display: flex;  Neste caso, deixa os itens da lista um do lado do outro 
+}
+
+.menurodape ul li{
+    padding: 1em 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menurodape ul a{
+    color: white;    Cor das letras   
+    text-decoration: none;    Tira o azul e o sublinhado dos itens da lista 
+    font-size: 1em;
+    padding: 0.5em 0.5em;     Aumenta a área clicável 
+    background: red;   Usado para verificar o espaço da área clicável   
+}
+ */

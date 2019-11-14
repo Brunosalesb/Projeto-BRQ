@@ -1,0 +1,50 @@
+<div class="alert alert-danger" role="alert" id="alert" *ngIf="eRR">
+    {{erro}}
+</div>
+<section class="skill">
+    <h2>Skills</h2>
+    <section class="list-skill">
+
+        <div class="skillType">
+            <td>
+                Nome
+            </td>
+            <td>
+                Tipo
+            </td>
+            <td>
+                Ações
+            </td>
+        </div>
+        <div *ngFor="let l of lista" class="skill-container">
+            <tr>{{l.nome}}</tr>
+            <tr>{{l.fkIdTipoSkillNavigation.nome}}</tr>
+            <div class="btn-action">
+                <button (click)="listarPorId(l.id)">Editar</button>
+                <button (click)="deletar(l.id)"><i class="far fa-trash-alt"></i></button>
+            </div>
+        </div>
+        <div class="verMais" *ngIf="button">
+            <button (click)="VerTodas()">Ver Todas</button>
+        </div>
+    </section>
+    <div *ngIf="listaPorId" class="container-edit">
+
+        <p class="editclass">Editar a Skill</p>
+        <strong class="editclass">{{listaPorId.nome}}</strong>
+
+        <form #f="ngForm" (ngSubmit)="editar(listaPorId.id,f)">
+            <input class="editclass" [(ngModel)]="listaPorId.nome" name="skill" #skill="ngModel">
+            <!-- <input [(ngModel)]="listaPorId.fkIdTipoSkillNavigation.nome"> -->
+            <select class="editclass" name="tipo" #tipo="ngModel" [(ngModel)]="skill.fkIdTipoSkill" id="TipoSkill">
+                <option *ngFor="let l of listaTipo" value="{{l.id}}">{{l.nome}}</option>
+            </select>
+            <button type="submit">Editar</button>
+        </form>
+
+    </div>
+</section>
+
+<div class="btn">
+    <button (click)="openDialogCadastro()">Cadastrar Outra</button>
+</div>

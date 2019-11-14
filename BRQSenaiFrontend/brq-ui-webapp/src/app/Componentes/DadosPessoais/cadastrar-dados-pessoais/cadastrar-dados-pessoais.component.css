@@ -1,0 +1,91 @@
+* {
+    font-family: segoe ui;
+}
+
+h2 {
+    text-align: center;
+    color: #0378A6;
+    font-size: 16pt;
+    margin-top: 50px;
+}
+
+label {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    width: 300px;
+    border-bottom-color: rgb(187, 185, 185);
+    border-radius: 0;
+    border-width: 0 0 1.5px;
+    height: auto;
+    padding: 3px 0 5px;
+    text-align: center;
+    outline: none;
+}
+
+input:focus {
+    transition: 0.7s;
+    border-bottom-color: #F27405;
+}
+
+.form-cadastro {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    padding: 50px;
+}
+
+label a {
+    font-size: 12pt;
+    position: relative;
+    font-weight: 400;
+    font-style: italic;
+    color: #F27405;
+}
+
+.title-text {
+    width: 150px;
+    position: relative;
+    right: 70px;
+}
+
+.btn {
+    justify-content: center;
+    display: flex;
+    position: relative;
+    bottom: 60px;
+}
+
+.btn button:enabled {
+    background: #F27405;
+    border: none;
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+    border: 1px solid gainsboro;
+    font-weight: 500;
+}
+
+button:disabled {
+    background: gray;
+    opacity: 0.3;
+    border: none;
+    width: 80px;
+    height: 30px;
+    color: white;
+    border: 1px solid gainsboro;
+    font-weight: 500;
+}
+
+p {
+    color: red;
+    font-size: 10pt;
+    font-weight: 500;
+}

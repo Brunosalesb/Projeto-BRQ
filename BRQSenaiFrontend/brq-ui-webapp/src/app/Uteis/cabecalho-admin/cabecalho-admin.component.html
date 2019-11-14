@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="nav">
+        <a href="">
+            <img src="../../../assets/Imagens/logo_brq_maior.png" alt="logo empresa" width="30px" height="30px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" id="lista">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/perfil/{{id}}">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard">DashBoard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="logout()">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- <div>
+    <div>
+        <img src="../../../assets/Imagens/logo_brq_maior.png" alt="logo empresa">
+        <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/perfil/{{id}}">Perfil</a></li>
+            <li><a routerLink="/dashboard">DashBoard</a></li>
+            <li><a (click)="logout()">Sair</a></li>
+
+        </ul>
+    </div>
+</div>
+<style>
+    li {
+        cursor: pointer;
+    }
+</style> -->

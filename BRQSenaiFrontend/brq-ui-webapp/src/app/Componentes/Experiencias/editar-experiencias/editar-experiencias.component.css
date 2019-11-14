@@ -1,0 +1,82 @@
+.exp{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-content {
+    margin-top: 20px;
+    display: flex;
+    align-items:center;
+    flex-wrap:wrap;
+    align-content: flex-end;
+    justify-content: flex-start;
+}
+
+.flex-item {
+    padding: 10px;
+    color: black;
+}
+h3 {
+    color: #0378A6;
+    font-size: 16pt;
+    transform: translateX(-250px);
+}
+
+h5 {
+    font-size: 13pt;
+    color: #F27405;
+}
+.flex-item p {
+    color: #F27405;
+}
+
+.flex-item a {
+    font-weight: 500;
+}
+.flex-content button {
+    border: none;
+    background: #F27405;
+    padding: 5px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 13pt;
+    font-weight: 400;
+}
+.flex-content button:hover{
+background: rgb(250, 151, 64);
+}
+.flex-content input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(129, 129, 129);
+} 
+.flex-content input:focus{
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    border-bottom-color: #F27405;
+}
+textarea:focus{
+   padding: 10px;
+}
+@media screen and (max-width:700px){
+    h3{
+        transform: translateX(0px);
+    }
+}
+@media screen and (max-width:600px){
+    .exp{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex:1;
+     
+    }
+
+    h3{
+        font-size: 13pt;
+        position: relative;
+        right: 20%;
+    }
+}

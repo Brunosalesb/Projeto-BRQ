@@ -1,0 +1,71 @@
+<head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    
+   
+    
+    <h1 class="pb-4" id="titulo-pag">Minha Vaga</h1>
+    <div class="vaga">
+        <!-- <div class="barra-vaga"></div> -->
+        <div *ngIf="lista">
+            <div class="topo-vaga">
+                <div class="titulo">
+                    <span>
+                        <strong>{{lista.titulo}}</strong>
+                    </span>
+                </div>
+                <div class="empresa">
+                    <strong>Empresa: </strong>
+                    <span>{{lista.empresa}}</span>
+                </div>
+            </div>
+            <div class="vinculo">
+                <strong>Vínculo:</strong>
+                <br>
+                <span>{{lista.TipoVinculo}}</span>
+            </div>
+            <div class="local">
+                <strong>Local:</strong>
+                <br>
+                <span>{{lista.localidade}}</span>
+            </div>
+            <div class="descricao">
+                <strong>Descrição:</strong>
+                <br>
+                <span>{{lista.descricao}}</span>
+            </div>
+            <div class="requisito">
+                <strong>Requisitos:</strong>
+                <br>
+                <span>{{lista.requisito}}</span>
+            </div>
+            <div class="beneficio">
+                <strong>Benefícios:</strong>
+                <br>
+                <span>{{lista.beneficio}}</span>
+            </div>
+            <div class="horario">
+                <strong>Horário:</strong>
+                <br>
+                <span>{{lista.horario}}</span>
+            </div>
+            <div class="salario">
+                <strong>Salário:</strong>
+                <br>
+                <span>R$ {{lista.salario}}</span>
+            </div>
+            <div class="contato">
+                <strong>Contatos:</strong>
+                <br>
+                <span>Telefone: {{lista.telefone}}
+                    <br>Email: {{lista.email}}</span>
+            </div>
+            <!-- <button class="candidatar" mat-button>Candidate-se</button> -->
+            <button class="ver-vaga" mat-button routerLink="/vagas/editar/{{lista.id}}">Editar Vaga</button>
+            <div class="dtPublicacao">Data de publicação:
+                <span>{{lista.dtPublicacao}}</span>
+            </div>
+        </div>
+    </div>

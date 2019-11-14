@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light" *ngIf="!mostrarMenu && !mostrarMenuAdmin" id="nav">
+    <a href="/">
+        <img src="../../../assets/Imagens/logo_brq_maior.png" alt="logo empresa">
+    </a>
+    <button id="botao" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse"  id="navbarNav">
+        <ul class="navbar-nav" id="lista">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cadastrarusuario">Cadastro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="openDialog()">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- <div class="menu" *ngIf="!mostrarMenu && !mostrarMenuAdmin">
+    <img src="../../../assets/Imagens/logo_brq_maior.png" alt="logo empresa">
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/cadastrarusuario">Cadastro</a></li>
+        <li><a (click)="openDialog()">Login</a></li>
+
+
+    </ul>
+</div> -->
+<div class="menu" *ngIf="mostrarMenu && !mostrarMenuAdmin">
+   <app-cabecalho-usuario></app-cabecalho-usuario>
+</div>
+
+<div class="menu" *ngIf="mostrarMenu && mostrarMenuAdmin">
+   <app-cabecalho-admin></app-cabecalho-admin>
+</div>

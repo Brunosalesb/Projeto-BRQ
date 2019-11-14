@@ -1,0 +1,48 @@
+<div class="menu">
+    <ul>
+        Colaboradores
+        <i class="fas fa-caret-down"></i>
+        <li>
+            <a routerLink="/dashboard/skill">Skill</a>
+            <a routerLink="/dashboard/tiposkill">Tipo Skill</a>
+            <a routerLink="/dashboard/experiencias">Experiências</a>
+            <a routerLink="/dashboard/tipoexperiencia">Tipo Experiência</a>
+        </li>
+    </ul>
+    <ul>Vagas
+        <i class="fas fa-caret-down"></i>
+        <li>
+            <a >Tipo Vaga</a>
+            <a routerLink="/dashboard/vagas">Vaga</a>
+        </li>
+    </ul>
+</div>
+<div class="titulo">
+    <h1>Dashboard Administrador</h1>
+</div>
+<div class="container">
+    <div class="flex">
+        <div class="flex-item" >
+            <h2>Quantidade de Colaboradores</h2>
+            <p>Foram encontrados {{quantidade}} Colaboradores cadastrados no sistema.</p>
+            <button routerLink="/lista">Deseja Buscar por Algum?</button>
+        </div>
+        <div class="flex-item">
+            <h2>Deseja Cadastrar alguma Skill,TipoSkill ou Experiência</h2>
+            <p>Confira as opções no menu lateral.</p>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="flex-item">
+            <h2>Vagas e Colaboradores</h2>
+            <p>Veja aqui quantos e quais colaboradores se candidataram às vagas e também quais são mais requisitadas.</p>
+            <button>Ir <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="flex-item">
+            <h2>Quantidade de Vagas</h2>
+            <p>Foram encontradas 100 vagas cadastradas no sistema.</p>
+            <button>Deseja Cadastrar mais uma?</button>
+        </div>
+    </div>
+
+</div>

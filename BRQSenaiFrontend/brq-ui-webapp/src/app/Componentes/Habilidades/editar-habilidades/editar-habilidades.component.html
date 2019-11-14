@@ -1,0 +1,15 @@
+<h5>Editar suas Habilidades</h5>
+<div *ngIf="lista">
+
+    <label>
+        Número da pessoa
+        <input placeholder="Insira o número" [(ngModel)]="lista.idPessoa" type="int">
+    </label>
+
+    <label>
+        Número da habilidade
+        <input placeholder="Insira o número" [(ngModel)]="lista.idSkill" type="int">
+    </label>
+
+    <button (click)="Atualizar()">Editar</button>
+</div>

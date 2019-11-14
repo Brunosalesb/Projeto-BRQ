@@ -1,0 +1,69 @@
+h2{
+    text-align: center;
+    color: #005F9C;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+.list-content button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-weight: 500;
+
+}
+.list-content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%; 
+    background: #fdfdfd;
+    border-bottom: 1px solid rgb(180, 180, 180);
+    margin-bottom: 3vh;
+}
+.list-content a {
+    font-size: 13pt;
+}
+.btn-list{
+    justify-content: space-between;
+    width: 2vh;
+
+}
+.create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    width: 15%;
+    margin: 0 auto;
+}
+.create h2{
+    color: #005F9C;
+}
+.create form{
+    display: flex;
+    flex-direction: column;
+}
+.create label{
+    color: #f77903;
+}
+.create input {
+    border: none;
+    border-bottom: 1px solid #f77903;
+     margin-bottom: 1vh;
+     background: none;
+
+}
+.create button{
+    background: #005F9C;
+    border: none;
+    cursor: pointer;
+    padding: 1vh;
+    font-weight: 500;
+    color: white;
+}

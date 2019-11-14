@@ -1,0 +1,15 @@
+<div *ngIf="ativoEdit">
+    <app-listar-experiencia-por-id></app-listar-experiencia-por-id>
+</div>
+<div *ngIf="!ativoEdit">
+        <app-editar-experiencias></app-editar-experiencias>
+</div>
+<!-- <button (click)="mudarComponente()">
+        <i class="far fa-edit"></i>
+</button> -->
+<style>
+    button{
+        position: relative;
+        left: 95%;
+    }
+</style>

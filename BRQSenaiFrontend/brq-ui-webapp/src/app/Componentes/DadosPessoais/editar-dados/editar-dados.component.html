@@ -1,0 +1,70 @@
+<div class="titulo">
+    <h3>Editar Dados</h3>
+</div>
+
+<div class="">
+    <div *ngIf="listaEditar">
+        <div class="lista-info">
+
+            <div class="info flex">
+                <!-- <div class="flex-content">
+                        <p>Email
+                        </p>
+                        <input placeholder="Insira o email" [(ngModel)]="listaEditar.email" maxlength="30">
+                    </div> -->
+                <div class="flex-content">
+                    <p>Data de Nascimento</p>
+                    <input [(ngModel)]="listaEditar.DataNascimento" type="date">
+
+                </div>
+                <div class="flex-content">
+                    <p>Cpf</p>
+                    <input [(ngModel)]="listaEditar.cpf" maxlength="11">
+                </div>
+                <div class="flex-content">
+                    <p>RG</p>
+                    <input [(ngModel)]="listaEditar.rg" maxlength="9">
+
+                </div>
+                <div class="flex-content">
+                    <p>Telefone</p>
+                    <input [(ngModel)]="listaEditar.telefone" maxlength="11">
+                </div>
+                <div class="flex-content">
+                    <p>Matrícula</p>
+                    <input [(ngModel)]="listaEditar.matricula" maxlength="10">
+                </div>
+            </div>
+            <div class="info2 flex">
+                <div class="flex-content">
+                    <p>Cep</p>
+                    <input [(ngModel)]="listaEditar.cep" maxlength="8">
+                </div>
+                <div class="flex-content">
+                    <p>Logradouro</p>
+                    <input [(ngModel)]="listaEditar.logradouro" maxlength="40">
+                </div>
+                <div class="flex-content">
+                    <p>Número</p>
+                    <input [(ngModel)]="listaEditar.NumeroEndereco" maxlength="10">
+                </div>
+                <div class="flex-content">
+                    <p>Bairro</p>
+                    <input [(ngModel)]="listaEditar.bairro" maxlength="30">
+                </div>
+                <div class="flex-content">
+                    <p>Cidade</p>
+                    <input [(ngModel)]="listaEditar.cidade" maxlength="30">
+
+                </div>
+                <div class="flex-content">
+                    <p>Estado</p>
+                    <input [(ngModel)]="listaEditar.estado" maxlength="20">
+                </div>
+            </div>
+            <button (click)="Atualizar()">Editar</button>
+        </div>
+    </div>
+
+
+</div>

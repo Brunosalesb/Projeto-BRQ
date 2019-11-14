@@ -1,0 +1,48 @@
+<div class="exp">
+    <div class="titulo"  *ngIf="lista">
+        <h3>Editar Experiência: {{lista.titulo}}</h3>
+    </div>
+    <div class="flex-content">
+        <form #f="ngForm">
+        <div class="flex-item">
+            <p>Nome</p>
+            <input [(ngModel)]="lista.titulo" #titulo="ngModel" name="titulo">
+        </div>
+
+        <div class="flex-item">
+            <p>Instituição</p>
+            <input [(ngModel)]="lista.instituicao" #instituicao="ngModel" name="instituicao">
+        </div>
+
+        <div class="flex-item">
+            <p>Descrição</p>
+            <textarea [(ngModel)]="lista.descricao" #descricao="ngModel" name="descricao"></textarea>
+        </div>
+
+        <div class="flex-item">
+            <p>Início</p>
+            <input [(ngModel)]="lista.dataInicio" type="date" #dtInicio="ngModel" name="dtInicio">
+        </div>
+
+        <div class="flex-item">
+            <p>Fim</p>
+            <input [(ngModel)]="lista.dataFim"  type="date" #dtFim="ngModel" name="dtFim">
+        </div>
+
+        <div class="flex-item">
+            <p>Tipo</p>
+            <select [(ngModel)]="lista.tipoExperiencia.nomeTipoExperiencia" #tipo="ngModel" name="tipo">
+                <option value="{{l.id}}" *ngFor="let l of listaTipo">{{l.nome}}</option>
+            </select>
+        </div>
+
+       
+        <div class="flex-item">
+            <button type="submit" (click)="Atualizar(f)">Editar</button>
+        </div>
+    </form>
+    </div>
+<div *ngIf="sucess">
+    <p>Experiência Editada</p>
+</div>
+</div>

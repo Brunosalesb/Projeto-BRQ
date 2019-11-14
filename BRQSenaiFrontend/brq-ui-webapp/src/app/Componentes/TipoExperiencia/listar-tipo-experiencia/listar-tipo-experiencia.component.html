@@ -1,0 +1,28 @@
+<div>
+    <h2>Tipo de Experiência</h2>
+</div>
+<div *ngFor="let l of lista" class="list">
+    <div class="list-content">
+        <a>{{l.nome}}</a>
+        <div class="btn-list">
+            <button (click)="deletar(l.id)">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+    <!-- <a (click)="listarporid(l.id)">Editar</a> -->
+</div>
+<div class="create">
+    <h2>Cadastre Outros!</h2>
+    <form>
+        <label>
+            Nome
+        </label>
+            <input type="text" [(ngModel)]="request.nomeTipoExperiencia" name="tipo">
+        <button (click)="cadastrar()">Cadastrar</button>
+    </form>
+</div>
+<!-- <div>
+    <input type="text" [(ngModel)]="listaID.nome">
+    <button (click)="editar(listaID.id)">Editar</button>
+</div> -->

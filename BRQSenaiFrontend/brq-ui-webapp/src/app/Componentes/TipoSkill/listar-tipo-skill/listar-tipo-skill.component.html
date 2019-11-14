@@ -1,0 +1,22 @@
+<h1>Tipo Skill</h1>
+
+<div class="list" *ngFor="let l of lista">
+    <div class="list-content">
+        <a>{{l.nome}}</a>
+        <div class="btn-list">
+            <button>Editar</button>
+            <button (click)="deletar(l.id)"><i class="far fa-trash-alt"></i></button>
+        </div>
+    </div>
+    
+</div>
+
+<div class="create">
+    <h2>Cadastre Outros!</h2>
+
+    <form #f="ngForm">
+        <label>Nome</label>
+        <input type="text" [(ngModel)]="request.nome" name="nome" #nome="ngModel">
+        <button (click)="cadastrar(f)" type="submit">Cadastrar</button>
+    </form>
+</div>

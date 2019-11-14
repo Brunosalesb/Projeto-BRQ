@@ -1,0 +1,137 @@
+<h2>Insira os seus Dados
+
+</h2>
+<pre>* Campos Necessários</pre>
+<form #f="ngForm" (ngSubmit)="CadastrarDados(f)" onsubmit="botao.disabled=true;">
+<!-- A linha acima desabilita o botão depois que ele é clicado pela primeira vez -->
+    <div class="form-cadastro">
+
+        <div>
+            <label>
+                <a class="title-text">*Nome Completo</a>
+                <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
+                    <p>*nome inválido</p>
+                </div>
+                <input [(ngModel)]="request.nome" type="text" required maxlength="150"
+                    pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" name="nome" #nome="ngModel">
+            </label>
+            <!-- O código acima é para impedir que o usuário cadastre números no campo "Nome" -->
+
+            <label>
+                <a class="title-text">*Data de Nascimento</a>
+                <div *ngIf="!dtnasc.valid && dtnasc.touched" class="alert alert-danger" role="alert">
+                    <p>*data de nascimento inválida</p>
+                </div>
+                <input [(ngModel)]="request.dataNascimento" type="date" name="dtnasc" required #dtnasc="ngModel">
+            </label>
+
+            <label>
+                <a class="title-text">*CPF (apenas números)</a>
+                <div *ngIf="!cpf.valid && cpf.touched" class="alert alert-danger" role="alert">
+                    <p>*CPF inválido</p>
+                </div>
+                <input id="cpf" name="cpf" [(ngModel)]="request.cpf" type="text" pattern="[0-9]+$" required
+                    maxlength="11" minlength="11" name="cpf" #cpf="ngModel">
+            </label>
+            <!-- O pattern impede que o usuário cadastre letras no campo "CPF" -->
+
+            <label>
+                <a class="title-text">*RG</a>
+                <div *ngIf="!rg.valid && rg.touched" class="alert alert-danger" role="alert">
+                    <p>*RG inválido</p>
+                </div>
+
+                <input [(ngModel)]="request.rg" type="text" name="rg" required #rg="ngModel">
+            </label>
+
+            <label>
+                <a class="title-text">*Matrícula - apenas números</a>
+                <div *ngIf="!matricula.valid && matricula.touched" class="alert alert-danger" role="alert">
+                    <p>*Matrícula inválida</p>
+                </div>
+                <input [(ngModel)]="request.matricula" type="text" pattern="[0-9]+$" name="matricula" required
+                    #matricula="ngModel">
+            </label>
+            <!-- O pattern impede que o usuário cadastre letras no campo "Matrícula" -->
+        </div>
+
+        <div>
+            <label>
+                <a class="title-text">*CEP</a>
+                <div *ngIf="!cep.valid && cep.touched" class="alert alert-danger" role="alert">
+                    <p>*CEP inválido</p>
+                </div>
+                <input [(ngModel)]="request.cep" type="text" name="cep" required #cep="ngModel" maxlength="9"
+                    minlength="8" (blur)="consultaCep($event.target.value,f)">
+            </label>
+
+            <label>
+                <a class="title-text">*Cidade</a>
+                <div *ngIf="!localidade.valid && localidade.touched" class="alert alert-danger" role="alert">
+                    <p>*Cidade inválida</p>
+                </div>
+                <input [(ngModel)]="request.cidade" type="text" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+                    name="localidade" required #localidade="ngModel">
+            </label>
+            <!-- Aqui, aparece localidade e cidade porque "cidade" é o campo no backend; e "localidade"
+            é o campo no que aparece na api do CEP, que puxa as informações do endereço quando o CEP é 
+            digitado. -->
+
+            <label>
+                <a class="title-text">*Estado</a>
+                <div *ngIf="!estado.valid && estado.touched" class="alert alert-danger" role="alert">
+                    <p>*Estado inválido</p>
+                </div>
+                <input [(ngModel)]="request.estado" type="text" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+                    name="estado" required #estado="ngModel">
+            </label>
+
+            <label>
+                <a class="title-text">*Bairro</a>
+                <div *ngIf="!bairro.valid && bairro.touched" class="alert alert-danger" role="alert">
+                    <p>*Bairro inválido</p>
+                </div>
+                <input [(ngModel)]="request.bairro" type="text" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+                    name="bairro" required #bairro="ngModel">
+            </label>
+
+            <label>
+                <a class="title-text">*Logradouro</a>
+                <div *ngIf="!logradouro.valid && logradouro.touched" class="alert alert-danger" role="alert">
+                    <p>*Logradouro inválido</p>
+                </div>
+                <input [(ngModel)]="request.logradouro" type="text" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+                    name="logradouro" required #logradouro="ngModel">
+            </label>
+
+            <label>
+                <a class="title-text">*Número</a>
+                <div *ngIf="!numero.valid && numero.touched" class="alert alert-danger" role="alert">
+                    <p>*Número inválido</p>
+                </div>
+                <input [(ngModel)]="request.numeroEndereco" type="text" pattern="[0-9]+$" name="numero" required
+                    #numero="ngModel">
+            </label>
+
+        </div>
+    </div>
+
+    <div class="btn">
+        <div *ngIf="!nome.valid || !cpf.valid || !rg.valid || !dtnasc.valid || !matricula.valid || !cep.valid || !localidade.valid || !estado.valid || !bairro.valid || !logradouro.valid || !numero.valid"
+            class="alert alert-danger" role="alert">
+            <button type="submit" disabled>Cadastrar</button>
+        </div>
+
+        <div *ngIf="nome.valid && cpf.valid && rg.valid && dtnasc.valid && matricula.valid && cep.valid && localidade.valid && estado.valid && bairro.valid && logradouro.valid && numero.valid"
+            class="alert alert-danger" role="alert">
+            <button name="botao" type="submit">Cadastrar</button>
+        </div>
+
+        <!-- O código da div "btn" impede que as informações de cadastro sejam enviadas caso um dos campos esteja 
+        vazio, com caracteres inválidos e/ou com número de caracteres abaixo do mínimo -->
+
+        <!-- <button type="submit" value="TÍTULO do BOTÃO AQUI"
+            onClick="alert('CADASTRO VÁLIDO');">Cadastrar</button> -->
+
+    </div>
+</form>

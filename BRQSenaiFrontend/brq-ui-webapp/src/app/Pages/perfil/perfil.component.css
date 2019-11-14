@@ -1,0 +1,58 @@
+
+.perfil{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.perfil-dados{
+    display: flex;
+    flex-direction: row;
+    
+}
+.div1{
+    width: 60vh;
+    z-index: 1;
+
+}
+.div2{
+    /* height: 80vh; */
+  
+    width: 120vh;
+}
+.div3{
+   width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 3;
+    align-items: flex-end;
+  
+
+}
+@media screen and (max-width:700px){
+   
+.perfil{
+    display: flex;
+  
+    
+    
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.perfil-dados{
+    display: flex;
+    flex-direction: column;
+}
+.div1{
+   width: 100%;
+   
+}
+.div2{
+  width: 100%;
+}
+.div3{
+    width: 100%;
+    right: 0;
+    position: relative;
+}
+}

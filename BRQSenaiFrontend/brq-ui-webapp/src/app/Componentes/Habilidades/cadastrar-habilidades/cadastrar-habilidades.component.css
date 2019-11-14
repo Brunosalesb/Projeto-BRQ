@@ -1,0 +1,83 @@
+*{
+    font-family:segoe ui;
+    
+}
+
+h5{
+    text-align: center;
+    color: #0378A6;
+    font-size: 14pt;
+    margin-top: 20px;
+}
+
+label{
+    padding: 10px;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+input{
+    border-bottom-color:  rgb(187, 185, 185);
+    border-radius: 0;
+    border-width: 0 0 1.5px;
+    height: auto;
+    padding: 3px 0 5px;  
+    text-align: center;
+    outline: none;
+    background: none;
+    
+}
+p{
+    color: rgb(3, 3, 3);
+}
+input:focus{
+    transition: 0.7s;
+    border-bottom-color:#F27405;  
+}
+
+.form-cadastro-habilidade{
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    padding: 30px;
+   }
+
+label a{
+    font-size: 14pt;
+    position: relative;
+    font-weight: 400;
+    font-style: italic;
+    color: #F27405;
+}
+
+.title-text{
+    width: 150px;
+    position: relative;
+    right: 70px;
+}
+
+.btn{
+    justify-content: center;
+    display: flex;
+   
+}
+
+.btn button{
+    margin-top: 5vh;
+    background: #F27405;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    border: 1px solid gainsboro;
+    font-weight: 500;
+}
+
+.btn button:hover{ 
+    background: rgb(253, 146, 52); 
+}

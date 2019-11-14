@@ -1,0 +1,352 @@
+.titulo{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background: rgb(243, 243, 243);
+    width: 20vh;
+}
+
+.titulo h3{
+    padding: 5px;
+    font-size: 15pt;
+    color: #035A7D;
+}
+
+.titulo p{
+    padding: 5px;
+}
+.listavazia{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.listavazia p{
+    color: gray;
+    font-size: 23pt;
+}
+.colaboradores{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-bottom: -3em;
+    margin-left: 3em;
+}
+.colaboradores h3{
+    text-align: center;
+    z-index: 3;
+    position: relative;
+    bottom: 16vh;
+    color: #035A7D;
+}
+
+.colaboradores-info{
+    background: #035A7D;
+    width: 482px;
+    height: 148px;
+    margin-bottom: 50px;
+    color: white;
+    position: relative;
+    transform: translateY(-100px);
+    left: 35%;
+}
+.colaboradores-info button{
+    display: flex;
+    position: absolute;
+    bottom: 75px;
+    right: 50px;
+    border: none;
+    background: #07B2D9;
+    color: white;
+    font-size: 12pt;
+    padding: 6px;  
+}
+
+.colaboradores-email{
+    background: #f27405;
+    position: relative;
+    bottom: 110px;
+    float: left;
+    left: 20px;
+    color: white;
+    font-family: segoe ui;
+    padding: 7px;
+    font-size: 14pt;
+}
+
+.colaboradores-nome{ 
+    font-size: 20pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-style: italic; 
+    position: relative;
+    left: 2px;
+}
+
+.nome-bg{
+    flex-wrap: wrap;
+    justify-content:left ;
+    display: flex;
+}
+
+.bl-bg{
+    background: #07B2D9;
+    width: 34px;
+    height: 38px;
+    flex-direction: row;
+}
+
+.or-bg{
+    background: #F27405;
+    width: 34px;
+    height: 110px;
+    position: relative;
+}
+.btnPag{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: absolute;
+    top: 110px;
+    right: 20px;
+}
+.btnPag button{
+    bottom: 0px;
+    right: 0px;
+    justify-content: center;
+    position: relative;
+   
+    border: none;
+    background: #07B2D9;
+    color: white;
+    font-size: 12pt;
+    
+
+}
+/* button{
+    display: flex;
+    position: absolute;
+    bottom: 75px;
+    right: 50px;
+    border: none;
+    background: #07B2D9;
+    color: white;
+    font-size: 12pt;
+    padding: 6px;  
+} */
+
+button:hover{
+    cursor: pointer;
+    background: #0698b9;
+}
+
+/*Faz todos os filtros ficarem fixos*/
+/*Funciona melhor colocar todos numa única seção em vez de colocar o código separadamente para cada div.*/
+/*Quando colocado separadamente, a palavra "Filtros" sumia.*/
+.todos-os-filtros-e-titulo{
+    position: fixed;
+}
+
+
+/* código referente ao filtro de usuários */
+.formulario-filtro{
+    /* position: fixed; */
+    margin-bottom: 1em;
+    margin-left: 1em;
+   
+    font-size: 20pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+/*Serve para configurar apenas os itens do form que são botÕes*/
+/*Se refere ao botão Buscar*/
+
+.formulario-filtro form input{
+    border-radius: 5px;
+    padding: 0.3em 0.3em;
+    outline: none;
+    border:1px solid rgb(179, 179, 179);
+    
+}
+.formulario-filtro i{
+    cursor: pointer;
+    color: rgb(161, 161, 161);
+    font-size: 14pt;
+}
+.formulario-filtro i:hover{
+    color: black;
+}
+.formulario-filtro button{
+    background: #F27405;
+    position: relative;
+    color: white;
+    border: none;
+    padding: 5px;
+}
+.formulario-filtro button:hover{
+    background: #fd8d2b;
+}
+.formulario-escolha-habilidades{
+    /* position: fixed; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 270px;
+    background: #E3F4FB;
+}
+
+/* Se refere à frase "Habilidades Técnicas" */
+.titulo_habilidades_tecnicas{
+    margin-bottom: 1em;
+    color: #035A7D; /*cor da letra*/
+    border-bottom: 2px solid  #eea96c;
+    width: 185px;
+    font-size: 14pt;
+} 
+
+/*Se refere ao primeiro filtro de habilidades técnicas*/
+.filtro_habilidades_tecnicas select{
+    border-radius: 5px;
+    padding: 0.3em 0.3em;
+    margin-bottom: 0.5em;
+    width: 165px;
+    padding-left: 0.2em;
+    margin-right: 1em;
+}
+
+
+/* Se referem a coisas que só aparecem mediante clique no botão
+"Adicionar Filtro"
+.operador{
+    margin-top: 1em;
+    margin-bottom: 0.9em;
+    margin-left: 6em;
+}
+
+.filtro_habilidades_tecnicas_dois select{
+    border-radius: 5px;
+    padding: 0.3em 0.3em;
+    margin-bottom: 0.5em;
+    width: 165px;
+    padding-left: 0.2em;
+    margin-top: 0.8em;
+    margin-right: 1em;
+} */
+
+/* Se refere à frase "Habilidades Comportamentais" */
+.titulo_habilidades_comportamentais{
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    color: #035A7D; /*cor da letra*/
+    border-bottom: 2px solid  #eea96c;
+    width: 268px;
+    font-size: 14pt;
+}
+
+/*Se refere ao filtro das habilidades comportamentais*/
+.filtro_habilidades_comportamentais select{
+    border-radius: 5px;
+    padding: 0.3em 0.3em;
+    margin-bottom: 0.5em;
+    width: 165px;
+    padding-left: 0.2em;
+    margin-top: 0.4em;
+    margin-right: 1em;
+}
+
+/* Se refere à frase "Habilidades de Negócio." */
+.titulo_habilidades_negocio{
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    color: #035A7D; /*cor da letra*/
+    border-bottom: 2px solid  #eea96c;
+    width: 210px;
+    font-size: 14pt;
+}
+
+/*Se refere ao filtro das habilidades de negócio*/
+.filtro_habilidades_negocio select{
+    border-radius: 5px;
+    padding: 0.3em 0.3em;
+    margin-bottom: 0.5em;
+    width: 165px;
+    padding-left: 0.2em;
+    margin-top: 0.4em;
+    margin-right: 1em;
+}
+
+.Carregando{
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.Carregando a{
+    color: #3f51b5;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+/*MUDANÇAS ACONTECEM NA DISPOSIÇÃO DE CERTOS ITENS
+QUANDO A TELA FICA COM 800px de largura ou menos.*/
+@media screen and (max-width: 770px){
+
+    /*Sem isso, ficaria um buraco enorme acima da lista.*/
+    .colaboradores{
+        margin-top: -400px;
+    }
+
+    .colaboradores-info{
+        width: 360px;
+        height: 148px;
+        color: white;
+        left: 40%;
+    }
+
+    .colaboradores-email{
+        font-size: 10pt;
+    }
+
+    .colaboradores-nome{ 
+        font-size: 18pt;
+    }
+
+    button{
+        font-size: 9pt;
+        padding: 4px;  
+    }
+    /*botão do formulário de colaboradores*/
+
+     /*Aqui, os filtros deixam de ser fixos.*/
+     .todos-os-filtros-e-titulo{
+        position: relative;
+    }
+
+   
+}
+
+
+/*MUDANÇAS ACONTECEM NA DISPOSIÇÃO DE CERTOS ITENS
+QUANDO A TELA FICA COM 700px de largura ou menos.*/
+@media screen and (max-width: 700px){
+    /*Ajuda a impedir que a lista de colaboradores cubra os filtros de habilidades.*/
+    .formulario-escolha-habilidades{
+        margin-bottom: 9em;
+    }
+
+    /*Ajuda a impedir que a lista de colaboradores cubra os filtros de habilidades.*/
+    .colaboradores{
+        margin-left: 0.5em;
+        margin-top: 3em;
+    }
+
+    /*Os retângulos contendo os nomes colaboradores listados 
+        ficam mais próximos da lateral esquerda da tela.*/
+    .colaboradores-info{
+        left: 3%;
+    }
+}
+
+
