@@ -1,0 +1,129 @@
+* {
+    z-index: 2;
+}
+
+h3 {
+    color: white;
+    position: relative;
+    font-size: 16pt;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+    margin: 13% 0 4% 0;
+    
+}
+.titulo button{
+    margin-left: 3%;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+    background: #F27405;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#flex{
+    /* background: rgb(251,251,251); */
+    height: 43vh;
+    overflow: auto;
+    width: 80%;
+    border-radius: 1%;
+    margin: auto;
+    border: 1px solid white;
+
+}
+.lista {
+    padding: 8px;
+    display: flex;
+    flex-direction: row  ;
+    justify-content: center;
+    align-items: center;
+    width: 25vh;
+    margin: 0 auto;
+}
+
+.lista-skill {
+    background: chocolate;
+    padding: 1px;
+    width: 100%;
+    color: white;
+    margin-top: 3px;
+    font-weight: bold;
+    max-height: 30px;
+    display: flex;
+    border-radius: 50px;
+    height: 4vh;
+    align-items: center;
+    justify-content: space-evenly ;
+}
+.lista i{
+    
+    cursor: pointer;
+    font-size: 12pt;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lista-skill i:hover{
+    color: #ccc;
+    transition: 1s;
+}
+.lista-skill:hover .lista-skill i {
+    background: #000;
+}
+
+
+p{
+    color: #F27405;
+    font-weight: bold;
+    cursor: pointer;
+}
+p:hover{
+    color: rgb(252, 180, 118);
+    transition: 0.7s;
+}
+.ListaVazia{
+    background: #0378A6;
+    color: white;
+    padding: 10px;
+}
+#hidden{
+    display: none;
+
+}
+
+#excluir{
+    margin-left: 9%;
+    color: #fff;
+}
+
+#flex::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#flex::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#flex::-webkit-scrollbar-thumb
+{
+	background-color: #F27405;	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}

@@ -1,0 +1,44 @@
+<form #f="ngForm" (ngSubmit)="CadastrarContatos(f)">
+    <label>
+        <a class="title-text">*Contato teste</a>
+        <div *ngIf="!nomeContato.valid && nomeContato.touched" class="alert alert-danger" role="alert">
+            <p>*contato teste inválido</p>
+        </div>
+        <input [(ngModel)]="request.nomeContato" type="text" required minlength="1" name="nomeContato"
+            #nomeContato="ngModel">
+    </label>
+       
+    
+    <label>
+        <a class="title-text">*Tipo de contato</a>
+        <select [(ngModel)]="request.idTipoContato" type="number" name="idTipoContato" #idTipoContato="ngModel">
+                <option>Selecione</option>
+                <option value="1">Telefone</option>
+                <option value="2">Email</option>
+    
+        </select>
+    </label>
+        
+    
+    <!-- <label>
+        <a class="title-text">*Email</a>
+        <div *ngIf="!email.valid && email.touched" class="alert alert-danger" role="alert">
+            <p>*email inválido</p>
+        </div>
+        <input [(ngModel)]="request.email" required email name="email" #email="ngModel">
+    </label>
+
+    <label>
+        <a class="title-text">*Telefone com o DDD (apenas números)</a>
+        <div *ngIf="!telefone.valid && telefone.touched" class="alert alert-danger" role="alert">
+            <p>*telefone inválido</p>
+        </div>
+        <input [(ngModel)]="request.telefone" type="text" pattern="[0-9]+$" required name="telefone"
+            #telefone="ngModel" minlength="10" maxlength="11">
+    </label> -->
+    <!-- O pattern impede que o usuário cadastre letras no campo "Telefone" -->
+                                                       
+    <button type="submit">Cadastrar Contatos</button>
+    
+    </form>
+    

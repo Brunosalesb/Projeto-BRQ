@@ -1,0 +1,31 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+
+<h1 class="pb-4" id="titulo-pag">Vagas</h1>
+<p>Aqui você encontra as oportunidades dentro da BRQ!</p>
+<div class="content">
+    <div *ngFor="let l of lista" class="flex-list">
+
+        <div class="card  flex-content" style="width: 18rem;">
+            <div class="card-body">
+                <div class="botoes">
+                    <a *ngIf="permissao"  routerLink="/dashboard/vagas/editar/{{l.id}}"><i class="far fa-edit"></i></a>
+                    <a *ngIf="permissao" id="botaoDes" class="btn btn-danger white-color"><i class="fas fa-trash"></i></a>
+                </div>
+                <h5 class="card-title">{{l.titulo}}</h5>
+                <p class="card-text descri">{{l.descricao}}</p>
+                <p id="requisito">{{l.requisito}}</p>
+
+                <a id="botao" class="btn btn-info" routerLink="/vagas/{{l.id}}">Ver Vaga</a>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

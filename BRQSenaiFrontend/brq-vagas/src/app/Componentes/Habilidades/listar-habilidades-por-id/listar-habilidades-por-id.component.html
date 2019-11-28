@@ -1,0 +1,25 @@
+<div class="titulo">
+    <h3>Habilidades</h3>
+
+    <button (click)="openDialog()" *ngIf="permissao">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
+<section class="scrollbar" id="flex">
+    <div class="overflow-auto content">
+        <div *ngFor="let l of lista?.SkillsDaPessoa" class="lista">
+            <div class="lista-skill">
+                <a>{{l.Skill.titulo}}</a>
+            </div>
+           
+            <i  (click)="desatribuirSkill(l.id)" class="far fa-trash-alt" id="excluir"></i>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="listaVazia">
+        <p>Ver Todas...</p>
+    </div>
+    <div *ngIf="!listaVazia" class="ListaVazia">
+        <a>Você não tem nenhuma skill ainda :(</a>
+    </div> -->
+</section>

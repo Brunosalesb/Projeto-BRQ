@@ -1,0 +1,71 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light" *ngIf="!mostrarMenu && !mostrarMenuAdmin" id="nav">
+        <img src="../../../assets/Imagens/BRQ.png" alt="logo empresa">
+    <button id="botao" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse"  id="navbarNav">
+        <ul class="navbar-nav" id="lista">
+            
+            <li class="nav-item">
+                <a class="nav-link text-center" routerLink="/cadastrarusuario">Cadastro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" routerLink="/login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+
+
+<div class="menu" *ngIf="mostrarMenu && !mostrarMenuAdmin">
+   <nav class="navbar navbar-expand-lg navbar-light" id="nav">
+    <img src="../../../assets/Imagens/BRQ.png" alt="logo empresa">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" id="lista">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/perfil/{{id}}">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/vagas">Vagas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Sair</a>
+        </li>
+    </ul>
+</div>
+</nav>
+
+
+</div>
+
+<div class="menu" *ngIf="mostrarMenu && mostrarMenuAdmin">
+   <nav class="navbar navbar-expand-lg navbar-light" id="nav">
+    <img src="../../../assets/Imagens/BRQ.png" alt="logo empresa">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" id="lista">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/perfil/{{id}}">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/vagas">Vagas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Sair</a>
+        </li>
+    </ul>
+</div>
+</nav>
+
+</div>

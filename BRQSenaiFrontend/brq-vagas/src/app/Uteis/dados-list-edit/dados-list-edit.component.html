@@ -1,0 +1,10 @@
+<div>
+
+    <div *ngIf="ativo">
+        <app-listar-dados-por-id></app-listar-dados-por-id>
+    </div>
+    <button (click)="mudarComponente()" *ngIf="permissao" >Editar dados</button>
+    <!-- muda o estado componente alterando o componente listar para o editar, "ao clicar no botao você poderá editar os seus dados sem sair da página"-->
+    <div *ngIf="!ativo">
+        <app-editar-dados></app-editar-dados>
+    </div>

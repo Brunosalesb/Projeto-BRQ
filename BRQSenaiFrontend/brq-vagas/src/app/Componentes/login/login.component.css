@@ -1,0 +1,117 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.campo-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.campo-login h2{
+    color:#005F9C;
+}
+.campo-login p{
+    color: gray;
+}
+.campo-login form div{
+    display: flex;
+    flex-direction: column;
+}
+.campo-login label{
+    color: #f77903
+}
+.campo-login input{
+    border: none;
+    outline: none;
+    border-bottom: #f77903 solid 1px;
+}
+.campo-login button{
+    padding: 1px;
+    box-shadow: 1px 1px 0px black;
+    background: #005F9C;
+    border: none;
+    cursor: pointer;
+    margin-top: 3px;
+
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.campo-login button p{
+    color: white;
+    font-style: 16pt;
+}
+.err{
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+    padding: 2px;
+    margin: 0 auto;
+    display: flex;
+    background: rgb(250, 0, 0);
+    
+}
+.err p{
+    color: white;
+    font-weight: bold;
+}
+.online{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+}
+.online h3{
+    color: #005F9C;
+    margin-bottom: 10px;
+}
+.online p{
+    font-size: 12pt;
+   margin-bottom: 10px;
+    
+}
+.online button{
+    background: #005F9C;
+    border:none;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#formLogin{
+    width: 40%;
+    height: 30%;
+}
+
+#formLogin input{
+    background-color: #ffffff;
+    font-size: 13pt;
+    margin: 3% 0;
+}
+.btn-acess{
+    border-color: #f77903;
+    color: #f77903;
+    background: white;
+  
+}
+.btn-acess:hover{
+    background: #fcd2ab;
+    transition: 0.5s ease;
+}
+.btn-create{
+    background-image: linear-gradient(to right, #f77903, #f7a203);
+    border-color: #f77903;
+}
+#formLogin h5{
+    color: rgb(2, 94, 151);
+}
+#titulo{
+    color: rgb(2, 94, 151);
+}

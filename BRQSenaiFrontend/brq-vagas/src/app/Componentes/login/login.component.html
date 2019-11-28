@@ -1,0 +1,19 @@
+<div style="height: 50vh;" class="container">
+    <form #f="ngForm" (ngSubmit)="login(f)"  id='formLogin'>
+        <div class="form-group">
+            <h1 class="text-center col-12" for="exampleInputPassword1" id="titulo">Login</h1>
+            <p class="text-center">Use sua matrícula para entrar no sistema.</p>
+            <input type="text" class="mt-4 form-control text-center" id="exampleInputPassword1" placeholder="Email"
+                [(ngModel)]="request.email" name="email" #email="ngModel">
+            <input type="password" class="mt-4 form-control text-center" id="exampleInputPassword1" placeholder="Senha"
+                [(ngModel)]="request.senha" name="senha" #email="ngModel">
+        </div>
+        <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button type="submit" class="mt-4 btn btn-block btn-acess btn-warning pt-2 pb-2">Entrar</button>
+        <h5 class="mt-4 text-center">Crie sua Conta</h5>
+        <button routerLink="/cadastrarusuario" class="mt-2 btn btn-block btn-create text-white pt-2 pb-2">Cadastre-se</button>
+    </form>
+</div>

@@ -1,0 +1,91 @@
+.nav {
+    background-color: #035A7D;
+}
+
+#titulo-pag {
+    text-align: center;
+    margin: 2% auto 3% auto;
+}
+
+h1 {
+    color: #035A7D;
+}
+
+p {
+    text-align: center;
+    color: rgb(53, 52, 52);
+}
+
+.content {
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    display: flex;
+    width: 87%;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.descri {
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    
+
+}
+
+.flex-content {
+    height: auto;
+    margin-bottom: 4vh;
+    box-shadow: 2px 3px 3px #ddd;
+    color: #005F9C;
+}
+
+#requisito {
+    padding: 5px;
+    border: #F27405 1px solid;
+    color: #F27405;
+    border-radius: 50px;
+}
+
+#botao {
+    background-color: #005F9C;
+    display: flex;
+    width: 40%;
+    margin: auto;
+    justify-content: center;
+}
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#botaoDes{
+    color: white;
+}
+@media only screen and (max-width: 1100px) {
+    .empresa {
+        float: none;
+        text-align: left;
+        margin: 10% auto auto 8%;
+    }
+    .local {
+        float: none;
+        text-align: left;
+        margin: 5% auto auto 8%;
+    }
+    .vinculo {
+        margin: 5% auto auto 8%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    /*ainda falta o filtro */
+    .titulo {
+        float: none;
+    }
+}

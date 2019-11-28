@@ -1,0 +1,29 @@
+.perfil-dados{
+    display: flex;
+}
+
+.div1{
+    width: 25%;
+    background-color: #014068;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.div2{
+    width: 75%;
+}
+@media screen and (max-width:650px){
+    .perfil-dados{
+        flex-direction: column;
+    }
+    .div1{
+        width: 100%;
+    }
+    .div1 img{
+        background: #000;
+    }
+
+    .div2{
+        width: 100%;
+    }
+}

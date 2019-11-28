@@ -1,0 +1,19 @@
+<div class="form-cadastro-habilidade">
+    <h5>Adicionar</h5>
+
+    <form #f="ngForm" (ngSubmit)="CadastrarHabilidades(f)">
+        <label>
+            <p>Selecione a habilidade</p>   
+            <select placeholder="Insira o número" [(ngModel)]="request.IdSkill" type="int" name="fkIdSkill" #fkIdSkill="ngModel">
+                <option value="{{l.id}}" *ngFor="let l of lista">{{l.titulo}}</option>
+            </select>
+
+        </label>
+
+        <div class="btn">
+            <button type="submit" class="btn">Adicionar</button>
+
+        </div>
+    </form>
+   
+</div>

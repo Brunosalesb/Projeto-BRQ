@@ -1,0 +1,108 @@
+.skill{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.skill h2{
+    color: #005F9C;
+}
+
+.skillType{
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 2vh;
+}
+.skillType td{
+    font-weight: lighter;
+    color: #005F9C;
+}
+.list-skill{
+    display: flex;
+    width: 100%;
+    
+    flex-direction: column;
+}
+.content{
+    height: 50vh;
+    overflow: auto;
+    padding: 4vh;
+}
+.skill-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* height: 500px; */
+    /* background: #000; */
+}
+.skill-container button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-action{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* /////////////////////////////////////////////////////////////////////// */
+.container-edit{
+    width: 40vh;
+    border: 1px solid #005F9C;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.container-edit p{
+    color: #005F9C;
+    font-weight: bold;
+    
+}
+.container-edit strong{
+    font-style: italic;
+}
+.container-edit form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.container-edit input{
+    border: none;
+    background: #f6f6f6;
+    border-bottom:2px solid #f77903 ;
+    margin-bottom: 1vh;
+}
+.editclass{
+    padding: 1vh;
+}
+.container-edit select{
+    border: none;
+    margin-bottom: 1vh;
+    background: #f6f6f6;
+    border-bottom:2px solid #f77903 ;
+}
+.btn-edit-del{
+    display: flex;
+    justify-content: space-between;
+    width: 10vh;
+    /* background: #000; */
+}
+.editButton{
+    color: orange;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#alert{
+    width: 10%;
+    display: flex;
+   
+}

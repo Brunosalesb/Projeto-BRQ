@@ -1,0 +1,36 @@
+#brq{
+    background-color: #014068;
+    display: flex;
+    align-items: center;
+}
+
+h4{
+    color: #035A7D;
+}
+input:focus, textarea:focus{
+    border: 2px solid #f27405;
+    outline: 0;
+    box-shadow: none;
+}
+
+.container{
+    height: 76vh;
+}
+
+textarea{
+    resize: none;
+}
+
+#descricao{
+    height: 88px;
+}
+
+.cadastrar{
+    background-color: #f27405;
+    color: white;
+    margin: 3% auto auto auto;
+}
+
+h4{
+    text-align: center;
+}

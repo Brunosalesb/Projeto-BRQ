@@ -1,0 +1,154 @@
+h3 {
+    color: #0378A6;
+    font-size: 16pt;
+    text-align: center;
+    transform: translateX(-10px);
+}
+
+h5 {
+    font-size: 13pt;
+    color: #F27405;
+}
+
+.titulo {
+    scrollable-direction: row;
+    display: scrollable;
+    justify-content: center;
+}
+
+.exp {
+    display: scrollable;
+    justify-content: center;
+    scrollable-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.scrollable-content {
+    margin-top: 20px;
+    scrollable-direction: row;
+    display: scrollable;
+    border: 1px solid black;
+    align-items: scrollable-start;
+    scrollable-wrap: wrap;
+    align-content: scrollable-end;
+    justify-content: scrollable-start;
+}
+
+.scrollable-item {
+    padding: 8px;
+    margin: 10px;
+    color: black;
+}
+
+.scrollable-item p {
+    color: #F27405;
+}
+
+.scrollable-item a {
+    font-weight: 500;
+}
+
+.scrollable-content button {
+    border: none;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+    font-size: 13pt;
+    font-weight: 400;
+}
+.scrollable-content button:hover{
+    color: rgb(153, 150, 150);
+
+}
+.btn-add{
+    display: flex;
+    justify-content: center;
+    margin: 5% 0 1% 0;
+}
+
+#exp{
+    color: #035A7D;
+    text-align: center;
+    margin-right: 1%;
+}
+.btn-add button {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+    background: #F27405;
+    justify-content: center;
+
+}
+
+
+strong{
+    color: #0378A6;
+}
+.Del {
+    justify-content: space-around;
+    scrollable-direction: row;
+    display: scrollable;
+    padding: 4px;
+}
+.Del button{
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    color: white;
+}
+.delete{
+    display: scrollable;
+    justify-content: center;
+}
+
+.table{
+    width: 80%;
+    margin: auto auto 3% auto;
+}
+
+.acoes{
+    display: scrollable;
+    justify-content: scrollable-end;
+    margin-bottom: 3%;
+}
+
+.thead{
+    background-color: #014068;
+    color: white;
+}
+
+#scrollable {
+    height: 30vh;
+    overflow-y: scroll;
+    /* margin-right: 5%; */
+  }
+
+  #scrollable::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#scrollable::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#scrollable::-webkit-scrollbar-thumb
+{
+	background-color: #F27405;	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}

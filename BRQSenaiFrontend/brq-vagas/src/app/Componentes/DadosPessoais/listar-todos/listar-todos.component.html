@@ -1,0 +1,70 @@
+<section class="content">
+    <div class="formulario-filtro">
+        <form #f="ngForm" (ngSubmit)="mandarParaRota(f)">
+            <p>Filtrar Colaboradores</p>
+            <div class="campoFiltro">
+                <input type="text" placeholder="habilidades procuradas" class="form-control"
+                    [(ngModel)]="habilidadesprocuradas" name="filtro" #filtro="ngModel"
+                     required>
+                <button class="btn btn-sucess" type="submit" (click)="listarComFiltro()" >Filtrar</button>
+                <button  style="background: none;border: none;" >
+                    <i (click)="resetarForm(f)" class="fas fa-trash-alt" style="color: rgb(87, 86, 86);"></i>
+                </button>
+            </div>
+        </form>
+        <button class="btn-all btn" (click)="listarTodos()">Buscar Todos</button>
+    </div>
+    <div class="formulario-escolha-habilidades">
+        <div class="titulo_habilidades_tecnicas">
+            <p><b>Habilidades</b></p>
+        </div>
+        <form action="#">
+            <div class="filtro_habilidades_tecnicas">
+                <select type="string" [(ngModel)]="idSkill" #mySelectTecnica class="form-control"
+                    (change)='mandarHabilidadeParaFiltro(mySelectTecnica.value,f)'>
+                    <option *ngFor="let l of listahabilidades" value="{{l.titulo}}">{{l.titulo}}
+                    </option>
+                </select>
+            </div>
+        </form>
+    </div>
+</section>
+<div>
+</div>
+<div class="Carregando">
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <div *ngIf="showSpinner"><a>Carregando...</a></div>
+</div>
+<div *ngIf="!ListaBool">
+    <section class="colaboradores" *ngFor="let l of listas">
+        <h3>{{l.nome}}</h3>
+        <div class="colaboradores-info" *ngFor="let li of l.skillPessoa">
+            <div class="nome-bg">
+                <div class="bl-bg flex">
+                </div>
+                <a class="colaboradores-nome flex">{{li.Pessoa.nome}}</a>
+            </div>
+            <div class="or-bg">
+            </div>
+            <a class="colaboradores-email">{{li.Pessoa.matricula}}</a>
+            <button routerLink="/perfil/{{li.Pessoa.id}}">Ver profissional</button>
+        </div>
+    </section>
+</div>
+<section class="colaboradores" *ngIf="ListaBool">
+    <div class="colaboradores-info" *ngFor="let l of lista">
+        <div class="nome-bg">
+            <div class="bl-bg flex">
+            </div>
+            <a class="colaboradores-nome flex">{{l.Nome}}</a>
+        </div>
+        <div class="or-bg">
+        </div>
+        <a class="colaboradores-email">{{l.Matricula}}</a>
+        <button routerLink="/perfil/{{l.Id}}">Ver profissional</button>
+    </div>
+</section>
+<div class="btnPag" *ngIf="mostrarPagina">
+    <button (click)="diminuirPagina()" [disabled]="disableBotaoAnt" class="btn btn-info">Anterior</button>
+    <button (click)="aumentarPagina()" class="btn btn-info">Próxima</button>
+</div>

@@ -1,0 +1,64 @@
+
+
+<div class="form-cadastro-experiencia">
+    <form #f="ngForm" (ngSubmit)="CadastrarExperiencias(f)">
+    <h4>Cadastrar</h4>
+
+    <div class="parte-formulario">
+        <label>
+            <p>Nome da experiência</p>
+            <input placeholder="Insira o nome da experiência" [(ngModel)]="request.titulo" #titulo="ngModel" name="titulo">
+        </label>
+
+        <label>
+            <p>Nome da instituição</p>
+            <input placeholder="Insira o nome da instituição" [(ngModel)]="request.instituicao" #instituicao name="instituicao">
+        </label>
+
+        <label>
+            <p>Descrição da experiência</p>
+            <input placeholder="Insira a descrição" [(ngModel)]="request.descricao" #descricao name="descricao">
+        </label>
+    </div>
+
+
+    <div class="parte-formulario">
+        <label>
+            <p>Início da experiência</p>
+            <input placeholder="Insira a data " [(ngModel)]="request.dtInicio" type="date" #dataInicio name="dataInicio">
+        </label>
+
+        <label>
+            <p>Fim da experiência</p>
+            <input placeholder="Insira a data" [(ngModel)]="request.dtFim" type="date" #dataFim name="dataFim">
+        </label>
+
+        <!-- <label>
+            <p>Tipo da experiência</p>
+            <input placeholder="Insira o número" [(ngModel)]="request.tipoExperiencia" type="int" #tipoExperiencia name="tipoExperiencia">
+        </label> -->
+        <label>
+            <p>Tipo</p>
+            <select name="tipoExperiencia" #tipoExperiencia="ngModel" [(ngModel)]="request.idTipoExperiencia" >
+                <option value="{{l.id}}" *ngFor="let l of lista">{{l.nome}}</option>
+            </select>
+        </label>
+    </div>
+
+    <!-- <div class="parte-formulario-esquerda">
+        <label>
+            <p>Número da pessoa</p>
+            <input placeholder="Insira o número" [(ngModel)]="request.idPessoa" type="int">
+        </label>
+    </div> -->
+
+
+    <div class="btn">
+            <button type="submit" class="btn">Cadastrar</button>
+    </div>
+    
+    </form>
+</div>
+<div *ngIf="sucess">
+    <a>Experiência Cadastrada</a>
+</div>

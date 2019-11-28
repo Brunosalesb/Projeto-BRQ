@@ -1,0 +1,34 @@
+<div  class="titulo">
+    <h1>Experiências</h1>
+    <p>Busque aqui as Experiências dos colaboradores</p>
+</div >
+<section class="list">
+    <div *ngFor="let l of lista" class="content">
+        <div class="flex-content">
+        <div class="flex-item">
+            <p>Título</p>
+            <a>{{l.titulo}}</a>
+        </div >
+        <div class="flex-item">
+            <p>Instituição</p>
+            <a>{{l.instituicao}}</a>
+        </div >
+        <div class="flex-item">
+            <p>Descrição</p>
+            <a>{{l.descricao}}</a>
+        </div >
+        <div class="flex-item">
+            <p>Início</p>
+            <a>{{l.dataInicio}}</a>
+        </div >
+        <div class="flex-item">
+            <p>Fim</p>
+            <a>{{l.dataFim}}</a>
+        </div >
+        <div class="flex-item">
+            <p>Tipo</p>
+            <a>{{l.tipoExperiencia.nomeTipoExperiencia}}</a>
+        </div >
+    </div>
+    </div>
+</section>

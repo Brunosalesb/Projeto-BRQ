@@ -1,0 +1,133 @@
+<div class="titulo">
+        <h1 class="pb-4" id="dados">Dados pessoais</h1>
+</div>
+
+<div *ngIf="ativo">
+    <div class="lista-info" *ngIf="lista">
+
+        <div class="info flex">
+
+
+            <!-- <div class="flex-content">
+                <p>Data de nascimento</p>
+                <a>{{lista.DataNascimento}}</a>
+
+            </div> -->
+
+            <div class="flex-content">
+                <p>CPF</p>
+                <a>{{lista.cpf}}</a>
+            </div>
+            <div class="flex-content">
+                <p>RG</p>
+                <a>{{lista.rg}}</a>
+
+            </div>
+            <div class="flex-content">
+                <p>Matrícula</p>
+                <a>{{lista.matricula}}</a>
+            </div>
+            <div class="flex-content">
+                <p>Contatos
+                    <!-- <button (click)="openDialogContato()" *ngIf="permissao">
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                </p>
+                <a href="">ver todos</a>
+
+                <!-- vai virar um modal -->
+                
+                <!-- <div *ngFor="let c of lista.Contatos" class="contact-item">
+                    <p>{{c.TipoDeContato.NomeTipoContato}}</p>
+                    <a> {{c.Contato}}</a>
+                </div> -->
+
+            </div>
+        </div>
+        <div class="info2 flex">
+           
+            <!-- <div class="flex-content">
+            <p>Número</p>
+            <a>{{lista.numero}}</a>
+        </div> -->
+            <div class="flex-content">
+                <p>CEP</p>
+                <a>{{lista.cep}}</a>
+            </div>
+            <div class="flex-content">
+                <p>Cidade</p>
+                <a>{{lista.cidade}}</a>
+            </div>
+            <div class="flex-content">
+                <p>Estado</p>
+                <a>{{lista.estado}}</a>
+            </div>
+            <div class="flex-content">
+                <p>Bairro</p>
+                <a>{{lista.bairro}}</a>
+            </div>
+            <div class="flex-content">
+                <p>Logradouro</p>
+                <a>{{lista.logradouro}}</a>
+            </div>
+
+
+        </div>
+    </div>
+    <a *ngIf="permissao" class="btn btn-info" style="color: white;" (click)="MudarMetodo()">Editar <i class="far fa-edit"></i></a>
+</div>
+<div *ngIf="!ativo">
+    <div class="lista-info" *ngIf="lista">
+
+        <div class="info flex">
+
+
+            <div class="flex-content">
+                <p>Nome</p>
+              <input class="form-control" [(ngModel)]="lista.nome" type="text">
+
+            </div>
+            <div class="flex-content">
+                <p>Data de nascimento</p>
+              <input class="form-control" [(ngModel)]="lista.DataNascimento" type="date">
+
+            </div>
+
+            <div class="flex-content">
+                <p>CPF</p>
+               <input class="form-control" type="text" [(ngModel)]="lista.cpf">
+            </div>
+            <div class="flex-content">
+                <p>RG</p>
+               <input class="form-control" type="text" [(ngModel)]="lista.rg">
+
+            </div>
+        </div>
+        <div class="info2 flex">
+            <div class="flex-content">
+                <p>Matrícula</p>
+               <input class="form-control" type="text" [(ngModel)]="lista.matricula">
+            </div>
+            <div class="flex-content">
+                <p>CEP</p>
+                <input class="form-control" type="text" [(ngModel)]="lista.cep">
+            </div>
+            <div class="flex-content">
+                <p>Estado</p>
+              <input class="form-control" type="text" [(ngModel)]="lista.estado">
+            </div>
+            <div class="flex-content">
+                <p>Bairro</p>
+              <input class="form-control" type="text" [(ngModel)]="lista.bairo">
+            </div>
+            <div class="flex-content">
+                <p>Logradouro</p>
+              <input class="form-control" type="text" [(ngModel)]="lista.logradouro">
+            </div>
+
+            <button (click)="Editar()">Editar Dados</button>
+        </div>
+    </div>
+</div>
+
+

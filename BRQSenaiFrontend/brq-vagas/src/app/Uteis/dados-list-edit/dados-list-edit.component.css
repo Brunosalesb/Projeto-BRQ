@@ -1,0 +1,17 @@
+button {
+    position: relative;
+/* top: 70px;
+left: 100px; */
+    cursor: pointer;
+    background: #0378A6;
+    color: white;
+    padding: 5px;
+    border: 1px rgb(197, 197, 197) solid;
+    font-weight: bold;
+    display: flex;
+    margin: auto;
+}
+
+button:hover {
+    background: rgb(4, 135, 187);
+}

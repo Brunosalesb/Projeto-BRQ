@@ -1,0 +1,19 @@
+input, textarea,p {
+    cursor: auto;
+}
+h4{
+    color: #035A7D;
+    font-style: 18pt;
+}
+.title {
+    color: #f27405;
+}
+
+#brq {
+    background-color: #014068;
+    display: flex;
+    align-items: center;
+}
+#botao{
+    background-color: #005F9C;
+}
