@@ -37,16 +37,13 @@ export class CadastrarDadosPessoaisComponent{
       rg : ['', Validators.compose([
         Validators.required
       ])],
-      dataNascimento : ['', Validators.compose([
-        Validators.required
-      ])],
       cep : ['', Validators.compose([
         Validators.required
       ])],
       logradouro : ['', Validators.compose([
         Validators.required
       ])],
-      numero : ['', Validators.compose([
+      numeroEndereco : ['', Validators.compose([
         Validators.required
       ])],
       bairro : ['', Validators.compose([
@@ -58,8 +55,14 @@ export class CadastrarDadosPessoaisComponent{
       estado : ['', Validators.compose([
         Validators.required,
         Validators.minLength(2),
-
-      ])]
+      ])],
+      email: ['', Validators.compose([
+        Validators.required
+      ])],
+      senha: ['', Validators.compose([
+        Validators.required
+      ])],
+      complemento: [''] //Não tem nada dentro dos colchetes porque não é obrigatório preencher o complemento.
       
     });
   }
@@ -98,13 +101,15 @@ export class CadastrarDadosPessoaisComponent{
           localidade: '',
           logradouro: '',
           matricula: '',
-          numero: '',
+          numeroEndereco: '',
           rg: '',
           cpf: '',
-          dataNascimento: '',
           cep: '', 
           bairro: '',
-          estado: ''
+          estado: '',
+          senha: '',
+          email: '',
+          complemento: ''
           
       
     });
@@ -123,13 +128,15 @@ export class CadastrarDadosPessoaisComponent{
       "localidade" : this.formDadosPessoais.value.localidade,
       "logradouro" : this.formDadosPessoais.value.logradouro,
       "matricula" :  this.formDadosPessoais.value.matricula,
-      "numero" : this.formDadosPessoais.value.numero,
+      "numeroEndereco" : this.formDadosPessoais.value.numeroEndereco,
       "rg" : this.formDadosPessoais.value.rg,
       "cpf" : this.formDadosPessoais.value.cpf,
-      "dataNascimento" : this.formDadosPessoais.value.dataNascimento,
       "cep" : this.formDadosPessoais.value.cep, 
       "bairro" : this.formDadosPessoais.value.bairro,
-      "estado" : this.formDadosPessoais.value.estado
+      "estado" : this.formDadosPessoais.value.estado,
+      "email" : this.formDadosPessoais.value.email,
+      "senha" : this.formDadosPessoais.value.senha,
+      "complemento" : this.formDadosPessoais.value.complemento
 
     }
   
@@ -141,7 +148,7 @@ export class CadastrarDadosPessoaisComponent{
       history.go(0); //Atualiza a página.
     }, error => {
       console.log(error);
-      alert('TENTE NOVAMENTE. VOCÊ DIGITOU UM CPF, Nº DE MATRÍCULA E/OU RG QUE JÁ EXISTEM NO SISTEMA.')
+      alert('ERRO NO CADASTRO. TENTE NOVAMENTE.')
     });
 
     // this.toastr.success('Dados Pessoais', 'Cadastro Efetuado com sucesso!', {

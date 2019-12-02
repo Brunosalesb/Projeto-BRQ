@@ -29,7 +29,7 @@ APITipoExperiencia(){
     return url;
 }
 APIVagas(){
-    const url =  "http://5db73fd7e2c76f0014a53cc3.mockapi.io/api/vagas"
+    const url =  `${this.base_url}/Vagas`;
     return url;
 };
 

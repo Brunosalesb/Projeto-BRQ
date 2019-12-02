@@ -14,12 +14,12 @@
         <div class="card  flex-content" style="width: 18rem;">
             <div class="card-body">
                 <div class="botoes">
-                    <a *ngIf="permissao"  routerLink="/dashboard/vagas/editar/{{l.id}}"><i class="far fa-edit"></i></a>
+                    <a *ngIf="permissao"  routerLink="/vagas/editar/{{l.id}}"><i class="far fa-edit"></i></a>
                     <a *ngIf="permissao" id="botaoDes" class="btn btn-danger white-color"><i class="fas fa-trash"></i></a>
                 </div>
                 <h5 class="card-title">{{l.titulo}}</h5>
                 <p class="card-text descri">{{l.descricao}}</p>
-                <p id="requisito">{{l.requisito}}</p>
+                <p id="requisito">{{l.dtPublicacao}}</p>
 
                 <a id="botao" class="btn btn-info" routerLink="/vagas/{{l.id}}">Ver Vaga</a>
 

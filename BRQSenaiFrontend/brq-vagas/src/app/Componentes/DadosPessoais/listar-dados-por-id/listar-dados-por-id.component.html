@@ -77,57 +77,59 @@
     <a *ngIf="permissao" class="btn btn-info" style="color: white;" (click)="MudarMetodo()">Editar <i class="far fa-edit"></i></a>
 </div>
 <div *ngIf="!ativo">
+    <form #f="ngForm">
     <div class="lista-info" *ngIf="lista">
-
         <div class="info flex">
 
 
             <div class="flex-content">
                 <p>Nome</p>
-              <input class="form-control" [(ngModel)]="lista.nome" type="text">
+              <input class="form-control" [(ngModel)]="lista.nome" type="text" name="nome" #nome="ngModel">
 
             </div>
-            <div class="flex-content">
-                <p>Data de nascimento</p>
-              <input class="form-control" [(ngModel)]="lista.DataNascimento" type="date">
-
-            </div>
+           
+         
 
             <div class="flex-content">
                 <p>CPF</p>
-               <input class="form-control" type="text" [(ngModel)]="lista.cpf">
+               <input class="form-control" type="text" [(ngModel)]="lista.cpf" name="cpf" #cpf="ngModel">
             </div>
             <div class="flex-content">
                 <p>RG</p>
-               <input class="form-control" type="text" [(ngModel)]="lista.rg">
+               <input class="form-control" type="text" [(ngModel)]="lista.rg" name="rg" #rg="ngModel">
 
+            </div>
+            <div class="flex-content">
+                <p>Matrícula</p>
+               <input class="form-control" type="text" [(ngModel)]="lista.matricula" name="matricula" #matricula="ngModel">
             </div>
         </div>
         <div class="info2 flex">
             <div class="flex-content">
-                <p>Matrícula</p>
-               <input class="form-control" type="text" [(ngModel)]="lista.matricula">
-            </div>
-            <div class="flex-content">
                 <p>CEP</p>
-                <input class="form-control" type="text" [(ngModel)]="lista.cep">
+                <input class="form-control" type="text" [(ngModel)]="lista.cep" name="cep" #cep="ngModel">
             </div>
             <div class="flex-content">
                 <p>Estado</p>
-              <input class="form-control" type="text" [(ngModel)]="lista.estado">
+              <input class="form-control" type="text" [(ngModel)]="lista.estado" name="estado" #estado="ngModel">
             </div>
             <div class="flex-content">
                 <p>Bairro</p>
-              <input class="form-control" type="text" [(ngModel)]="lista.bairo">
+              <input class="form-control" type="text" [(ngModel)]="lista.bairo" name="bairro" #bairro="ngModel">
             </div>
             <div class="flex-content">
                 <p>Logradouro</p>
-              <input class="form-control" type="text" [(ngModel)]="lista.logradouro">
+              <input class="form-control" type="text" [(ngModel)]="lista.logradouro" name="logradouro" #logradouro="ngModel">
+            </div>
+            <div class="flex-content">
+                <p>Complemento</p>
+              <input class="form-control" type="text" [(ngModel)]="lista.complemento" name="complemento" #complemento="ngModel">
             </div>
 
-            <button (click)="Editar()">Editar Dados</button>
+            <button (click)="Editar(f)" type="submit" class="btn btn-info">Editar Dados</button>
         </div>
     </div>
+</form>
 </div>
 
 

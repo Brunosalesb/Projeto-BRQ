@@ -22,9 +22,25 @@ export class ListarDadosPorIdComponent implements OnInit {
      private route: ActivatedRoute, private api: Services, private dialog: MatDialog) { }
   lista: Dados;
   id: string;
+  token : string = localStorage.getItem('token');
+
   permissao: boolean;
   idPessoa: string;
-  ListaEditar: Base;
+  ListaEditar: Base={
+    nome: "",
+    pais:"Brasil",
+    complemento:"",
+    logradouro: "",
+    matricula: "",
+    numeroEndereco: "",
+    rg: "",
+    cpf: "",
+    email:'',
+    senha:'',
+    cep: "",
+    bairro: "",
+    estado: "",
+  }
   ativo=true;
   ngOnInit() {
     this.VerificaPerfil();
@@ -69,15 +85,30 @@ export class ListarDadosPorIdComponent implements OnInit {
   MudarMetodo() {
     this.ativo=!this.ativo;
   }
-  Editar() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    const url = `${this.api.APIPessoas()}/${this.id}`;
-    o(url)
+
+  Editar(form) {
+    this.ListaEditar.nome = form.value.nome;
+  
+    this.ListaEditar.logradouro = form.value.logradouro; 
+    this.ListaEditar.matricula = form.value.matricula; 
+    this.ListaEditar.numeroEndereco = form.value.numero; 
+    this.ListaEditar.rg = form.value.rg; 
+    this.ListaEditar.cpf = form.value.cpf; 
+    this.ListaEditar.cep = form.value.cep; 
+    this.ListaEditar.bairro = form.value.bairro; 
+    this.ListaEditar.estado = form.value.estado; 
+    this.ListaEditar.complemento = form.value.complemento; 
+    
+    const url = `${this.api.APIPessoas()}`;
+    o(url,{ headers:new Headers( {
+      'Authorization': "bearer "+ this.token,
+      'Content-Type' : 'application/json'
+  })})
       .put("", this.ListaEditar)
       .query()
       .then(a=>this.toastr.success("","Dados Pessoais Editado"))
-      .catch(e=>this.toastr.error("","Erro ao Editar Dados Pessoais"))
-
+      .catch(e=>{console.log(e),this.toastr.error("","Erro ao Editar Dados Pessoais")})
+    console.log(this.ListaEditar)
   }
   
 

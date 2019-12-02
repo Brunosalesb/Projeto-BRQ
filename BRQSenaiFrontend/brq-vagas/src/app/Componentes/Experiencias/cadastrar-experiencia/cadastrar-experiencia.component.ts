@@ -14,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CadastrarExperienciaComponent implements OnInit {
   idpessoa: number;
   lista: Array<any>;
+  token:String = localStorage.getItem('token');
   sucess: boolean = false;
   request: Experiencias = {
   
@@ -43,11 +44,11 @@ export class CadastrarExperienciaComponent implements OnInit {
   CadastrarExperiencias(form) {
     let token = localStorage.getItem('token');
     const url = `${this.api.APIExperiencia()}`;
-    const config = { headers:new Headers( {
-      'Content-Type' : 'application/json',
-      'Authorization': "bearer "+token
-  })}
-    const response = o(url,config.headers)
+    
+    const response = o(url,{ headers:new Headers( {
+      'Authorization': "bearer "+ this.token,
+      'Content-Type' : 'application/json'
+  })})
       .post('', this.request)
       .query()
       .then(data => {this.toastr.success(this.request.titulo,"Experiência Cadastrada"),this.resetarForm(form)})

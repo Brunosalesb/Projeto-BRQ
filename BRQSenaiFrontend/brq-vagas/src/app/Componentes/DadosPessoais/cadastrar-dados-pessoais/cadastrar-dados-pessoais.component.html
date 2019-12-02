@@ -6,7 +6,7 @@
     <form [formGroup]="formDadosPessoais" (ngSubmit)="onSubmit()">
         <div class="form-row">
 
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-6">
                 <label for="nome">Nome</label>
                 <input type="text" class="form-control" formControlName="nome" id="nome" name="nome"
                     [ngClass]="{ 'is-invalid': submitted && form.nome.errors }"
@@ -19,13 +19,30 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-4">
-                <label for="dataNascimento">Data de Nascimento</label>
-                <input type="date" class="form-control" formControlName="dataNascimento" id="dataNascimento"
-                    name="dataNascimento" [ngClass]="{ 'is-invalid': submitted && form.dataNascimento.errors }"
-                    placeholder="dd/MM/yyyy">
-                <div *ngIf="submitted && form.dataNascimento.errors" class="invalid-feedback">
-                    <div *ngIf="form.dataNascimento.errors.required">Data nascimento é obrigatório</div>
+            <div class="form-group col-md-3">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" formControlName="email" id="email" name="email"
+                    [ngClass]="{ 'is-invalid': submitted && form.email.errors }"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                    <div *ngIf="form.email.errors.required">E-mail é obrigatório</div>
+                    <div *ngIf="form.email.errors && !form.email.pristine">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> E-mail inválido.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" formControlName="senha" id="senha" name="senha"
+                    [ngClass]="{ 'is-invalid': submitted && form.senha.errors }"
+                    pattern="^.*(?=.{8,})((?=.*[!?/@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$">
+                <div *ngIf="submitted && form.senha.errors" class="invalid-feedback">    
+                    <div *ngIf="form.senha.errors.required">Senha é obrigatória</div>
+                    <div *ngIf="form.senha.errors && !form.senha.pristine">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Senha inválida. Ela deve ter
+                        pelo menos oito dígitos, uma letra maiúscula, uma minúscula, um número e um caractere especial.
+                    </div>
                 </div>
             </div>
 
@@ -36,8 +53,7 @@
             <div class="form-group col-md-4">
                 <label for="matricula">Matrícula</label>
                 <input type="text" class="form-control" formControlName="matricula" id="matricula"
-                    [ngClass]="{ 'is-invalid': submitted && form.matricula.errors }" pattern="[0-9]+$"
-                    maxlength="11">
+                    [ngClass]="{ 'is-invalid': submitted && form.matricula.errors }" pattern="[0-9]+$" maxlength="11">
                 <div *ngIf="submitted && form.matricula.errors" class="invalid-feedback">
                     <div *ngIf="form.matricula.errors.required">Matrícula é obrigatória</div>
                     <div *ngIf="form.matricula.errors && !form.matricula.pristine">
@@ -47,18 +63,18 @@
             </div>
 
             <div class="form-group col-md-4">
-                    <label for="cpf">CPF</label>
-                    <input type="text" class="form-control" kz-cpf formControlName="cpf"
-                        [ngClass]="{ 'is-invalid': submitted && form.cpf.errors }" id="cpf"
-                        maxlength="14" kzMask="999.999.999-99">
-                    <div *ngIf="submitted && form.cpf.errors" class="invalid-feedback">
-                        <div *ngIf="form.cpf.errors.required">CPF é obrigatório</div>
-                        <div *ngIf="form.cpf.errors && !form.cpf.pristine">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> CPF inválido.
-                        </div>
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" kz-cpf formControlName="cpf"
+                    [ngClass]="{ 'is-invalid': submitted && form.cpf.errors }" id="cpf" maxlength="14"
+                    kzMask="999.999.999-99">
+                <div *ngIf="submitted && form.cpf.errors" class="invalid-feedback">
+                    <div *ngIf="form.cpf.errors.required">CPF é obrigatório</div>
+                    <div *ngIf="form.cpf.errors && !form.cpf.pristine">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> CPF inválido.
                     </div>
                 </div>
-            
+            </div>
+
             <div class="form-group col-md-4">
                 <label for="rg">RG</label>
                 <input type="text" class="form-control" formControlName="rg"
@@ -69,23 +85,22 @@
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> RG inválido.
                     </div>
                 </div>
-            </div>  
+            </div>
 
         </div>
 
         <div class="form-row">
-            
-            <div class="form-group col-md-3">
+
+            <div class="form-group col-md-2">
                 <label for="cep">CEP</label>
                 <input type="text" class="form-control" (keyup)="buscarCep()" formControlName="cep" id="cep"
-                    [ngClass]="{ 'is-invalid': submitted && form.cep.errors }" maxlength="9"
-                    kzMask="99999-999">
+                    [ngClass]="{ 'is-invalid': submitted && form.cep.errors }" maxlength="9" kzMask="99999-999">
                 <div *ngIf="submitted && form.cep.errors" class="invalid-feedback">
                     <div *ngIf="form.cep.errors.required">CEP é obrigatório</div>
                 </div>
             </div>
 
-            <div class="form-group  col-md-8">
+            <div class="form-group  col-md-7">
                 <label for="logradouro">Logradouro</label>
                 <input type="text" class="form-control" id="logradouro" formControlName="logradouro"
                     [ngClass]="{ 'is-invalid': submitted && form.logradouro.errors }"
@@ -99,18 +114,24 @@
             </div>
 
             <div class="form-group col-md-1">
-                <label for="numero">Número</label>
-                <input type="text" class="form-control" id="numero" formControlName="numero"
-                    [ngClass]="{ 'is-invalid': submitted && form.numero.errors }" pattern="[0-9]+$">
-                <div *ngIf="submitted && form.numero.errors" class="invalid-feedback">
-                    <div *ngIf="form.numero.errors.required">Número é obrigatório</div>
-                    <div *ngIf="form.numero.errors && !form.numero.pristine">
+                <label for="numeroEndereco">Número</label>
+                <input type="text" class="form-control" id="numeroEndereco" formControlName="numeroEndereco"
+                    [ngClass]="{ 'is-invalid': submitted && form.numeroEndereco.errors }" pattern="[0-9]+$">
+                <div *ngIf="submitted && form.numeroEndereco.errors" class="invalid-feedback">
+                    <div *ngIf="form.numeroEndereco.errors.required">Número é obrigatório</div>
+                    <div *ngIf="form.numeroEndereco.errors && !form.numeroEndereco.pristine">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Número inválido.
                     </div>
                 </div>
             </div>
 
-            
+            <div class="form-group col-md-2">
+                <label for="complemento">Complemento</label>
+                <input type="text" class="form-control" id="complemento" formControlName="complemento">
+               
+            </div>
+            <!-- Ele não tem o div ngIf porque não é obrigatório preencher o complemento. -->
+
 
         </div>
 
@@ -153,15 +174,15 @@
                     <div *ngIf="form.estado.errors && !form.estado.pristine">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Estado inválido.
                     </div>
-                </div>              
+                </div>
 
             </div>
 
-                <input type="submit" class="btn btn-success" value="Cadastrar" />
+            <input type="submit" class="btn btn-success" value="Cadastrar" />
 
-                <span (click)="limparCampos()" id="botaolimpar" class="btn btn-danger ml-4">Limpar</span>
-                 <!-- A id foi necessária para mudar a cor do botão sem interferir nas propriedades da btn -->
-                
+            <span (click)="limparCampos()" id="botaolimpar" class="btn btn-danger ml-4">Limpar</span>
+            <!-- A id foi necessária para mudar a cor do botão sem interferir nas propriedades da btn -->
+
         </div>
 
     </form>

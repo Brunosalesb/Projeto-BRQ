@@ -1,17 +1,17 @@
 export interface Base {
     nome: string;
-    localidade: string;
+    pais:string;
     logradouro: string;
     matricula: string;
-    numero: string;
+    numeroEndereco: string;
     rg: string;
     cpf: string;
-    dtnasc: string;
     cep: string;
     bairro: string;
     estado: string;
-    // complemento: "",
-    //pais: "",  estão no back, mas não no formulário
+    email: string;
+    senha: string;
+    complemento: string;
 }
 
 

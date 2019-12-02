@@ -14,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CadastrarHabilidadesComponent implements OnInit {
   lista: Array<any>;
+  token : String = localStorage.getItem('token');
+
   listaUsuario: ListaSkillUsuario;
   request: Base = {
     IdPessoa: this.decode(),
@@ -82,15 +84,15 @@ export class CadastrarHabilidadesComponent implements OnInit {
        
   
   }
-
+  
   CadastrarHabilidades(form) {
-    let token = localStorage.getItem('token');
+
     const url = `${this.api.APIPessoas()}/atribuirSkill`;
-    const config = { headers:new Headers( {
-      'Content-Type' : 'application/json',
-      'Authorization': "bearer "+token
-  })}
-    const response = o(url,config.headers)
+    
+    const response = o(url,{ headers:new Headers( {
+      'Authorization': "bearer "+ this.token,
+      'Content-Type' : 'application/json'
+  })})
       .post('', this.request)
       .query()
       .then(data => this.toastr.success("Skill Cadastrada"))

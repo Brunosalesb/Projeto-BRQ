@@ -3,7 +3,7 @@
 #nav{
     /* background-color: #005F9C; */
     background:#014068;
-   
+    -webkit-user-select: none;
     
 }
 
